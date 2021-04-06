@@ -35,13 +35,13 @@ public class header extends JPanel{
         setSize(width,height);
         setBackground(null);
         
-        JLabel logo = new JLabel(new ImageIcon("./src/image/SieuThi_25px.png"),JLabel.CENTER);
+        JLabel logo = new JLabel(new ImageIcon("./src/image/header_icon.png"),JLabel.CENTER);
         logo.setBounds(new Rectangle(30,10, 25, 25));
         Font font = new Font("Segoe UI",Font.BOLD,15);
-        JLabel name = new JLabel("QUẢN LÝ SIÊU THỊ",JLabel.CENTER);
+        JLabel name = new JLabel("QUẢN LÝ CỬA HÀNG SÁCH",JLabel.CENTER);
         name.setFont(font);
         name.setForeground(Color.white);
-        name.setBounds(new Rectangle(60, 0, 150, 40));
+        name.setBounds(new Rectangle(60, 0, 280, 40));
         
         add(logo);
         add(name);

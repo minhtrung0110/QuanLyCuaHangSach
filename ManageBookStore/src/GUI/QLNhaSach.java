@@ -48,8 +48,8 @@ public class QLNhaSach extends JFrame implements MouseListener {
     public void init()
     {
         Font font = new Font("Segoe UI",Font.BOLD,14);
-        setTitle("Quản Lý siêu thị ");
-        ImageIcon logo = new ImageIcon("./src/image/SieuThi_25px.png");
+        setTitle("Quản Lý Cửa Hàng Sách ");
+        ImageIcon logo = new ImageIcon("./src/image/header_icon.png");
         setIconImage(logo.getImage());
         setLayout(new BorderLayout());
         setSize(DEFALUT_WIDTH,DEFAULT_HEIGHT);
@@ -124,16 +124,16 @@ public class QLNhaSach extends JFrame implements MouseListener {
         
         //Thêm item vào thanh menu (Tên item : icon : icon hover)
         navItem = new ArrayList<>();  //Chứa thông tin có button cho menu gồm ( Tên btn : icon : icon hover )
-        navItem.add("Bán hàng:Shop_20px.png:Shop_20px_active.png");
-            navItem.add("Quản lý Sản Phẩm:QLSP_20px.png:QLSP_20px_active.png");
-            navItem.add("Quản lý nhân viên:NhanVien_20px.png:NhanVien_20px_active.png");
-            navItem.add("Quản lý Khách Hàng:KhachHang_20px.png:KhachHang_20px_active.png");
-            navItem.add("Nhập & Xuất:ThongKe_20px.png:ThongKe_20px_active.png");
-            navItem.add("Nhà cung cấp:CongCu_20px.png:CongCu_20px_active.png");
+        navItem.add("Bán Hàng:Shop_20px.png:Shop_20px_active.png");
+            navItem.add("Quản Lý Sách:QLSP_20px.png:QLSP_20px_active.png");
+            navItem.add("Quản Lý Nhân Viên:NhanVien_20px.png:NhanVien_20px_active.png");
+            navItem.add("Quản Lý Khách Hàng:KhachHang_20px.png:KhachHang_20px_active.png");
+            navItem.add("Nhập & Xuất Sách:NhapHang_20px_active.png:NhapHang_20px_active.png");
+            navItem.add("Nhà Cung Cấp:CongCu_20px.png:CongCu_20px_active.png");
         if( role == null || role.equals("Admin") )
         {
             navItem.add("Tài Khoản:CaiDat_20px.png:CaiDat_20px_active.png");
-            navItem.add("Thống kê:ThongKe_20px.png:ThongKe_20px_active.png");
+            navItem.add("Thống Kê:ThongKe_20px.png:ThongKe_20px_active.png");
         }
         
         outNav();
@@ -287,7 +287,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
         
         //Xuất ra Naigation
         nav.removeAll();
-        JLabel profile = new JLabel(new ImageIcon("./src/image/profile_150px.png"));
+        JLabel profile = new JLabel(new ImageIcon("./src/image/profile01-250px.png"));
         profile.setBounds(0,0,220,200);
         nav.add(profile);
         for(navItem n : navObj)
