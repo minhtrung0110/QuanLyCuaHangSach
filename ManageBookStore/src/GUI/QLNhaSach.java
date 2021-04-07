@@ -134,6 +134,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
         {
             navItem.add("Tài Khoản:CaiDat_20px.png:CaiDat_20px_active.png");
             navItem.add("Thống Kê:ThongKe_20px.png:ThongKe_20px_active.png");
+            
         }
         
         outNav();
