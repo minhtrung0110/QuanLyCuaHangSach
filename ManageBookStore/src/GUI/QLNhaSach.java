@@ -188,13 +188,81 @@ public class QLNhaSach extends JFrame implements MouseListener {
         }
         switch(i)
         {
-            case 1: //   
-               main.removeAll();
+            case 0: //  BÁN HÀNG 
+                main.removeAll();
+                //main.add(new BanHangGUI(DEFALUT_WIDTH,userID));
+                main.repaint();
+                main.revalidate();
+            break;
+            case 1: // QUẢN LÝ SẢN PHẨM
+                main.removeAll();
                 main.add(new QuanLySachGUI(DEFALUT_WIDTH));
                 main.repaint();
                 main.revalidate();
             break;
-           
+
+            case 2: // QUẢN LÝ NHÂN VIÊN
+                main.removeAll();
+               // main.add(new NhanVienGUI(DEFALUT_WIDTH));
+                main.repaint();
+                main.revalidate();
+            break;
+            case 3: // QUẢN LÝ KHÁCH HÀNG
+                main.removeAll();
+               // main.add(new KhachHangGUI(DEFALUT_WIDTH));
+                main.repaint();
+                main.revalidate();
+            break;
+            case 4: //NHẬP VẦ XUẤT
+                if(flag)
+                {
+                    // Thêm 2 btn vào dưới thống kê
+                    navItem.add(5, "Bán Hàng:KhachHang_20px.png:KhachHang_20px_active.png");
+                    navItem.add(6, "Nhập Hàng:KhachHang_20px.png:KhachHang_20px_active.png");
+                    
+                    flag = false; // Thông báo là đang Dropdown thống kê
+                }
+                else
+                {
+                    // Xóa 2 btn của thống kê
+                    navItem.remove(5);
+                    navItem.remove(5);
+                    
+                    flag = true;  // Thông báo là Dropdown thống kê đă ẩn
+                }
+                outNav(); //Load lại phần Navigation
+            break;
+            case 5: // BÁN HÀNG
+                main.removeAll();
+               // main.add(new HoaDonGUI(DEFALUT_WIDTH));
+                main.repaint();
+                main.revalidate();
+            break;
+            case 6: // NHẬP HÀNG
+                main.removeAll();
+//                main.add(new Page404(DEFALUT_WIDTH, "THỐNG KÊ - NHẬP HÀNG"));
+               // main.add(new NhapHangGUI(DEFALUT_WIDTH));
+                main.repaint();
+                main.revalidate();
+            break;
+            case 7: //NHÀ CUNG CẤP
+                main.removeAll();
+              //  main.add(new NhaCungCapGUI(DEFALUT_WIDTH));
+                main.repaint();
+                main.revalidate();
+            break;
+            case 8: //USER
+                main.removeAll();
+                //main.add(new UserGUI(DEFALUT_WIDTH));
+                main.repaint();
+                main.revalidate();
+            break;
+            case 9: // THỐNG KÊ
+                main.removeAll();
+               // main.add(new ThongKeGUI(DEFALUT_WIDTH));
+                main.repaint();
+                main.revalidate();
+            break;
             default:
             break;
         }
