@@ -217,8 +217,8 @@ public class QLNhaSach extends JFrame implements MouseListener {
                 if(flag)
                 {
                     // Thêm 2 btn vào dưới thống kê
-                    navItem.add(5, "Bán Hàng:KhachHang_20px.png:KhachHang_20px_active.png");
-                    navItem.add(6, "Nhập Hàng:KhachHang_20px.png:KhachHang_20px_active.png");
+                    navItem.add(5, "Bán Hàng:BanHang_20px.png:BanHang_20px.png");
+                    navItem.add(6, "Nhập Hàng:NhapHang_20px.png:NhapHang_20px.png");
                     
                     flag = false; // Thông báo là đang Dropdown thống kê
                 }
@@ -240,8 +240,8 @@ public class QLNhaSach extends JFrame implements MouseListener {
             break;
             case 6: // NHẬP HÀNG
                 main.removeAll();
-//                main.add(new Page404(DEFALUT_WIDTH, "THỐNG KÊ - NHẬP HÀNG"));
-               // main.add(new NhapHangGUI(DEFALUT_WIDTH));
+    //              main.add(new Page404(DEFALUT_WIDTH, "THỐNG KÊ - NHẬP HÀNG"));
+                main.add(new NhapHangGUI(DEFALUT_WIDTH));
                 main.repaint();
                 main.revalidate();
             break;
@@ -253,7 +253,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
             break;
             case 8: //USER
                 main.removeAll();
-                //main.add(new UserGUI(DEFALUT_WIDTH));
+                main.add(new QuanLyTaiKhoanGUI(DEFALUT_WIDTH));
                 main.repaint();
                 main.revalidate();
             break;
