@@ -1,16 +1,15 @@
 
-package BUS;
+package DTO;
 
+public class SachDTO {
+    String MaSach, MaNXB,MaTG,MaTL,TenSach;
+    int Soluong;
+    float Dongia;
 
-public class Sach {
-    public String MaSach, MaNXB,MaTG,MaTL,TenSach;
-    public int Soluong;
-    public float Dongia;
-
-    public Sach() {
+    public SachDTO(){
     }
 
-    public Sach(String MaSach, String MaNXB, String MaTG, String MaTL, String TenSach, int Soluong, float Dongia) {
+    public SachDTO(String MaSach, String MaNXB, String MaTG, String MaTL, String TenSach, int Soluong, float Dongia) {
         this.MaSach = MaSach;
         this.MaNXB = MaNXB;
         this.MaTG = MaTG;
