@@ -302,6 +302,8 @@ public class ChiTietNhapHangGUI extends javax.swing.JDialog {
                 .addGap(18, 18, 18))
         );
 
+        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+
         jTable1.setBackground(new java.awt.Color(255, 51, 153));
         jTable1.setForeground(new java.awt.Color(51, 51, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
