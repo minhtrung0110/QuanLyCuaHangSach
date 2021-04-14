@@ -1,0 +1,30 @@
+// Tác Giả
+INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChi`, `SDT`) VALUES ('TH01', 'Trang Hạ', 'TP.HCM', '0803365421');
+INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChi`, `SDT`) VALUES ('PV01', 'Nguyễn Phong Việt', 'Phú Yên', '0803365421');
+INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChi`, `SDT`) VALUES ('AK01', 'Anh Khang', 'TP.HCM', '0809995472');
+INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChi`, `SDT`) VALUES ('NNT01', 'Nguyễn Ngọc Thạch', 'TP.HCM', '0589365429');
+INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChi`, `SDT`) VALUES ('HT01', 'Hamlet Trương', 'TP.HCM', '0803365421');
+INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChi`, `SDT`) VALUES ('DNA01', 'Đỗ Nhật Nam', 'An Giang', '0907365481');
+INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChi`, `SDT`) VALUES ('ND01', 'Nguyễn Du', 'VietNam', '0803999999');
+INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChi`, `SDT`) VALUES ('R01', 'J.K.Rowling', 'Anh', '02-036-798');
+
+// Thể Loại
+INSERT INTO `theloai` (`MaTL`, `TenTL`) VALUES ('TN', 'Sách Thiếu Nhi');
+INSERT INTO `theloai` (`MaTL`, `TenTL`) VALUES ('TL-TG', 'Tâm Lý-Tôn Giáo');
+INSERT INTO `theloai` (`MaTL`, `TenTL`) VALUES ('CT_PL', 'Chính Trị-Pháp Luật');
+INSERT INTO `theloai` (`MaTL`, `TenTL`) VALUES ('VHNT', 'Văn Học Nghệ Thuật');
+INSERT INTO `theloai` (`MaTL`, `TenTL`) VALUES ('T', 'Truyện');
+INSERT INTO `theloai` (`MaTL`, `TenTL`) VALUES ('TT', 'Tiểu Thuyết');
+
+// Nhà Cung Cấp
+INSERT INTO `nhacungcap` (`MaNCC`, `TenNCC`, `DiaChi`) VALUES ('KĐ', 'Kim Đồng', 'TP.HCM');
+INSERT INTO `nhacungcap` (`MaNCC`, `TenNCC`, `DiaChi`) VALUES ('NVC', 'Nguyễn Văn Cừ', 'TP.HCM');
+INSERT INTO `nhacungcap` (`MaNCC`, `TenNCC`, `DiaChi`) VALUES ('PN', 'Phương Nam', 'TP.HCM');
+INSERT INTO `nhacungcap` (`MaNCC`, `TenNCC`, `DiaChi`) VALUES ('PĐ', 'Phương Đông', 'TP.HCM');
+INSERT INTO `nhacungcap` (`MaNCC`, `TenNCC`, `DiaChi`) VALUES ('NN', 'Nhã Nam', 'TP.HCM');
+//Nhan Viên
+
+INSERT INTO `nhanvien` (`MaNV`, `Ho`, `Ten`, `SDT`, `Luong`) VALUES ('MT', 'Nguyễn Đức Minh', 'Trung', '0707624367', '10000000');
+INSERT INTO `nhanvien` (`MaNV`, `Ho`, `Ten`, `SDT`, `Luong`) VALUES ('PK', 'Phạm Trần', 'Khôi', '0113114115', '10000000');
+INSERT INTO `nhanvien` (`MaNV`, `Ho`, `Ten`, `SDT`, `Luong`) VALUES ('TT', 'Trần Thanh', 'Tùng', '0988364523', '10000000');
+INSERT INTO `nhanvien` (`MaNV`, `Ho`, `Ten`, `SDT`, `Luong`) VALUES ('VV', 'Nguyễn Trần Văn', 'Vũ', '0903368547', '10000000');
