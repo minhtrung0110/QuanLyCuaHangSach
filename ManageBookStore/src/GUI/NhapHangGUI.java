@@ -16,7 +16,6 @@ public class NhapHangGUI extends javax.swing.JPanel {
     }
     public NhapHangGUI(int width) {
         initComponents();
-        initComponents();
        this.setSize(width - 220, 750);
     }
         
@@ -54,6 +53,10 @@ public class NhapHangGUI extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         btnHienThiChiTiet = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 153));
         jLabel1.setText("PHIẾU NHẬP SÁCH");
@@ -74,6 +77,8 @@ public class NhapHangGUI extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                 .addContainerGap())
         );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("MÃ PHIẾU NHẬP:");
@@ -191,9 +196,12 @@ public class NhapHangGUI extends javax.swing.JPanel {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
         }
 
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("THÊM");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(51, 51, 51), new java.awt.Color(102, 102, 102)));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -203,6 +211,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("SỮA");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(51, 51, 51), new java.awt.Color(102, 102, 102)));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -212,6 +221,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("XÓA");
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(51, 51, 51), new java.awt.Color(102, 102, 102)));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -221,6 +231,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
         btnHienThiChiTiet.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnHienThiChiTiet.setText("HIỂN THỊ CHI TIẾT");
         btnHienThiChiTiet.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(51, 51, 51), new java.awt.Color(102, 102, 102)));
+        btnHienThiChiTiet.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnHienThiChiTiet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHienThiChiTietActionPerformed(evt);
@@ -316,7 +327,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnHienThiChiTietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHienThiChiTietActionPerformed
-       ChiTietPhieuNhapGUI gui =new ChiTietPhieuNhapGUI();
+       ChiTietNhapHangGUI gui = new ChiTietNhapHangGUI();
        gui.setSize(935, 555);
        gui.setVisible(true);
     }//GEN-LAST:event_btnHienThiChiTietActionPerformed

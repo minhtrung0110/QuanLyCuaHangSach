@@ -66,7 +66,8 @@ public class SachBUS {
             }
         }
     }
-    public ArrayList<SachDTO> searchSach(String masach,String manxb,String matg,String matl,String tensach,float max,float min)
+   
+    public ArrayList<SachDTO> searchSach(String masach,String manxb,String matg,String matl,String tensach,float min,float max)
     {
         ArrayList<SachDTO> search = new ArrayList<>();
         masach = masach.isEmpty()?masach = "": masach;
@@ -77,13 +78,13 @@ public class SachBUS {
         
         for(SachDTO sach : listSach)
         {
-            if( sach.getMaSach().contains(masach) || 
-                sach.getMaNXB().contains(manxb) ||
-                sach.getMaTG().contains(matg) ||
-                sach.getMaTL().contains(matl) ||
-                sach.getTenSach().contains(tensach) ||
-                sach.getDongia() >= min && 
-                sach.getDongia() <= max)
+            if( sach.getMaSach().contains(masach) && 
+                sach.getMaNXB().contains(manxb) &&
+                sach.getMaTG().contains(matg) &&
+                sach.getMaTL().contains(matl) &&
+                sach.getTenSach().contains(tensach) &&
+                sach.getDongia() >= min && sach.getDongia() <= max
+               )
             {
                 search.add(sach);
             }

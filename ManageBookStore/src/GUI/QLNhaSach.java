@@ -129,7 +129,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
             navItem.add("Quản Lý Nhân Viên:NhanVien_20px.png:NhanVien_20px_active.png");
             navItem.add("Quản Lý Khách Hàng:KhachHang_20px.png:KhachHang_20px_active.png");
             navItem.add("Nhập & Xuất Sách:NhapHang_20px_active.png:NhapHang_20px_active.png");
-            navItem.add("Nhà Cung Cấp:CongCu_20px.png:CongCu_20px_active.png");
+            //navItem.add("Nhà Cung Cấp:CongCu_20px.png:CongCu_20px_active.png");
         if( role == null || role.equals("Admin") )
         {
             navItem.add("Tài Khoản:CaiDat_20px.png:CaiDat_20px_active.png");
@@ -190,7 +190,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
         {
             case 0: //  BÁN HÀNG 
                 main.removeAll();
-                //main.add(new BanHangGUI(DEFALUT_WIDTH,userID));
+                main.add(new BanHangGUI(DEFALUT_WIDTH,userID));
                 main.repaint();
                 main.revalidate();
             break;
@@ -245,19 +245,13 @@ public class QLNhaSach extends JFrame implements MouseListener {
                 main.repaint();
                 main.revalidate();
             break;
-            case 7: //NHÀ CUNG CẤP
-                main.removeAll();
-              //  main.add(new NhaCungCapGUI(DEFALUT_WIDTH));
-                main.repaint();
-                main.revalidate();
-            break;
-            case 8: //USER
+            case 7: //USER
                 main.removeAll();
                 main.add(new QuanLyTaiKhoanGUI(DEFALUT_WIDTH));
                 main.repaint();
                 main.revalidate();
             break;
-            case 9: // THỐNG KÊ
+            case 8: // THỐNG KÊ
                 main.removeAll();
                // main.add(new ThongKeGUI(DEFALUT_WIDTH));
                 main.repaint();
