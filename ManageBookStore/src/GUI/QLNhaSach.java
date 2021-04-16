@@ -15,6 +15,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -32,7 +34,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
     private int DEFAULT_HEIGHT = 1000,DEFALUT_WIDTH = 1300 ;
     private ArrayList<String> navItem = new ArrayList<>();  //Chứa thông tin có button cho menu gồm
     private ArrayList<navItem> navObj = new ArrayList<>();  //Chứa cái button trên thanh menu
-    public QLNhaSach(String userID, String userName, String role)
+    public QLNhaSach(String userID, String userName, String role) throws Exception
     {
         this.userID = userID;
         this.userName = userName;
@@ -40,12 +42,12 @@ public class QLNhaSach extends JFrame implements MouseListener {
         Toolkit screen = Toolkit.getDefaultToolkit();
         init();
     }
-    public QLNhaSach()
+    public QLNhaSach() throws Exception
     {
         Toolkit screen = Toolkit.getDefaultToolkit();
         init();
     }
-    public void init()
+    public void init() throws Exception
     {
         Font font = new Font("Segoe UI",Font.BOLD,14);
         setTitle("Quản Lý Cửa Hàng Sách ");
@@ -152,7 +154,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
       
         setVisible(true);
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         try{
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         }catch(Exception e)
@@ -171,7 +173,11 @@ public class QLNhaSach extends JFrame implements MouseListener {
             if(e.getSource()== item)
             {
                 item.doActive(); // Active NavItem đc chọn 
-                changeMainInfo(i); // Hiển thị ra phần main
+                try {
+                    changeMainInfo(i); // Hiển thị ra phần main
+                } catch (Exception ex) {
+                    Logger.getLogger(QLNhaSach.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
             else
             {
@@ -180,7 +186,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
         }
     }
 
-    public void changeMainInfo(int i) //Đổi Phần hiển thị khi bấm btn trên menu
+    public void changeMainInfo(int i) throws Exception //Đổi Phần hiển thị khi bấm btn trên menu
     {
         if(flag && i>4 && i<8) // Thay đổi nếu Thông kế đang dropdown
         {

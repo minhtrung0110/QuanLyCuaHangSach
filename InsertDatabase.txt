@@ -28,3 +28,13 @@ INSERT INTO `nhanvien` (`MaNV`, `Ho`, `Ten`, `SDT`, `Luong`) VALUES ('MT', 'Nguy
 INSERT INTO `nhanvien` (`MaNV`, `Ho`, `Ten`, `SDT`, `Luong`) VALUES ('PK', 'Phạm Trần', 'Khôi', '0113114115', '10000000');
 INSERT INTO `nhanvien` (`MaNV`, `Ho`, `Ten`, `SDT`, `Luong`) VALUES ('TT', 'Trần Thanh', 'Tùng', '0988364523', '10000000');
 INSERT INTO `nhanvien` (`MaNV`, `Ho`, `Ten`, `SDT`, `Luong`) VALUES ('VV', 'Nguyễn Trần Văn', 'Vũ', '0903368547', '10000000');
+
+//Sách
+INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`) VALUES ('TX01', 'Tre', 'ND01', 'VHNT', 'Thanh Xuân Của Tôi ', '2019', '100', '200000');
+INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`) VALUES ('CD01', 'Tre', 'ND01', 'VHNT', 'Cánh Đồng Bất Tận ', '2019', '100', '200000');
+INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`) VALUES ('TX01', 'Tre', 'ND01', 'VHNT', 'Thanh Xuân Của Tôi ', '2019', '100', '200000');
+INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`) VALUES ('TX01', 'Tre', 'ND01', 'VHNT', 'Thanh Xuân Của Tôi ', '2019', '100', '200000');
+INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`) VALUES ('TX01', 'Tre', 'ND01', 'VHNT', 'Thanh Xuân Của Tôi ', '2019', '100', '200000');
+INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`) VALUES ('TX01', 'Tre', 'ND01', 'VHNT', 'Thanh Xuân Của Tôi ', '2019', '100', '200000');
+INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`) VALUES ('TX01', 'Tre', 'ND01', 'VHNT', 'Thanh Xuân Của Tôi ', '2019', '100', '200000');
+INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`) VALUES ('TX01', 'Tre', 'ND01', 'VHNT', 'Thanh Xuân Của Tôi ', '2019', '100', '200000');

@@ -18,8 +18,7 @@ import java.sql.*;
 import java.util.HashMap;
 
 public class SachDAO {
-    MySQLConnect connection =new MySQLConnect("localhost","root","","cuahangsach");
-    MyConnectUnit connect  =new MyConnectUnit(connection);
+   MyConnectUnit connect  =new MyConnectUnit("localhost","root","","bookstore");
 
     public SachDAO() {
     }
@@ -32,8 +31,8 @@ public class SachDAO {
             {
                 SachDTO sach = new  SachDTO(rs.getString("MaSach"),
                         rs.getString("MaNXB"),rs.getString("MaTG"),
-                        rs.getString("MaTL"),rs.getString("TenSach"),
-                        rs.getInt("SoLuong"),rs.getFloat("DonGia"));       
+                        rs.getString("MaTL"),rs.getString("TenSach"),rs.getInt("NamXuatBan"),
+                        rs.getInt("SoLuong"),rs.getFloat("DonGia"),rs.getString("imgName"));       
                 dssach.add(sach);
             }
             rs.close();
@@ -54,8 +53,10 @@ public class SachDAO {
         Insertvalues.put("MaTG", sach.getMaTG());
         Insertvalues.put("MaTL", sach.getMaTL());
         Insertvalues.put("TenSach", sach.getTenSach());
+        Insertvalues.put("NamXuatBan", sach.getNamXuatBan());
         Insertvalues.put("SoLuong", sach.getSoluong());
         Insertvalues.put("DonGia", sach.getDongia());
+        Insertvalues.put("imgName", sach.getImgName());
         
          try {
              connect.Insert("sach", Insertvalues);
@@ -72,9 +73,10 @@ public class SachDAO {
         Updatevalues.put("MaTG", sach.getMaTG());
         Updatevalues.put("MaTL", sach.getMaTL());
         Updatevalues.put("TenSach", sach.getTenSach());
+        Updatevalues.put("NamXuatBan", sach.getNamXuatBan());
         Updatevalues.put("SoLuong", sach.getSoluong());
         Updatevalues.put("DonGia", sach.getDongia());
-        
+        Updatevalues.put("imgName", sach.getImgName());
          try {
            connect.Update("sach", Updatevalues," MaSach ='"+sach.getMaSach()+"'");
         } catch (SQLException ex) {

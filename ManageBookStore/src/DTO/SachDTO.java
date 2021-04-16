@@ -2,22 +2,44 @@
 package DTO;
 
 public class SachDTO {
-    String MaSach, MaNXB,MaTG,MaTL,TenSach;
-    int Soluong;
+    String MaSach, MaNXB,MaTG,MaTL,TenSach,imgName;
+    int Soluong,NamXuatBan;
+
+    public int getNamXuatBan() {
+        return NamXuatBan;
+    }
+
+    public void setNamXuatBan(int NamXuatBan) {
+        this.NamXuatBan = NamXuatBan;
+    }
     float Dongia;
 
     public SachDTO(){
     }
 
-    public SachDTO(String MaSach, String MaNXB, String MaTG, String MaTL, String TenSach, int Soluong, float Dongia) {
+    public SachDTO(String MaSach, String MaNXB, String MaTG, String MaTL, String TenSach,  int NamXuatBan,int Soluong, float Dongia, String imgName) {
         this.MaSach = MaSach;
         this.MaNXB = MaNXB;
         this.MaTG = MaTG;
         this.MaTL = MaTL;
         this.TenSach = TenSach;
+        this.imgName = imgName;
         this.Soluong = Soluong;
+        this.NamXuatBan = NamXuatBan;
         this.Dongia = Dongia;
     }
+
+    public String getImgName() {
+        return imgName;
+    }
+
+    public void setImgName(String imgName) {
+        this.imgName = imgName;
+    }
+
+    
+
+     
     
     public String getMaSach() {
         return MaSach;
@@ -74,5 +96,6 @@ public class SachDTO {
     public void setDongia(float Dongia) {
         this.Dongia = Dongia;
     }
+    
     
 }
