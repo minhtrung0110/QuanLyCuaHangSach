@@ -21,7 +21,7 @@ public class TacGiaDAO {
     {
         ArrayList<TacGiaDTO> dssach = new ArrayList<>();
         try {
-            ResultSet rs = connect.Select("sach");
+            ResultSet rs = connect.Select("tacgia");
             while(rs.next())
             {
                 TacGiaDTO nxb = new  TacGiaDTO(rs.getString("MaTG"),rs.getString("TenTG"),rs.getString("DiaChi"),rs.getString("SDT"));     

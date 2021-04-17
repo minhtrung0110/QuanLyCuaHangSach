@@ -21,7 +21,7 @@ public class TheLoaiBUS {
         TheLoaiBUS.listTG = listTheLoai;
     }
 
-    public static ArrayList<TheLoaiDTO> getListTheLoai() {
+    public  ArrayList<TheLoaiDTO> getListTheLoai() {
         return listTG;
     }
     

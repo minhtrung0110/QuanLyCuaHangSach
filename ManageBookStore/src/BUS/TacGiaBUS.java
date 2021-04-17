@@ -21,7 +21,7 @@ public class TacGiaBUS {
         TacGiaBUS.listTG = listTacGia;
     }
 
-    public static ArrayList<TacGiaDTO> getListTacGia() {
+    public  ArrayList<TacGiaDTO> getListTacGia() {
         return listTG;
     }
     

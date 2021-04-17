@@ -20,7 +20,7 @@ public class TheLoaiDAO {
     {
         ArrayList<TheLoaiDTO> dssach = new ArrayList<>();
         try {
-            ResultSet rs = connect.Select("sach");
+            ResultSet rs = connect.Select("theloai");
             while(rs.next())
             {
                 TheLoaiDTO tl = new  TheLoaiDTO(rs.getString("MaTL"),rs.getString("TenTL"));     

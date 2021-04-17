@@ -8,6 +8,8 @@ import BUS.ValidatorBUS;
 import DTO.SachDTO;
 import DAO.SachDAO;
 import DTO.NXBDTO;
+import DTO.TacGiaDTO;
+import DTO.TheLoaiDTO;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -45,8 +47,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         initComponents();
        this.setSize(this.DEFALUT_WIDTH - 220, 750);
        ShowDataBase();
-       listNXB(cbMaNXB);
-       //LoadComboBox();
+        LoadComboBox();
      
     }
     /**
@@ -430,7 +431,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         lbDonGia.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbDonGia.setText("ĐƠN GIÁ:");
 
-        cbMaNXB.addItem("Không");
+        cbMaNXB.addItem(" ");
         cbMaNXB.addKeyListener(this);
         cbMaNXB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -438,9 +439,11 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             }
         });
 
-        cbMaTL.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbMaTL.addItem(" ");
+        cbMaTL.addKeyListener(this);
 
-        cbMaTG.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbMaTG.addItem(" ");
+        cbMaTG.addKeyListener(this);
 
         lnNamXuatBan.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lnNamXuatBan.setText("NĂM XUẤT BẢN:");
@@ -725,19 +728,45 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
     }//GEN-LAST:event_cbMaNXBActionPerformed
     public void LoadComboBox() throws Exception{
         listNXB(cbMaNXB);
+        listTG(cbMaTG);
+        listTL(cbMaTL);
+        
     }
     public void listNXB(JComboBox cmb) throws Exception
     {
         if(nxbBUS.getlistNXB()== null) nxbBUS.loadDSNXB();
         ArrayList<NXBDTO> nxb = nxbBUS.getlistNXB();
-        addCombo(cmb,nxb);
+        for(NXBDTO a : nxb){
+            cmb.addItem(a.getMaNXB());
+        }
+      
     }
-    public void addCombo(JComboBox cmb,ArrayList list)
+    public void listTL(JComboBox cmb) throws Exception
+    {
+        if(tlBUS.getListTheLoai()== null) tlBUS.loadDSTheLoai();
+        ArrayList<TheLoaiDTO> tl = tlBUS.getListTheLoai();
+        for(TheLoaiDTO a : tl){
+            cmb.addItem(a.getMaTL());
+        }
+      
+    }
+    public void listTG(JComboBox cmb) throws Exception
+    {
+        if(tgBUS.getListTacGia()== null) tgBUS.loadDSTacGia();
+        ArrayList<TacGiaDTO> tg = tgBUS.getListTacGia();
+        for(TacGiaDTO  a: tg){
+            cmb.addItem(a.getMaTG());
+        }
+      
+    }
+    public void addCombo(JComboBox cmb,ArrayList<Object> list)
     {
         for(Object a:list)
         {
             cmb.addItem(a);
+            
         }
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
