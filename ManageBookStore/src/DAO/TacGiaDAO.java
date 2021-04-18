@@ -19,13 +19,13 @@ public class TacGiaDAO {
     }
      public ArrayList<TacGiaDTO> loadDatabase() throws Exception
     {
-        ArrayList<TacGiaDTO> dssach = new ArrayList<>();
+        ArrayList<TacGiaDTO> dstacgia = new ArrayList<>();
         try {
             ResultSet rs = connect.Select("tacgia");
             while(rs.next())
             {
-                TacGiaDTO nxb = new  TacGiaDTO(rs.getString("MaTG"),rs.getString("TenTG"),rs.getString("DiaChi"),rs.getString("SDT"));     
-                dssach.add(nxb);
+                TacGiaDTO tg = new  TacGiaDTO(rs.getString("MaTG"),rs.getString("TenTG"),rs.getString("DiaChi"),rs.getString("SDT"));     
+                dstacgia.add(tg);
             }
             rs.close();
             connect.Close();//dong ket noi;
@@ -34,16 +34,16 @@ public class TacGiaDAO {
             System.out.println("Khong the load database TacGia");
         }
 
-        return dssach;
+        return dstacgia;
     }
-     public void addTacGia(TacGiaDTO nxb) throws Exception
+     public void addTacGia(TacGiaDTO tg) throws Exception
     {
          HashMap<String,Object> Insertvalues =new  HashMap<String,Object>();
          
-        Insertvalues.put("MaTG",nxb.getMaTG());
-        Insertvalues.put("TenTG",nxb.getTenTG());
-        Insertvalues.put("DiaChi",nxb.getDiaChi());
-        Insertvalues.put("SDT",nxb.getSDT());
+        Insertvalues.put("MaTG",tg.getMaTG());
+        Insertvalues.put("TenTG",tg.getTenTG());
+        Insertvalues.put("DiaChi",tg.getDiaChi());
+        Insertvalues.put("SDT",tg.getSDT());
         
          try {
              connect.Insert("tacgia", Insertvalues);
@@ -51,16 +51,16 @@ public class TacGiaDAO {
             System.out.println("Khong the them TacGia vao database !!!");
         }
     }
-      public void updateTacGia(TacGiaDTO nxb) throws Exception
+      public void updateTacGia(TacGiaDTO tg) throws Exception
     {
          HashMap<String,Object> Updatevalues =new  HashMap<String,Object>();
          
-         Updatevalues.put("MaTG",nxb.getMaTG());
-         Updatevalues.put("TenTG",nxb.getTenTG());
-         Updatevalues.put("DiaChi",nxb.getDiaChi());
-         Updatevalues.put("SDT",nxb.getSDT());
+         Updatevalues.put("MaTG",tg.getMaTG());
+         Updatevalues.put("TenTG",tg.getTenTG());
+         Updatevalues.put("DiaChi",tg.getDiaChi());
+         Updatevalues.put("SDT",tg.getSDT());
          try {
-           connect.Update("tacgia", Updatevalues," MaTG ='"+nxb.getMaTG()+"'");
+           connect.Update("tacgia", Updatevalues," MaTG ='"+tg.getMaTG()+"'");
         } catch (SQLException ex) {
             System.out.println("Khong the Cap nhat TacGia vao database !!!");
         }

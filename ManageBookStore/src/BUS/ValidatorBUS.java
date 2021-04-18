@@ -11,7 +11,7 @@ public class ValidatorBUS {
         boolean ok=true;
         if(field.getText().equalsIgnoreCase("")){
             sb.append(msg).append("\n");
-            field.setBackground(Color.red);
+            field.setBackground(Color.yellow);
             ok=false;
         }else{
             field.setBackground(Color.white);
@@ -28,12 +28,12 @@ public class ValidatorBUS {
          try {
              if(p.matcher(field.getText()).find() || Integer.parseInt(field.getText())<=0 ){
               sb.append("Số Lượng phải là Số và Lớn hơn 0!!!\n");
-              field.setBackground(Color.red);
+              field.setBackground(Color.yellow);
               ok=false;
             }
          } catch (Exception e) {
              sb.append("Số Lượng Không Hợp Lệ!Nhập Lại!\n");
-              field.setBackground(Color.red);
+              field.setBackground(Color.yellow);
               ok=false;
          }
          if(ok) field.setBackground(Color.white);
@@ -49,12 +49,12 @@ public class ValidatorBUS {
          try {
              if(!p.matcher(field.getText()).find() || Integer.parseInt(field.getText())<=0){
               sb.append("Đơn Giá phải là Số và Lớn hơn 0!!!\n");
-              field.setBackground(Color.red);
+              field.setBackground(Color.yellow);
               ok=false;
             }
          } catch (Exception e) {
              sb.append("Đơn Giá Không Hợp Lệ!Nhập lại!\n");
-              field.setBackground(Color.red);
+              field.setBackground(Color.yellow);
               ok=false;
          }
          if(ok) field.setBackground(Color.white);
@@ -64,10 +64,10 @@ public class ValidatorBUS {
         boolean ok=true;
         if(field.getSelectedItem().toString().equalsIgnoreCase("")){// xem lai cho nay xem lay du lieu dung hong
             sb.append(msg).append("\n");
-            field.setBackground(Color.red);
+            field.setBorder(BorderFactory.createLineBorder(Color.yellow));
             ok=false;
         }else{
-            field.setBackground(Color.white);
+            field.setBorder(BorderFactory.createLineBorder(Color.white));
         }
         return ok;
     }
@@ -81,15 +81,15 @@ public class ValidatorBUS {
          try {
              if(p.matcher(field.getSelectedItem().toString()).find() || Integer.parseInt(field.getSelectedItem().toString())<=0 ){
               sb.append("Số Lượng phải là Số và Lớn hơn 0!!!\n");
-              field.setBackground(Color.red);
+              field.setBorder(BorderFactory.createLineBorder(Color.yellow));
               ok=false;
             }
          } catch (Exception e) {
              sb.append("Số Lượng Không Hợp Lệ!Nhập Lại!\n");
-              field.setBackground(Color.red);
+             field.setBorder(BorderFactory.createLineBorder(Color.yellow));
               ok=false;
          }
-         if(ok) field.setBackground(Color.white);
+         if(ok) field.setBorder(BorderFactory.createLineBorder(Color.white));
         return ok;
     }
      public static boolean checkDonGia(JComboBox field, StringBuilder sb,String msg) throws Exception {
@@ -102,15 +102,15 @@ public class ValidatorBUS {
          try {
              if(!p.matcher(field.getSelectedItem().toString()).find() || Integer.parseInt(field.getSelectedItem().toString())<=0){
               sb.append("Đơn Giá phải là Số và Lớn hơn 0!!!\n");
-              field.setBackground(Color.red);
+              field.setBorder(BorderFactory.createLineBorder(Color.yellow));
               ok=false;
             }
          } catch (Exception e) {
              sb.append("Đơn Giá Không Hợp Lệ!Nhập lại!\n");
-              field.setBackground(Color.red);
+              field.setBorder(BorderFactory.createLineBorder(Color.yellow));
               ok=false;
          }
-         if(ok) field.setBackground(Color.white);
+         if(ok) field.setBorder(BorderFactory.createLineBorder(Color.white));
         return ok;
     }
 }

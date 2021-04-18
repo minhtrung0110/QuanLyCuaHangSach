@@ -37,10 +37,14 @@ public class MyConnectUnit  {
        return this.Select(tableName, null);
     } 
     public boolean Insert(String tableName,HashMap<String,Object> columnValue) throws Exception {
-         StringBuilder query = new StringBuilder("INSERT INTO " +tableName);
+        try {
+            
+        } catch (Exception e) {
+        }
+        StringBuilder query = new StringBuilder("INSERT INTO " +tableName);
         StringBuilder valueInsert = new StringBuilder();
         
-        query.append("(");
+        query.append(" (");
         for(String key :columnValue.keySet()){
             query.append(key+",");
             valueInsert.append("'"+columnValue.get(key).toString()+ "' ,");

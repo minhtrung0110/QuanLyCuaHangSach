@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package DAO;
 
 import DTO.TheLoaiDTO;
@@ -18,13 +14,13 @@ public class TheLoaiDAO {
     }
      public ArrayList<TheLoaiDTO> loadDatabase() throws Exception
     {
-        ArrayList<TheLoaiDTO> dssach = new ArrayList<>();
+        ArrayList<TheLoaiDTO> dstheloai = new ArrayList<>();
         try {
             ResultSet rs = connect.Select("theloai");
             while(rs.next())
             {
                 TheLoaiDTO tl = new  TheLoaiDTO(rs.getString("MaTL"),rs.getString("TenTL"));     
-                dssach.add(tl);
+                dstheloai.add(tl);
             }
             rs.close();
             connect.Close();//dong ket noi;
@@ -33,7 +29,7 @@ public class TheLoaiDAO {
             System.out.println("Khong the load database TheLoai");
         }
 
-        return dssach;
+        return dstheloai;
     }
      public void addNXB(TheLoaiDTO tl) throws Exception
     {
