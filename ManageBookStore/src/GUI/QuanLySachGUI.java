@@ -47,8 +47,9 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         DEFALUT_WIDTH = width;
         initComponents();
        this.setSize(this.DEFALUT_WIDTH - 220, 750);
+       InitVisible();
        ShowDataBase();
-        LoadComboBox();
+       LoadComboBox();
   
     }
     /**
@@ -63,13 +64,10 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbSach = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
-        jLabel13 = new javax.swing.JLabel();
         pButton = new javax.swing.JPanel();
         btThem = new javax.swing.JButton();
         btSua = new javax.swing.JButton();
         btXoa = new javax.swing.JButton();
-        btHienThiTatCa = new javax.swing.JButton();
-        pButton1 = new javax.swing.JPanel();
         btXacNhan = new javax.swing.JButton();
         btQuayLai = new javax.swing.JButton();
         btChonAnh = new javax.swing.JButton();
@@ -111,6 +109,8 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         txNamXuatBan = new javax.swing.JTextField();
         MainPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btHienThiTatCa = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -141,15 +141,8 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         jSeparator1.setBackground(new java.awt.Color(0, 0, 102));
         jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
 
-        jLabel13.setBackground(new java.awt.Color(102, 255, 102));
-        jLabel13.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel13.setIcon(new javax.swing.ImageIcon("D:\\Leanring\\Universe\\SecondYear\\HK2\\Java\\QuanLyCuaHangSach\\ManageBookStore\\src\\image\\profile01-250px.png")); // NOI18N
-        jLabel13.setText("Ảnh");
-        jLabel13.setToolTipText("");
-        jLabel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
-        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         pButton.setBackground(new java.awt.Color(255, 255, 255));
+        pButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         btThem.setBackground(new java.awt.Color(0, 0, 204));
         btThem.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -188,17 +181,6 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             }
         });
 
-        btHienThiTatCa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btHienThiTatCa.setText("HIỂN THỊ TẤT CẢ");
-        btHienThiTatCa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btHienThiTatCa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btHienThiTatCaActionPerformed(evt);
-            }
-        });
-
-        pButton1.setBackground(new java.awt.Color(255, 255, 255));
-
         btXacNhan.setBackground(new java.awt.Color(0, 0, 204));
         btXacNhan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btXacNhan.setForeground(new java.awt.Color(0, 0, 204));
@@ -219,6 +201,11 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         btQuayLai.setText("QUAY LẠI");
         btQuayLai.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btQuayLai.setPreferredSize(new java.awt.Dimension(57, 31));
+        btQuayLai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btQuayLaiActionPerformed(evt);
+            }
+        });
 
         btChonAnh.setBackground(new java.awt.Color(255, 0, 0));
         btChonAnh.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -231,30 +218,6 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             }
         });
 
-        javax.swing.GroupLayout pButton1Layout = new javax.swing.GroupLayout(pButton1);
-        pButton1.setLayout(pButton1Layout);
-        pButton1Layout.setHorizontalGroup(
-            pButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pButton1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btQuayLai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(btChonAnh, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-        pButton1Layout.setVerticalGroup(
-            pButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pButton1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(btXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(btChonAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout pButtonLayout = new javax.swing.GroupLayout(pButton);
         pButton.setLayout(pButtonLayout);
         pButtonLayout.setHorizontalGroup(
@@ -262,29 +225,32 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             .addGroup(pButtonLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btSua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btThem, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btSua, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                     .addComponent(btXoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btHienThiTatCa, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(pButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btThem, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(btChonAnh, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                    .addComponent(btQuayLai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pButtonLayout.setVerticalGroup(
             pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pButtonLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(btThem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btThem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btSua, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btSua, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
-                .addComponent(btXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btHienThiTatCa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
-            .addGroup(pButtonLayout.createSequentialGroup()
-                .addComponent(pButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btChonAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pSearch.setBackground(new java.awt.Color(255, 255, 255));
@@ -568,15 +534,32 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(MainPanelLayout.createSequentialGroup()
+                .addGap(429, 429, 429)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(441, 441, 441))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
+
+        btHienThiTatCa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btHienThiTatCa.setText("HIỂN THỊ TẤT CẢ");
+        btHienThiTatCa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btHienThiTatCa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btHienThiTatCaActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setBackground(new java.awt.Color(102, 255, 102));
+        jLabel13.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel13.setIcon(new javax.swing.ImageIcon("D:\\Leanring\\Universe\\SecondYear\\HK2\\Java\\QuanLyCuaHangSach\\ManageBookStore\\src\\image\\profile01-250px.png")); // NOI18N
+        jLabel13.setText("Ảnh");
+        jLabel13.setToolTipText("");
+        jLabel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)));
+        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -586,17 +569,23 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             .addComponent(jSeparator1)
             .addComponent(pSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(pInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
-                .addComponent(pButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1038, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(pInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(btHienThiTatCa, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(pButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1038, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -607,11 +596,16 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(pButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btHienThiTatCa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10)
                 .addComponent(pSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -620,7 +614,12 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-    public void insertHeader(){
+    private void InitVisible(){
+                btXacNhan.setVisible(false);
+                btQuayLai.setVisible(false);
+                btChonAnh.setVisible(false);
+    }
+    private void insertHeader(){
         Vector header = new Vector();
         header.add("MÃ SÁCH");
         header.add("MÃ NXB");
@@ -634,7 +633,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
               model=new DefaultTableModel(header,0);
            
     }
-    public void outModel(DefaultTableModel model ,ArrayList<SachDTO> sach) // Xuất ra Table từ ArrayList
+    private void outModel(DefaultTableModel model ,ArrayList<SachDTO> sach) // Xuất ra Table từ ArrayList
     {
         Vector data;
         model.setRowCount(0);
@@ -665,45 +664,35 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         }
         
     }
+    private void cleanView(){
+        txMaSach.setText("");
+        cbMaNXB.setSelectedItem("");
+        cbMaTG.setSelectedItem("");
+        cbMaTL.setSelectedItem("");
+        txTenSach.setText("");
+        txNamXuatBan.setText("");
+        txSoLuong.setText("");
+        txDonGia.setText("");
+
+    }
     private void btTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiemActionPerformed
         
     }//GEN-LAST:event_btTimKiemActionPerformed
 
     private void btThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btThemActionPerformed
-       try {
-             // Validate
-              StringBuilder sb =new StringBuilder();
-            ValidatorBUS.checkEmpty(txMaSach, sb, "Mã Sách Còn Trống!");
-            ValidatorBUS.checkEmpty(cbMaNXB, sb, "Mã Nhà Xuất Bản Còn Trống!");
-            ValidatorBUS.checkEmpty(cbMaTG, sb, "Mã Tác Giả Còn Trống!");
-            ValidatorBUS.checkEmpty(cbMaTL, sb, "Mã Thể Loại Còn Trống!");
-            ValidatorBUS.checkEmpty(txTenSach, sb, "Tên Sách Còn Trống!");
-            ValidatorBUS.checkSoLuong(txNamXuatBan, sb, "Năm Xuất Bản Còn Trống !");
-            ValidatorBUS.checkSoLuong(txSoLuong, sb, "Số Lượng Là Số Nguyên !");
-            ValidatorBUS.checkDonGia(txDonGia, sb, "Đơn Giá là Số !");
-             if(sb.length()>0){
-                JOptionPane.showMessageDialog(this,sb.toString(), "Thông Báo Lỗi Nhập",JOptionPane.ERROR_MESSAGE);
-                    return ;
-                 }
-            SachDTO sach=new SachDTO();
-            sach.setMaSach(txMaSach.getText());
-            sach.setMaNXB((String)cbMaNXB.getSelectedItem());
-            sach.setMaTG((String)cbMaTG.getSelectedItem());
-            sach.setMaTL((String)cbMaTL.getSelectedItem());
-            sach.setTenSach(txTenSach.getText());
-            sach.setNamXuatBan(Integer.parseInt(txNamXuatBan.getText()));
-            sach.setSoluong(Integer.parseInt(txSoLuong.getText()));
-            sach.setDongia(Float.parseFloat(txDonGia.getText()));
-            sach.setImgName("src/dc");// dể tam dể sau này thêm Ảnh ở đây
-            SachBUS bus =new SachBUS();
-            bus.addSach(sach);
-
-            this.insertHeader();
-            this.outModel(model,SachBUS.getListSach());    
-            
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this,"Lỗi Thêm Sách ", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
-         }
+        EditorAdd=true;
+         cleanView();
+                
+                btThem.setVisible(false);
+                btSua.setVisible(false);
+                btXoa.setVisible(false);
+                
+                btXacNhan.setVisible(true);
+                btQuayLai.setVisible(true);
+                btChonAnh.setVisible(true);
+                
+                tbSach.clearSelection();
+                tbSach.setEnabled(false);
        
     }//GEN-LAST:event_btThemActionPerformed
 
@@ -742,7 +731,89 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
     }//GEN-LAST:event_tbSachMouseClicked
 
     private void btXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btXacNhanActionPerformed
-        // TODO add your handling code here:
+       if(EditorAdd){
+        try {
+             // Validate
+              StringBuilder sb =new StringBuilder();
+            ValidatorBUS.checkEmpty(txMaSach, sb, "Mã Sách Còn Trống!");
+            ValidatorBUS.checkEmpty(cbMaNXB, sb, "Mã Nhà Xuất Bản Còn Trống!");
+            ValidatorBUS.checkEmpty(cbMaTG, sb, "Mã Tác Giả Còn Trống!");
+            ValidatorBUS.checkEmpty(cbMaTL, sb, "Mã Thể Loại Còn Trống!");
+            ValidatorBUS.checkEmpty(txTenSach, sb, "Tên Sách Còn Trống!");
+            ValidatorBUS.checkSoLuong(txNamXuatBan, sb, "Năm Xuất Bản Còn Trống !");
+            ValidatorBUS.checkSoLuong(txSoLuong, sb, "Số Lượng Là Số Nguyên !");
+            ValidatorBUS.checkDonGia(txDonGia, sb, "Đơn Giá là Số !");
+             if(sb.length()>0){
+                JOptionPane.showMessageDialog(this,sb.toString(), "Thông Báo Lỗi Nhập",JOptionPane.ERROR_MESSAGE);
+                    return ;
+                 }
+            SachDTO sach=new SachDTO();
+            sach.setMaSach(txMaSach.getText());
+            sach.setMaNXB((String)cbMaNXB.getSelectedItem());
+            sach.setMaTG((String)cbMaTG.getSelectedItem());
+            sach.setMaTL((String)cbMaTL.getSelectedItem());
+            sach.setTenSach(txTenSach.getText());
+            sach.setNamXuatBan(Integer.parseInt(txNamXuatBan.getText()));
+            sach.setSoluong(Integer.parseInt(txSoLuong.getText()));
+            sach.setDongia(Float.parseFloat(txDonGia.getText()));
+            sach.setImgName("src/dc");// dể tam dể sau này thêm Ảnh ở đây
+            SachBUS bus =new SachBUS();
+            bus.addSach(sach);
+
+            this.insertHeader();
+            this.outModel(model,SachBUS.getListSach());    
+            
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this,"Lỗi Thêm Sách ", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
+                }
+       }
+       else{
+            int  i=tbSach.getSelectedRow();// i bắ t đầu từ 0
+            if (i>=0)
+            {
+                try{
+                          StringBuilder sb =new StringBuilder();
+                ValidatorBUS.checkEmpty(txMaSach, sb, "Mã Sách Còn Trống!");
+                ValidatorBUS.checkEmpty(cbMaNXB, sb, "Mã Nhà Xuất Bản Còn Trống!");
+                ValidatorBUS.checkEmpty(cbMaTG, sb, "Mã Tác Giả Còn Trống!");
+                ValidatorBUS.checkEmpty(cbMaTL, sb, "Mã Thể Loại Còn Trống!");
+                ValidatorBUS.checkEmpty(txTenSach, sb, "Tên Sách Còn Trống!");
+                ValidatorBUS.checkSoLuong(txNamXuatBan, sb, "Năm Xuất Bản Còn Trống !");
+                ValidatorBUS.checkSoLuong(txSoLuong, sb, "Số Lượng Là Số Nguyên !");
+                ValidatorBUS.checkDonGia(txDonGia, sb, "Đơn Giá là Số !");
+                 if(sb.length()>0){
+                    JOptionPane.showMessageDialog(this,sb.toString(), "Thông Báo Lỗi Nhập",JOptionPane.ERROR_MESSAGE);
+                        return ;
+                     }
+
+                    SachDTO sach=new SachDTO();
+                    sach.setMaSach(txMaSach.getText());
+                    sach.setMaNXB(cbMaNXB.getSelectedItem().toString());
+                    sach.setMaTG(cbMaTG.getSelectedItem().toString());
+                    sach.setMaTL(cbMaTL.getSelectedItem().toString());
+                    sach.setTenSach(txTenSach.getText());
+                    sach.setNamXuatBan(Integer.parseInt(txNamXuatBan.getText()));
+                    sach.setSoluong(Integer.parseInt(txSoLuong.getText()));
+                    sach.setDongia(Float.parseFloat(txDonGia.getText()));
+                    sach.setImgName("/src/imges/");
+                    SachBUS bus =new SachBUS();
+                    bus.updateSach(sach);
+
+                    model.setValueAt(sach.getMaSach(), i, 0);
+                    model.setValueAt(sach.getMaNXB(), i, 1);
+                    model.setValueAt(sach.getMaTG(), i, 2);  
+                    model.setValueAt(sach.getMaTL(), i, 3);
+                    model.setValueAt(sach.getTenSach(), i, 4);
+                    model.setValueAt(sach.getNamXuatBan(), i, 5);
+                    model.setValueAt(sach.getSoluong(), i, 6); 
+                    model.setValueAt(sach.getDongia(), i, 7); 
+                tbSach.setModel(model);
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(this,"Không Thể Sửa Sách", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
+                }
+            } 
+           
+       }
     }//GEN-LAST:event_btXacNhanActionPerformed
 
     private void btChonAnhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btChonAnhActionPerformed
@@ -773,55 +844,37 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
     }//GEN-LAST:event_cbMaNXBActionPerformed
 
     private void btSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSuaActionPerformed
-       int  i=tbSach.getSelectedRow();// i bắ t đầu từ 0
-        if (i>=0)
-        {
-            try{
-                      StringBuilder sb =new StringBuilder();
-            ValidatorBUS.checkEmpty(txMaSach, sb, "Mã Sách Còn Trống!");
-            ValidatorBUS.checkEmpty(cbMaNXB, sb, "Mã Nhà Xuất Bản Còn Trống!");
-            ValidatorBUS.checkEmpty(cbMaTG, sb, "Mã Tác Giả Còn Trống!");
-            ValidatorBUS.checkEmpty(cbMaTL, sb, "Mã Thể Loại Còn Trống!");
-            ValidatorBUS.checkEmpty(txTenSach, sb, "Tên Sách Còn Trống!");
-            ValidatorBUS.checkSoLuong(txNamXuatBan, sb, "Năm Xuất Bản Còn Trống !");
-            ValidatorBUS.checkSoLuong(txSoLuong, sb, "Số Lượng Là Số Nguyên !");
-            ValidatorBUS.checkDonGia(txDonGia, sb, "Đơn Giá là Số !");
-             if(sb.length()>0){
-                JOptionPane.showMessageDialog(this,sb.toString(), "Thông Báo Lỗi Nhập",JOptionPane.ERROR_MESSAGE);
-                    return ;
-                 }
-
-                SachDTO sach=new SachDTO();
-                sach.setMaSach(txMaSach.getText());
-                sach.setMaNXB(cbMaNXB.getSelectedItem().toString());
-                sach.setMaTG(cbMaTG.getSelectedItem().toString());
-                sach.setMaTL(cbMaTL.getSelectedItem().toString());
-                sach.setTenSach(txTenSach.getText());
-                sach.setNamXuatBan(Integer.parseInt(txNamXuatBan.getText()));
-                sach.setSoluong(Integer.parseInt(txSoLuong.getText()));
-                sach.setDongia(Float.parseFloat(txDonGia.getText()));
-                sach.setImgName("/src/imges/");
-                SachBUS bus =new SachBUS();
-                bus.updateSach(sach);
+        EditorAdd=false;
+         cleanView();
                 
-                model.setValueAt(sach.getMaSach(), i, 0);
-                model.setValueAt(sach.getMaNXB(), i, 1);
-                model.setValueAt(sach.getMaTG(), i, 2);  
-                model.setValueAt(sach.getMaTL(), i, 3);
-                model.setValueAt(sach.getTenSach(), i, 4);
-                model.setValueAt(sach.getNamXuatBan(), i, 5);
-                model.setValueAt(sach.getSoluong(), i, 6); 
-                model.setValueAt(sach.getDongia(), i, 7); 
-            tbSach.setModel(model);
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this,"Không Thể Sửa Sách", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
-            }
-        } 
+                btThem.setVisible(false);
+                btSua.setVisible(false);
+                btXoa.setVisible(false);
+                
+                btXacNhan.setVisible(true);
+                btQuayLai.setVisible(true);
+                btChonAnh.setVisible(true);
+                
+                tbSach.clearSelection();
+                tbSach.setEnabled(false);
     }//GEN-LAST:event_btSuaActionPerformed
 
     private void btHienThiTatCaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btHienThiTatCaActionPerformed
        tbSach.setModel(model);
     }//GEN-LAST:event_btHienThiTatCaActionPerformed
+
+    private void btQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btQuayLaiActionPerformed
+        cleanView();   
+            btThem.setVisible(true);
+            btSua.setVisible(true);
+            btXoa.setVisible(true);
+                
+            btXacNhan.setVisible(false);
+            btQuayLai.setVisible(false);
+            btChonAnh.setVisible(false);
+
+            tbSach.setEnabled(true);
+    }//GEN-LAST:event_btQuayLaiActionPerformed
     public void LoadComboBox() throws Exception{
         listNXB(cbMaNXB);
         listTG(cbMaTG);
@@ -906,7 +959,6 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
     private javax.swing.JLabel lbTenSach;
     private javax.swing.JLabel lnNamXuatBan;
     private javax.swing.JPanel pButton;
-    private javax.swing.JPanel pButton1;
     private javax.swing.JPanel pInput;
     private javax.swing.JPanel pSearch;
     private javax.swing.JTable tbSach;
