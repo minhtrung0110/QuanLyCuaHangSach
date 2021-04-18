@@ -18,9 +18,10 @@ import java.sql.*;
 import java.util.HashMap;
 
 public class SachDAO {
-   MyConnectUnit connect  =new MyConnectUnit("localhost","root","","bookstore");
+   MyConnectUnit connect ;
 
-    public SachDAO() {
+    public SachDAO() throws IOException {
+        connect  =new MyConnectUnit();
     }
      public ArrayList<SachDTO> loadDatabase() throws Exception
     {

@@ -2,15 +2,19 @@
 package DAO;
 
 
+
+import java.io.IOException;
+import java.io.*;
 import java.sql.*;
 import java.sql.SQLException;
 import java.util.HashMap;
 
 public class MyConnectUnit  {
     MySQLConnect connect;
+    private  String FILE_URL = "D:\\Leanring\\Universe\\SecondYear\\HK2\\Java\\QuanLyCuaHangSach\\Connection.txt";
 
-    public MyConnectUnit() {
-    }
+    //public MyConnectUnit() {
+    //}
 
     public MyConnectUnit(MySQLConnect connect) {
         this.connect = connect;
@@ -19,6 +23,20 @@ public class MyConnectUnit  {
     public MyConnectUnit( String host, String username, String password, String database) {
         connect =new MySQLConnect(host, username, password, database);
 
+    }
+    public  MyConnectUnit() throws IOException {
+        File file = new File(FILE_URL);
+        InputStream inputStream = new FileInputStream(file);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+        BufferedReader reader = new BufferedReader(inputStreamReader);
+ 
+        String host,username,password,database;
+            host=reader.readLine();
+            database=reader.readLine();
+            username =reader.readLine();
+            password=reader.readLine();         
+        //System.out.println(host+" "+database+" "+username+" - "+password);
+        connect =new MySQLConnect(host, username, password, database);
     }
     
     
@@ -37,14 +55,10 @@ public class MyConnectUnit  {
        return this.Select(tableName, null);
     } 
     public boolean Insert(String tableName,HashMap<String,Object> columnValue) throws Exception {
-        try {
-            
-        } catch (Exception e) {
-        }
-        StringBuilder query = new StringBuilder("INSERT INTO " +tableName);
+         StringBuilder query = new StringBuilder("INSERT INTO " +tableName);
         StringBuilder valueInsert = new StringBuilder();
         
-        query.append(" (");
+        query.append("(");
         for(String key :columnValue.keySet()){
             query.append(key+",");
             valueInsert.append("'"+columnValue.get(key).toString()+ "' ,");

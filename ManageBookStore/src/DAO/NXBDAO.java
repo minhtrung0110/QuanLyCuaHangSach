@@ -2,6 +2,7 @@
 package DAO;
 
 import DTO.NXBDTO;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,9 +10,10 @@ import java.util.HashMap;
 
 
 public class NXBDAO {
-    MyConnectUnit connect  =new MyConnectUnit("localhost","root","","bookstore");
+    MyConnectUnit connect;
 
-    public NXBDAO() {
+    public NXBDAO() throws IOException {
+        this.connect = new MyConnectUnit();
     }
      public ArrayList<NXBDTO> loadDatabase() throws Exception
     {

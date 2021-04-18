@@ -67,22 +67,23 @@ public class SachBUS {
         }
     }
    
-    public ArrayList<SachDTO> searchSach(String masach,String manxb,String matg,String matl,String tensach,float min,float max)
+    public ArrayList<SachDTO> searchSach(String masach,String manxb,String matg,String matl,String tensach,int namxb,float min,float max)
     {
         ArrayList<SachDTO> search = new ArrayList<>();
         masach = masach.isEmpty()?masach = "": masach;
-        manxb = manxb.isEmpty()?manxb = "": manxb;
-        matg = matg.isEmpty()?matg = "": matg;
-        matl = matl.isEmpty()?matl = "": matl;
+        manxb = manxb.equalsIgnoreCase("Không")?manxb = "": manxb;
+        matg = matg.equalsIgnoreCase("Không")?matg = "": matg;
+        matl = matl.equalsIgnoreCase("Không")?matl = "": matl;
         tensach = tensach.isEmpty()?tensach = "": tensach;
         
         for(SachDTO sach : listSach)
         {
-            if( sach.getMaSach().contains(masach) && 
+            if( sach.getMaSach().contains(masach) &&
                 sach.getMaNXB().contains(manxb) &&
                 sach.getMaTG().contains(matg) &&
                 sach.getMaTL().contains(matl) &&
                 sach.getTenSach().contains(tensach) &&
+                sach.getNamXuatBan()==namxb &&
                 sach.getDongia() >= min && sach.getDongia() <= max
                )
             {

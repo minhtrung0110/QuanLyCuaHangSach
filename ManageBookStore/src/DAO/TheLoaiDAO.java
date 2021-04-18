@@ -2,6 +2,7 @@
 package DAO;
 
 import DTO.TheLoaiDTO;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,8 +10,9 @@ import java.util.HashMap;
 
 
 public class TheLoaiDAO {
-    MyConnectUnit connect  =new MyConnectUnit("localhost","root","","bookstore");
-    public TheLoaiDAO() {
+    MyConnectUnit connect ;
+    public TheLoaiDAO() throws IOException {
+        connect  =new MyConnectUnit();
     }
      public ArrayList<TheLoaiDTO> loadDatabase() throws Exception
     {

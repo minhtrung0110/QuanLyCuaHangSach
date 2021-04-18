@@ -623,14 +623,15 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         Vector header = new Vector();
         header.add("MÃ SÁCH");
         header.add("MÃ NXB");
+         header.add("MÃ THỂ LOẠI");
         header.add("MÃ TÁC GIẢ");
-        header.add("MÃ THỂ LOẠI");
         header.add("TÊN SÁCH");
         header.add("NĂM XUẤT BẢN");
         header.add("SỐ LƯỢNG");
         header.add("ĐƠN GIÁ");
         //if (model.getRowCount()==0)
               model=new DefaultTableModel(header,0);
+              
            
     }
     private void outModel(DefaultTableModel model ,ArrayList<SachDTO> sach) // Xuất ra Table từ ArrayList
@@ -675,8 +676,56 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         txDonGia.setText("");
 
     }
-    private void btTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiemActionPerformed
+    private void Search(){
+         DefaultTableModel temp=new DefaultTableModel();
+         ArrayList<SachDTO> search=new ArrayList<>();
+         Vector header = new Vector();
+        header.add("MÃ SÁCH");//tua de cot cua jtable
+        header.add("MÃ NXB");
+        header.add("MÃ THỂ LOẠI");
+        header.add("MÃ TÁC GIẢ");//tua de cot cua jtable
+        header.add("TÊN SÁCH");
+         header.add("NĂM XUẤT BẢN");
+        header.add("SỐ LƯỢNG");
+        header.add("ĐƠN GIÁ");
+       
+       
+        try {
+            SachBUS bus =new SachBUS();
+            int namxb = txSearchNamXuatBan.getText().equals("") ? 2000: Integer.parseInt(txSearchMax.getText()); 
+            float min = txSearchMin.getText().equals("") ? 0 : Float.parseFloat(txSearchMin.getText());
+            float max = txSearchMax.getText().equals("") ? 999999: Float.parseFloat(txSearchMax.getText());    
+            search=bus.searchSach(txSearchMaSach.getText(),
+                    cbSearchMaNXB.getSelectedItem().toString(),
+                    cbSearchMaTG.getSelectedItem().toString(), 
+                    cbSearchMaTL.getSelectedItem().toString(), 
+                    txSearchTenSach.getText(),namxb,min,max);
+          System.out.println(txSearchMaSach.getText()+" "+cbSearchMaNXB.getSelectedItem()+" "+namxb+" --- "+txSearchTenSach.getText() +" "+min+" -- "+max);
+        } catch (Exception e) {
+         JOptionPane.showMessageDialog(this,"Không Thể Tìm Kiếm ", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
+        }
+        if(search != null && search.size() > 0) {
+           // outModel(temp,search);
+           if (temp.getRowCount()==0)
+                    {temp=new DefaultTableModel(header,0);}
+            for(int i=0;i<search.size();i++){
+                 Vector row=new Vector();
+                    row.add(search.get(i).getMaSach());
+                    row.add(search.get(i).getMaNXB());
+                    row.add(search.get(i).getMaTG());
+                    row.add(search.get(i).getMaTL());
+                    row.add(search.get(i).getTenSach());
+                    row.add(search.get(i).getNamXuatBan());
+                    row.add(search.get(i).getSoluong());
+                    row.add(search.get(i).getDongia());
+                 temp.addRow(row);
+            }
+        }
+        tbSach.setModel(temp);
         
+    }
+    private void btTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiemActionPerformed
+        Search();
     }//GEN-LAST:event_btTimKiemActionPerformed
 
     private void btThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btThemActionPerformed
@@ -898,7 +947,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         if(tlBUS.getListTheLoai()== null) tlBUS.loadDSTheLoai();
         ArrayList<TheLoaiDTO> tl = tlBUS.getListTheLoai();
         for(TheLoaiDTO a : tl){
-            cmb.addItem(a.getMaTL());
+            cmb.addItem(a.getTenTL());
         }
       
     }
@@ -988,7 +1037,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         {
             if(e.getKeyCode() == KeyEvent.VK_ENTER)
             {
-                //Search();
+                Search();
             }
         }    }
 

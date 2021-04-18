@@ -6,6 +6,7 @@
 package DAO;
 
 import DTO.TacGiaDTO;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,9 +14,10 @@ import java.util.HashMap;
 
 
 public class TacGiaDAO {
-    MyConnectUnit connect  =new MyConnectUnit("localhost","root","","bookstore");
+    MyConnectUnit connect;
 
-    public TacGiaDAO() {
+    public TacGiaDAO() throws IOException {
+        connect  =new MyConnectUnit();
     }
      public ArrayList<TacGiaDTO> loadDatabase() throws Exception
     {
