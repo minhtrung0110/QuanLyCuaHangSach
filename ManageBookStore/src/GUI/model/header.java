@@ -35,7 +35,7 @@ public class header extends JPanel{
         setSize(width,height);
         setBackground(null);
         
-        JLabel logo = new JLabel(new ImageIcon("./src/image/header_icon.png"),JLabel.CENTER);
+        JLabel logo = new JLabel(new ImageIcon("./src/img/header_icon.png"),JLabel.CENTER);
         logo.setBounds(new Rectangle(30,10, 25, 25));
         Font font = new Font("Segoe UI",Font.BOLD,15);
         JLabel name = new JLabel("QUẢN LÝ CỬA HÀNG SÁCH",JLabel.CENTER);
@@ -46,7 +46,7 @@ public class header extends JPanel{
         add(logo);
         add(name);
         
-//        JLabel exit = new JLabel(new ImageIcon("./src/image/exit_25px.png")));
+//        JLabel exit = new JLabel(new ImageIcon("./src/img/exit_25px.png")));
         
 //        navItem exit = new navItem("", new Rectangle(width-40, -8, 40, 50), "exit_25px.png", "exit_25px.png", new Color(80,80,80));
 //        navItem minimize = new navItem("", new Rectangle(width-80, -8, 40, 50), "minimize_25px.png", "minimize_25px.png", new Color(80,80,80));

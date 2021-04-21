@@ -24,6 +24,7 @@ public class TheLoaiDAO {
                 TheLoaiDTO tl = new  TheLoaiDTO(rs.getString("MaTL"),rs.getString("TenTL"));     
                 dstheloai.add(tl);
             }
+
             rs.close();
             connect.Close();//dong ket noi;
 

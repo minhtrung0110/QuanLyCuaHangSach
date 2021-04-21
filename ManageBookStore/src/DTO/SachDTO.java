@@ -4,7 +4,7 @@ package DTO;
 public class SachDTO {
     String MaSach, MaNXB,MaTG,MaTL,TenSach,imgName;
     int Soluong,NamXuatBan;
-
+    float Dongia;
     public int getNamXuatBan() {
         return NamXuatBan;
     }
@@ -12,7 +12,7 @@ public class SachDTO {
     public void setNamXuatBan(int NamXuatBan) {
         this.NamXuatBan = NamXuatBan;
     }
-    float Dongia;
+    
 
     public SachDTO(){
     }

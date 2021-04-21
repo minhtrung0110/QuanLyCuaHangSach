@@ -6,14 +6,14 @@ package DTO;
  * @author Admin
  */
 public class TheLoaiDTO {
-    String TenTL,MaTL;
+    String MaTL,TenTL;
 
     public TheLoaiDTO() {
     }
 
-    public TheLoaiDTO(String TenTL, String MaTL) {
-        this.TenTL = TenTL;
+    public TheLoaiDTO(String MaTL, String TenTL) {
         this.MaTL = MaTL;
+        this.TenTL = TenTL;       
     }
 
     public String getTenTL() {
@@ -31,7 +31,11 @@ public class TheLoaiDTO {
     public void setMaTL(String MaTL) {
         this.MaTL = MaTL;
     }
-     
+     @Override
+    public String toString() {
+        return MaTL;
+    }
+    
     
     
 }

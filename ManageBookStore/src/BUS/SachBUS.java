@@ -60,6 +60,7 @@ public class SachBUS {
                 data.updateSach(sach);
                 } catch (Exception e) {
                     System.out.println("Khong the Cap nhat Sach vao database !!!");
+                   
                 }
                 
                 return;
@@ -75,7 +76,7 @@ public class SachBUS {
         matg = matg.equalsIgnoreCase("Không")?matg = "": matg;
         matl = matl.equalsIgnoreCase("Không")?matl = "": matl;
         tensach = tensach.isEmpty()?tensach = "": tensach;
-        
+     
         for(SachDTO sach : listSach)
         {
             if( sach.getMaSach().contains(masach) &&

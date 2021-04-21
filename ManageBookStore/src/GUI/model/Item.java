@@ -22,12 +22,12 @@ public class Item extends JPanel{
     private JLabel itemName;
     private JLabel itemImage;
     private int x,y;
-    public Item(int x,int y,String itemName, String image)
+    public Item(int x,int y,String itemName, String img)
     {
         this.x = x;
         this.y = y;
         this.itemName = new JLabel(itemName,JLabel.CENTER);
-        ImageIcon icon  = new ImageIcon(getClass().getResource("/image/SanPham/CocaCola.jpg"));
+        ImageIcon icon  = new ImageIcon(getClass().getResource("/img/SanPham/CocaCola.jpg"));
         this.itemImage = new JLabel("Image 200x200",JLabel.CENTER);
         init();
     }

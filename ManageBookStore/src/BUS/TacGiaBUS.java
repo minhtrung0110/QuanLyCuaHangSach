@@ -74,13 +74,13 @@ public class TacGiaBUS {
             }
         }
     }
-    public TacGiaDTO searchMaTG (String maloai)
+    public TacGiaDTO searchMaTG (String matg)
     {
-        for(TacGiaDTO loai : listTG)
+        for(TacGiaDTO tg : listTG)
         {
-            if( loai.getMaTG().equals(maloai))
+            if( tg.getMaTG().equals(matg))
             {
-                return loai;
+                return tg;
             }
         }
         return null;

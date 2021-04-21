@@ -50,5 +50,10 @@ public class TacGiaDTO {
     public void setSDT(String SDT) {
         this.SDT = SDT;
     }
+    @Override
+    public String toString() {
+        return MaTG;
+    }
+    
     
 }

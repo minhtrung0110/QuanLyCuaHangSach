@@ -51,7 +51,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
     {
         Font font = new Font("Segoe UI",Font.BOLD,14);
         setTitle("Quản Lý Cửa Hàng Sách ");
-        ImageIcon logo = new ImageIcon("./src/image/header_icon.png");
+        ImageIcon logo = new ImageIcon("./src/img/header_icon.png");
         setIconImage(logo.getImage());
         setLayout(new BorderLayout());
         setSize(DEFALUT_WIDTH,DEFAULT_HEIGHT);
@@ -240,7 +240,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
             break;
             case 5: // BÁN HÀNG
                 main.removeAll();
-               // main.add(new HoaDonGUI(DEFALUT_WIDTH));
+                main.add(new HoaDonGUI(DEFALUT_WIDTH));
                 main.repaint();
                 main.revalidate();
             break;
@@ -288,7 +288,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
         
         //Xuất ra Naigation
         nav.removeAll();
-        JLabel profile = new JLabel(new ImageIcon("./src/image/profile01-250px.png"));
+        JLabel profile = new JLabel(new ImageIcon("./src/img/profile01-250px.png"));
         profile.setBounds(0,0,220,200);
         nav.add(profile);
         for(navItem n : navObj)

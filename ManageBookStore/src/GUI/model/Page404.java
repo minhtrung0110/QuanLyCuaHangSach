@@ -38,7 +38,7 @@ public class Page404 extends JPanel{
         setBackground(null);
         setBounds(new Rectangle(100, 0, this.DEFALUT_WIDTH - 220, 1000));
         
-        JLabel icon = new JLabel(new ImageIcon("./src/image/404.png"));
+        JLabel icon = new JLabel(new ImageIcon("./src/img/404.png"));
         icon.setBounds(0,300,100,100);
        
         Font font = new Font("Segoe UI",Font.BOLD,60);

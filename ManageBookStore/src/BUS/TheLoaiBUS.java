@@ -74,13 +74,13 @@ public class TheLoaiBUS {
             }
         }
     }
-    public TheLoaiDTO searchMaTL (String maloai)
+    public TheLoaiDTO searchMaTL (String matl)
     {
-        for(TheLoaiDTO loai : listTG)
+        for(TheLoaiDTO tl : listTG)
         {
-            if( loai.getMaTL().equals(maloai))
+            if( tl.getMaTL().equals(matl))
             {
-                return loai;
+                return tl;
             }
         }
         return null;

@@ -66,13 +66,13 @@ public class NXBBUS {
             }
         }
     }
-    public NXBDTO searchMaNXB (String maloai)
+    public NXBDTO searchMaNXB (String manxb)
     {
-        for(NXBDTO loai : listNXB)
+        for(NXBDTO nxb : listNXB)
         {
-            if( loai.getMaNXB().equals(maloai))
+            if( nxb.getMaNXB().equals(manxb))
             {
-                return loai;
+                return nxb;
             }
         }
         return null;
@@ -98,5 +98,7 @@ public class NXBBUS {
         }
         return search;
     }
+
+    
     
 }
