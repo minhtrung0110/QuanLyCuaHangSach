@@ -68,7 +68,7 @@ public class SachBUS {
         }
     }
    
-    public ArrayList<SachDTO> searchSach(String masach,String manxb,String matg,String matl,String tensach,int namxb,float min,float max)
+    public ArrayList<SachDTO> searchSach(String masach,String manxb,String matg,String matl,String tensach,int namxbmin,int namxbmax,float min,float max)
     {
         ArrayList<SachDTO> search = new ArrayList<>();
         masach = masach.isEmpty()?masach = "": masach;
@@ -84,7 +84,7 @@ public class SachBUS {
                 sach.getMaTG().contains(matg) &&
                 sach.getMaTL().contains(matl) &&
                 sach.getTenSach().contains(tensach) &&
-                sach.getNamXuatBan()==namxb &&
+                sach.getNamXuatBan()>= namxbmin && sach.getNamXuatBan()<= namxbmax &&
                 sach.getDongia() >= min && sach.getDongia() <= max
                )
             {
@@ -92,6 +92,23 @@ public class SachBUS {
             }
         }
         return search;
+    }
+    public int TongDonGia(){
+        int sum=0;
+        for(SachDTO sach : listSach){
+            sum+=sach.getDongia();
+        } 
+        return sum;
+    }
+    public int TongSoSach(){
+         int sum=0;
+        for(SachDTO sach : listSach){
+            sum+=sach.getSoluong();
+        } 
+        return sum;
+    }
+    public int getLengthListSach(){
+        return listSach.size();
     }
     
 }

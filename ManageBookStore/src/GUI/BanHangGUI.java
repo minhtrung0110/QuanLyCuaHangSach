@@ -13,7 +13,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         //hdBUS.list();
         //spBUS.listSP();
         initComponents();
-        this.setSize(this.DEFALUT_WIDTH - 220, 750);
+        this.setSize(this.DEFALUT_WIDTH - 210, 750);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

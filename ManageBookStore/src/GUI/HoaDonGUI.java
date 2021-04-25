@@ -30,7 +30,7 @@ public class HoaDonGUI extends javax.swing.JPanel {
     public HoaDonGUI(int width){
          DEFALUT_WIDTH = width;
          initComponents();
-         this.setSize(width - 220, 750);
+         this.setSize(width - 210, 750);
          LoadDB();
          Sum();
     }

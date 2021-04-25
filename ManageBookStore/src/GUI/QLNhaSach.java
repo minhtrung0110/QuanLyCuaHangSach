@@ -117,7 +117,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
 /************ PHẦN NAVIGATION ( MENU ) **************************/  
         nav = new JPanel(null);
         nav.setBackground(new Color(55, 63, 81));
-        nav.setPreferredSize(new Dimension(220,DEFAULT_HEIGHT));
+        nav.setPreferredSize(new Dimension(210,DEFAULT_HEIGHT));
         
         JScrollPane scroll = new JScrollPane(nav);
         scroll.getVerticalScrollBar().setPreferredSize(new Dimension(1,100));
@@ -277,7 +277,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
             String s = navItem.get(i).split(":")[0];
             String icon = navItem.get(i).split(":")[1];
             String iconActive = navItem.get(i).split(":")[2];
-            navObj.add(new navItem(s, new Rectangle(0,200+50*i,220,50),icon,iconActive));
+            navObj.add(new navItem(s, new Rectangle(0,200+50*i,210,50),icon,iconActive));
             navObj.get(i).addMouseListener(this);
         }
         if(!flag && navObj.size() > 8) //Đổi màu phần DropDown của thống kê
@@ -289,7 +289,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
         //Xuất ra Naigation
         nav.removeAll();
         JLabel profile = new JLabel(new ImageIcon("./src/img/profile01-250px.png"));
-        profile.setBounds(0,0,220,200);
+        profile.setBounds(0,0,210,200);
         nav.add(profile);
         for(navItem n : navObj)
         {

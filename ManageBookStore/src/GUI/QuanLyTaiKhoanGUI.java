@@ -18,7 +18,7 @@ public class QuanLyTaiKhoanGUI extends javax.swing.JPanel {
     public QuanLyTaiKhoanGUI(int width) {
         DEFALUT_WIDTH = width;
         initComponents();
-       this.setSize(this.DEFALUT_WIDTH - 220, 750);
+       this.setSize(this.DEFALUT_WIDTH - 210, 750);
         
         
     }
