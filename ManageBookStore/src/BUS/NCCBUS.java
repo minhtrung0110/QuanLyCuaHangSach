@@ -67,6 +67,12 @@ public class NCCBUS {
             }
         }
     }
+    public NCCDTO SearchMaNCC(String id){
+        for(NCCDTO ncc : listNCC){
+            if(ncc.getMaNCC().equalsIgnoreCase(id)) return ncc;
+        }
+        return null;
+    }
    
    
     

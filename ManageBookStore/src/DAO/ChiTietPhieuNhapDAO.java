@@ -38,10 +38,31 @@ public class ChiTietPhieuNhapDAO {
     {
         ArrayList<ChiTietPhieuNhapDTO> dspn = new ArrayList<>();
         try {
-            ResultSet rs = connect.Select("pn");
+            ResultSet rs = connect.Select("chitietphieunhap");
             while(rs.next())
             {
-                ChiTietPhieuNhapDTO pn = new  ChiTietPhieuNhapDTO(rs.getString("MaPN"),
+                ChiTietPhieuNhapDTO pn = new  ChiTietPhieuNhapDTO(rs.getString("MaCTPN"),rs.getString("MaPN"),
+                        rs.getString("MaSach"),rs.getInt("DonGia")
+                        ,rs.getInt("SoLuong"),rs.getFloat("ThanhTien"));       
+                dspn.add(pn);
+            }
+            rs.close();
+            connect.Close();//dong ket noi;
+
+        } catch (SQLException ex) {
+            System.out.println("Khong the load database ChiTietPhieuNhap");
+        }
+
+        return dspn;
+    }
+     public ArrayList<ChiTietPhieuNhapDTO> loadDatabasewithCondition(String condition) throws Exception
+    {
+        ArrayList<ChiTietPhieuNhapDTO> dspn = new ArrayList<>();
+        try {
+            ResultSet rs = connect.Select("chitietphieunhap", condition);
+            while(rs.next())
+            {
+                ChiTietPhieuNhapDTO pn = new  ChiTietPhieuNhapDTO(rs.getString("MaCTPN"),rs.getString("MaPN"),
                         rs.getString("MaSach"),rs.getInt("DonGia")
                         ,rs.getInt("SoLuong"),rs.getFloat("ThanhTien"));       
                 dspn.add(pn);
@@ -58,14 +79,14 @@ public class ChiTietPhieuNhapDAO {
      public void addChiTietPhieuNhap(ChiTietPhieuNhapDTO pn) throws Exception
     {
          HashMap<String,Object> Insertvalues =new  HashMap<String,Object>();
-         
+        Insertvalues.put("MaCTPN",pn.getID());
         Insertvalues.put("MaPN",pn.getMaPN());
         Insertvalues.put("MaSach", pn.getMaSach());
         Insertvalues.put("DonGia", pn.getDonGia());
         Insertvalues.put("SoLuong", pn.getSoLuong());
         Insertvalues.put("ThanhTien", pn.getThanhTien());       
          try {
-             connect.Insert("pn", Insertvalues);
+             connect.Insert("chitietphieunhap", Insertvalues);
         } catch (SQLException ex) {
             System.out.println("Khong the them ChiTietPhieuNhap vao database !!!");
         }
@@ -73,14 +94,14 @@ public class ChiTietPhieuNhapDAO {
       public void updateChiTietPhieuNhap(ChiTietPhieuNhapDTO pn) throws Exception
     {
          HashMap<String,Object> Updatevalues =new  HashMap<String,Object>();
-         
+        Updatevalues.put("MaCTPN",pn.getMaPN());
         Updatevalues.put("MaPN",pn.getMaPN());
         Updatevalues.put("MaSach", pn.getMaSach());
         Updatevalues.put("DonGia", pn.getDonGia());
         Updatevalues.put("SoLuong", pn.getSoLuong());
         Updatevalues.put("ThanhTien", pn.getThanhTien());
          try {
-           connect.Update("pn", Updatevalues," MaPN='"+pn.getMaPN()+"'");
+           connect.Update("chitietphieunhap", Updatevalues," MaCTPN='"+pn.getID()+"'");
         } catch (SQLException ex) {
             System.out.println("Khong the Cap nhat ChiTietPhieuNhap vao database !!!");
         }
@@ -88,7 +109,7 @@ public class ChiTietPhieuNhapDAO {
     public void delete(String idSP)
     {
         try {
-                    this.connect.Delete("pn","MaChiTietPhieuNhap ='"+idSP+"'");
+                    this.connect.Delete("chitietphieunhap","MaCTPN ='"+idSP+"'");
                 } catch (Exception e) {
                     System.out.println("Lỗi không thể xóa !!");
                 }

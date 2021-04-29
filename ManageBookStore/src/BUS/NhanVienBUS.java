@@ -10,6 +10,7 @@ import java.util.HashSet;
 import DAO.MyConnectUnit;
 import DAO.NhanVienDAO;
 import DTO.*;
+import java.io.IOException;
 public class NhanVienBUS {
 
 	 
@@ -38,7 +39,11 @@ public class NhanVienBUS {
 		dsnv = conn.getNhanVien();
 		return dsnv;
 	}
-	
+	public void loadDatabase() throws IOException, Exception{
+            NhanVienDAO conn = new NhanVienDAO();
+                if(dsnv==null) dsnv = new ArrayList<NhanVienDTO>();
+                dsnv = conn.getNhanVien();
+        }
 	
 	
 	

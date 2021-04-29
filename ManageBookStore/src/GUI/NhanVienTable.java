@@ -9,6 +9,8 @@ import BUS.NhanVienBUS;
 import DTO.NhanVienDTO;
 import java.util.ArrayList;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,6 +26,7 @@ public class NhanVienTable extends javax.swing.JDialog {
     
     public NhanVienTable() {
         initComponents();
+        loadDSNhanVien();
     }
 
     public NhanVienTable(java.awt.Frame parent, boolean modal) {
@@ -127,6 +130,11 @@ public class NhanVienTable extends javax.swing.JDialog {
 
         btXacNhan.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btXacNhan.setText("XÁC NHẬN");
+        btXacNhan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btXacNhanMouseClicked(evt);
+            }
+        });
         btXacNhan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btXacNhanActionPerformed(evt);
@@ -279,9 +287,9 @@ public class NhanVienTable extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        tbNhanVien.setBackground(new java.awt.Color(255, 204, 0));
         tbNhanVien.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(153, 153, 153)));
         tbNhanVien.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tbNhanVien.setForeground(new java.awt.Color(255, 204, 0));
         tbNhanVien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -290,6 +298,11 @@ public class NhanVienTable extends javax.swing.JDialog {
                 "MÃ NHÂN VIÊN", "HỌ", "TÊN", "SỐ ĐIỆN THOẠI", "LƯƠNG", "Title 6", "Title 7", "Title 8", "Title 9"
             }
         ));
+        tbNhanVien.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbNhanVienMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbNhanVien);
 
         pSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153), 2), "TÌM KIẾM", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(204, 0, 0))); // NOI18N
@@ -307,6 +320,11 @@ public class NhanVienTable extends javax.swing.JDialog {
         jLabel8.setText("LƯƠNG:");
 
         btSearch.setIcon(new javax.swing.ImageIcon("D:\\Leanring\\Universe\\SecondYear\\HK2\\Java\\QuanLyCuaHangSach\\ManageBookStore\\src\\img\\search_25px.png")); // NOI18N
+        btSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSearchActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setText("PHÁI:");
@@ -474,11 +492,13 @@ public class NhanVienTable extends javax.swing.JDialog {
     private void loadDSNhanVien(){
          try {
            NhanVienBUS bus =new NhanVienBUS();
-        if(NhanVienBUS.getDsnv()==null) bus.getNhanVien();
+        if(NhanVienBUS.getDsnv()==null) bus.loadDatabase();
         insertHeader();
         outModel(model,NhanVienBUS.getDsnv());
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this,"Không Thể Load Database ", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
+             String ex="ass";
+             Logger.getLogger(NhanVienTable.class.getName()).log(Level.SEVERE, null, ex);
+            //JOptionPane.showMessageDialog(this,"Không Thể Load Database ", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
         }
        
         
@@ -496,17 +516,17 @@ public class NhanVienTable extends javax.swing.JDialog {
         header.add("CHỨC VỤ");
         header.add("LƯƠNG");
         //if (model.getRowCount()==0)
-              model=new DefaultTableModel(header,0);
+        model=new DefaultTableModel(header,0);
               
            
     }
     private void outModel(DefaultTableModel model ,ArrayList<NhanVienDTO> nv) // Xuất ra Table từ ArrayList
     {
-        Vector data;
+         
         model.setRowCount(0);
         for(NhanVienDTO s: nv)
         {
-            data = new Vector();
+            Vector data = new Vector();
             data.add(s.getMaNV());
             data.add(s.getHo());
             data.add(s.getTen());
@@ -525,7 +545,7 @@ public class NhanVienTable extends javax.swing.JDialog {
     }//GEN-LAST:event_btXacNhanActionPerformed
 
     private void btThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btThoatActionPerformed
-        // TODO add your handling code here:
+        this.setVisible(false);
     }//GEN-LAST:event_btThoatActionPerformed
 
     private void rdNuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdNuActionPerformed
@@ -551,6 +571,34 @@ public class NhanVienTable extends javax.swing.JDialog {
     private void txSearchNgaySinhMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txSearchNgaySinhMaxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txSearchNgaySinhMaxActionPerformed
+
+    private void btXacNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btXacNhanMouseClicked
+               dispose();
+    }//GEN-LAST:event_btXacNhanMouseClicked
+
+    private void tbNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbNhanVienMouseClicked
+        
+        int i = tbNhanVien.getSelectedRow();
+        if(i>=0)
+        {
+            txMaNhanVien.setText(tbNhanVien.getModel().getValueAt(i, 0).toString());
+            txHo.setText(tbNhanVien.getModel().getValueAt(i, 1).toString());
+            txTen.setText(tbNhanVien.getModel().getValueAt(i, 2).toString());
+            txSoDienThoai.setText(tbNhanVien.getModel().getValueAt(i, 3).toString());
+            txEmail.setText(tbNhanVien.getModel().getValueAt(i, 4).toString());
+            if(tbNhanVien.getModel().getValueAt(i, 5).toString().equalsIgnoreCase("1")) rdNam.isSelected(); 
+            else if(tbNhanVien.getModel().getValueAt(i, 5).toString().equalsIgnoreCase("0")) rdNu.isSelected();
+            txNgaySinh.setText( tbNhanVien.getModel().getValueAt(i, 6).toString());
+            txChucVu.setText( tbNhanVien.getModel().getValueAt(i, 7).toString());
+            txLuong.setText( tbNhanVien.getModel().getValueAt(i, 8).toString());
+           
+
+        }
+    }//GEN-LAST:event_tbNhanVienMouseClicked
+
+    private void btSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSearchActionPerformed
+        
+    }//GEN-LAST:event_btSearchActionPerformed
 
     /**
      * @param args the command line arguments

@@ -7,20 +7,31 @@ package DTO;
 
 
 public class ChiTietPhieuNhapDTO {
-    String MaPN,MaSach;
+    String ID,MaPN,MaSach;
     int SoLuong,DonGia;
     float ThanhTien;
 
     public ChiTietPhieuNhapDTO() {
     }
 
-    public ChiTietPhieuNhapDTO(String MaPN, String MaSach, int SoLuong, int DonGia, float ThanhTien) {
+    public ChiTietPhieuNhapDTO(String ID, String MaPN, String MaSach, int DonGia, int SoLuong, float ThanhTien) {
+        this.ID = ID;
         this.MaPN = MaPN;
         this.MaSach = MaSach;
         this.SoLuong = SoLuong;
         this.DonGia = DonGia;
         this.ThanhTien = ThanhTien;
     }
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    
 
     public String getMaPN() {
         return MaPN;

@@ -3,7 +3,12 @@ package BUS;
 
 import DAO.PhieuNhapDAO;
 import DTO.PhieuNhapDTO;
+import DTO.DateCustom;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class PhieuNhapBUS {
@@ -24,6 +29,7 @@ public class PhieuNhapBUS {
         if(listPhieuNhap==null) listPhieuNhap = new ArrayList<PhieuNhapDTO>();
         listPhieuNhap=data.loadDatabase();
     }
+    
     public void addPhieuNhap(PhieuNhapDTO sach) throws Exception{
         // validate data
         PhieuNhapDAO data =new PhieuNhapDAO();
@@ -68,27 +74,38 @@ public class PhieuNhapBUS {
         }
     }
    
-    public ArrayList<PhieuNhapDTO> searchPhieuNhap(String mapn,String manv,String mancc,float tienmin,float tienmax,int min,int max)
+    public ArrayList<PhieuNhapDTO> searchPhieuNhap(String mapn,String manv,String mancc,float tienmin,float tienmax,String min,String max) throws ParseException
     {
         ArrayList<PhieuNhapDTO> search = new ArrayList<>();
         mapn = mapn.isEmpty()?mapn = "": mapn;
         manv = manv.equalsIgnoreCase("Không")?manv = "": manv;
-        mancc = mancc.equalsIgnoreCase("Không")?mancc = "": mancc;
-       
-     
+        mancc = mancc.equalsIgnoreCase("Không")?mancc = "": mancc; 
+        DateCustom daymin=new DateCustom();
+        DateCustom daymax=new DateCustom();
+        setDate(daymin,min);
+        setDate(daymax,max);   
+        DateCustom ngaynhap;
         for(PhieuNhapDTO sach : listPhieuNhap)
         {
+            ngaynhap =new DateCustom(); setDate(ngaynhap,sach.getNgayNhap());
             if( sach.getMaPN().contains(mapn) &&
                 sach.getMaNV().contains(manv) &&
                 sach.getMaNCC().contains(mancc) &&
-                sach.getTongTien()>= tienmin && sach.getTongTien()<= tienmax //&&
-               // sach.getNgayNhap() >= min && sach.getNgayNhap() <= max
-               )
+                sach.getTongTien()>= tienmin && sach.getTongTien()<= tienmax &&
+                 daymin.CompareTo(ngaynhap) <= 0 && daymax.CompareTo(ngaynhap) >= 0
+               ) 
             {
+                
                 search.add(sach);
             }
         }
         return search;
+    }
+    public PhieuNhapDTO SearchMaPhieuNhap(String id){
+        for(PhieuNhapDTO ncc : listPhieuNhap){
+            if(ncc.getMaPN().equalsIgnoreCase(id)) return ncc;
+        }
+        return null;
     }
     public int TongTien(){
         int sum=0;
@@ -100,5 +117,79 @@ public class PhieuNhapBUS {
     public int getLengthListPhieuNhap(){
         return listPhieuNhap.size();
     }
+    private void  setDate(DateCustom date,String sdate){
+        String[] arr = sdate.split("-",3);
+        int y,d,m;
+        d=Integer.parseInt(arr[2]);
+        m=Integer.parseInt(arr[1]);
+        y=Integer.parseInt(arr[0]); 
+        date.setDay(d);
+        date.setMonth(m);
+        date.setYear(y);
+    }
+     private java.util.Date ConvertToDate(String date){
+        String[] arr = date.split("-",3);
+        int y,d,m;
+        d=Integer.parseInt(arr[2]);
+        m=Integer.parseInt(arr[1]);
+        y=Integer.parseInt(arr[0]);  
+        System.out.println("day: "+arr[2]+" months: "+arr[1]+" year: "+arr[0] );
+        Calendar day= Calendar.getInstance();
+        day.set(y, m, d);
+       // sdf.format(day);
+         System.out.println(day.getTime( ));
+         return day.getTime();
+    }
+    private Date getNgayNhap(String date) throws ParseException{
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+        Date day =new Date();
+       String  Sdate =sdf.format(day);
+        Date date1  = sdf1.parse(Sdate);
+        return date1;
+    }
+    private int getDay(String S) throws ParseException{
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date =sdf.parse(S);
+        Calendar carlen =Calendar.getInstance();
+        carlen.setTime(date);
+        int day =carlen.get(Calendar.DAY_OF_MONTH);
+        return day; 
+        } catch (ParseException e) {
+            
+        }
+        
+         return 0;      
+    }
+     private int getMonth(String S) throws ParseException{
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date =sdf.parse(S);
+        Calendar carlen =Calendar.getInstance();
+        carlen.setTime(date);
+        int month =carlen.get(Calendar.MONTH);
+        return month; 
+        } catch (ParseException e) {
+            
+        }
+        
+         return 0;      
+    }
+      private int getYear(String S) throws ParseException{
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date =sdf.parse(S);
+        Calendar carlen =Calendar.getInstance();
+        carlen.setTime(date);
+        int year =carlen.get(Calendar.YEAR);
+        return year; 
+        } catch (ParseException e) {
+            
+        }
+        
+         return 0;      
+    }
     
 }
+//SELECT * FROM phieunhap WHERE NgayNhap BETWEEN '2020-01-12' AND '2021-12-01'

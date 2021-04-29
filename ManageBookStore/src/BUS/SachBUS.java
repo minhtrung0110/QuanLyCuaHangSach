@@ -100,6 +100,20 @@ public class SachBUS {
         } 
         return sum;
     }
+    public float  DonGiaMax(){
+        float max=Float.MIN_VALUE;
+        for(SachDTO sach : listSach){
+            if( max<sach.getDongia()) max=sach.getDongia();
+        } 
+        return max;
+    }
+    public float  DonGiaMin(){
+        float min=Float.MAX_VALUE;
+        for(SachDTO sach : listSach){
+            if( min>sach.getDongia()) min=sach.getDongia();
+        } 
+        return min;
+    }
     public int TongSoSach(){
          int sum=0;
         for(SachDTO sach : listSach){

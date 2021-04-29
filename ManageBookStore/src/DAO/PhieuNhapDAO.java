@@ -15,12 +15,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Date;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 
 
 public class PhieuNhapDAO {
- 
+  
+                Calendar date = Calendar.getInstance();
 
 
    MyConnectUnit connect ;
@@ -37,9 +42,10 @@ public class PhieuNhapDAO {
             {
                 PhieuNhapDTO d = new  PhieuNhapDTO(rs.getString("MaPN"),
                         rs.getString("MaNV"),rs.getString("MaNCC"),
-                        rs.getBoolean("TrangThai"),rs.getFloat("TongTien"),rs.getString("NgayNhap"));       
+                        rs.getInt("TrangThai"),rs.getLong("TongTien"),rs.getString("NgayNhap") );       
                 dsd.add(d);
             }
+            
             rs.close();
             connect.Close();//dong ket noi;
 
@@ -56,7 +62,7 @@ public class PhieuNhapDAO {
         Insertvalues.put("MaPN",d.getMaPN());
         Insertvalues.put("MaNV", d.getMaNV());
         Insertvalues.put("MaNCC", d.getMaNCC());
-        Insertvalues.put("TrangThai", d.getTrangThai());
+        Insertvalues.put("TrangThai", d.isTrangThai());
         Insertvalues.put("TongTien", d.getTongTien());
         Insertvalues.put("NgayNhap", d.getNgayNhap());
         
@@ -73,7 +79,7 @@ public class PhieuNhapDAO {
         Updatevalues.put("MaPN",d.getMaPN());
         Updatevalues.put("MaNV", d.getMaNV());
         Updatevalues.put("MaNCC", d.getMaNCC());
-        Updatevalues.put("TrangThai", d.getTrangThai());
+        Updatevalues.put("TrangThai", d.isTrangThai());
         Updatevalues.put("TongTien", d.getTongTien());
         Updatevalues.put("NgayNhap", d.getNgayNhap());
 
@@ -86,11 +92,12 @@ public class PhieuNhapDAO {
     public void delete(String idSP)
     {
         try {
-                    this.connect.Delete("phieunhap","MaPhieuNhap ='"+idSP+"'");
+                    this.connect.Delete("phieunhap","MaPN ='"+idSP+"'");
                 } catch (Exception e) {
                     System.out.println("Lỗi không thể xóa !!");
                 }
         
     }
+   
 }
 

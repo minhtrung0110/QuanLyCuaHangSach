@@ -5,16 +5,20 @@
  */
 package DTO;
 
+import java.util.Calendar;
+import java.util.Date;
+
 
 public class PhieuNhapDTO {
-    String MaPN,MaNV,MaNCC,NgayNhap;
-    boolean TrangThai;
-    float TongTien;
+    String MaPN,MaNV,MaNCC;
+    String NgayNhap;
+    int TrangThai;
+    long TongTien;
 
     public PhieuNhapDTO() {
     }
 
-    public PhieuNhapDTO(String MaPN, String MaNV, String MaNCC, boolean TrangThai, float TongTien, String NgayNhap) {
+    public PhieuNhapDTO(String MaPN, String MaNV, String MaNCC, int TrangThai, long TongTien, String NgayNhap) {
         this.MaPN = MaPN;
         this.MaNV = MaNV;
         this.MaNCC = MaNCC;
@@ -55,24 +59,23 @@ public class PhieuNhapDTO {
         this.NgayNhap = NgayNhap;
     }
 
-    public boolean isTrangThai() {
+    public int isTrangThai() {
         return TrangThai;
     }
 
-    public void setTrangThai(boolean TrangThai) {
+    public void setTrangThai(int TrangThai) {
         this.TrangThai = TrangThai;
     }
 
-    public float getTongTien() {
+    public long getTongTien() {
         return TongTien;
     }
 
-    public void setTongTien(float TongTien) {
+    public void setTongTien(long TongTien) {
         this.TongTien = TongTien;
     }
-    public int getTrangThai(){
-        return (TrangThai)?1:0;
-    }
+    
+    
     
     
 }

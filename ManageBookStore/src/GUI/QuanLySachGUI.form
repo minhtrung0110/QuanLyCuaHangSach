@@ -79,7 +79,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="pThongKe" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="jSeparator1" alignment="0" pref="1079" max="32767" attributes="0"/>
@@ -109,16 +109,16 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pSearch" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="317" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pThongKe" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="79" max="32767" attributes="0"/>
+                      <EmptySpace pref="301" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="392" max="-2" attributes="0"/>
                           <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="641" max="32767" attributes="0"/>
+                          <EmptySpace pref="753" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1031,32 +1031,29 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="btThongKe" min="-2" pref="106" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="btThongKe" min="-2" pref="106" max="-2" attributes="0"/>
-                                  <EmptySpace pref="37" max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="TongLoaiSoSach" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="txTongSoLoaiSach" min="-2" pref="184" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lbTongDonGia" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txTongDonGia" min="-2" pref="184" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="TongSoSach" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txTongSoSach" min="-2" pref="184" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lbGiaMin" min="-2" max="-2" attributes="0"/>
+                              <Component id="TongLoaiSoSach" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txTongSoLoaiSach" pref="134" max="32767" attributes="0"/>
+                              <Component id="txDonGiaMin" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lbGiaMax" min="-2" max="-2" attributes="0"/>
+                              <Component id="TongSoSach" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txTongSoSach" pref="135" max="32767" attributes="0"/>
+                              <Component id="txDonGiaMax" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1064,33 +1061,36 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lbTongDonGia" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="txTongDonGia" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lbGiaMin" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="txDonGiaMin" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="lbGiaMax" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="txDonGiaMax" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txTongSoSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="TongSoSach" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <Component id="txTongSoLoaiSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="TongLoaiSoSach" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="btThongKe" alignment="0" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="TongLoaiSoSach" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="txTongSoLoaiSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="btThongKe" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="TongSoSach" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                              <Component id="txTongSoSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <EmptySpace pref="49" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="lbTongDonGia">
+                <Component class="javax.swing.JLabel" name="lbGiaMin">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="11" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="T&#x1ed2;NG &#x110;&#x1a0;N GI&#xc1;:"/>
+                    <Property name="text" type="java.lang.String" value="&#x110;&#x1a0;N GI&#xc1; TH&#x1ea4;P NH&#x1ea4;T:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="TongLoaiSoSach">
@@ -1106,9 +1106,9 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txTongSoLoaiSachActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txTongDonGia">
+                <Component class="javax.swing.JTextField" name="txDonGiaMin">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txTongDonGiaActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txDonGiaMinActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btThongKe">
@@ -1136,6 +1136,19 @@
                 <Component class="javax.swing.JTextField" name="txTongSoSach">
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txTongSoSachActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lbGiaMax">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="11" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="&#x110;&#x1a0;N GI&#xc1; CAO NH&#x1ea4;T:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txDonGiaMax">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txDonGiaMaxActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
