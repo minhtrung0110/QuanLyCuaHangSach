@@ -1016,7 +1016,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         Vector header = new Vector();
         header.add("MÃ SÁCH");
         header.add("MÃ NXB");
-         header.add("MÃ THỂ LOẠI");
+        header.add("MÃ THỂ LOẠI");
         header.add("MÃ TÁC GIẢ");
         header.add("TÊN SÁCH");
         header.add("NĂM XUẤT BẢN");

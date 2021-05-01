@@ -11,7 +11,7 @@ import java.util.HashMap;
 
 public class MyConnectUnit  {
     MySQLConnect connect;
-    private  String FILE_URL = "D:\\Leanring\\Universe\\SecondYear\\HK2\\Java\\QuanLyCuaHangSach\\Connection.txt";
+    private  String FILE_URL = "C:\\Users\\tungk\\OneDrive\\Documents\\NetBeansProjects\\QuanLyCuaHangSach\\ManageBookStore\\src\\DAO\\Connection.txt";
 
     //public MyConnectUnit() {
     //}
