@@ -103,7 +103,6 @@ public class GiamGiaGUI extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableChiTiet = new javax.swing.JTable();
         btnThemChiTiet = new javax.swing.JButton();
-        btnSua1 = new javax.swing.JButton();
         btnXoaChiTiet = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -394,14 +393,6 @@ public class GiamGiaGUI extends javax.swing.JPanel {
             }
         });
 
-        btnSua1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnSua1.setText("SỬA");
-        btnSua1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSua1ActionPerformed(evt);
-            }
-        });
-
         btnXoaChiTiet.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnXoaChiTiet.setText("XÓA");
         btnXoaChiTiet.addActionListener(new java.awt.event.ActionListener() {
@@ -427,7 +418,7 @@ public class GiamGiaGUI extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(0, 51, 51));
         jLabel11.setText("CHI TIẾT CHƯƠNG TRÌNH GIẢM GIÁ");
 
-        textTenSachTimKiem.setFont(new java.awt.Font("DejaVu Serif", 1, 16)); // NOI18N
+        textTenSachTimKiem.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
         textTenSachTimKiem.setEnabled(false);
         textTenSachTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -455,25 +446,24 @@ public class GiamGiaGUI extends javax.swing.JPanel {
                 .addComponent(jScrollPane1)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btmTimSach))
+                    .addComponent(textTenSachTimKiem)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel13)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(btnThemChiTiet))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(textPercentGiam, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnThemChiTiet)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSua1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnXoaChiTiet, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(textTenSachTimKiem))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnXoaChiTiet, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textPercentGiam, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -508,7 +498,6 @@ public class GiamGiaGUI extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnThemChiTiet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSua1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnXoaChiTiet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(58, Short.MAX_VALUE))
         );
@@ -647,10 +636,6 @@ public class GiamGiaGUI extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnThemChiTietActionPerformed
 
-    private void btnSua1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSua1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSua1ActionPerformed
-
     private void btnXoaChiTietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaChiTietActionPerformed
         // TODO add your handling code here:
         int selectedIndex = tableChiTiet.getSelectedRow();
@@ -682,7 +667,6 @@ public class GiamGiaGUI extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btmTimSach;
     private javax.swing.JButton btnSua;
-    private javax.swing.JButton btnSua1;
     private javax.swing.JButton btnTatCa;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnThemChiTiet;
