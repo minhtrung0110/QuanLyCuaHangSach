@@ -6,7 +6,7 @@
 package DTO;
 
 import BUS.KhachHangBUS;
-import GUI.KhachHangGUI;
+//import GUI.KhachHangGUI;
 import java.awt.event.KeyEvent;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;

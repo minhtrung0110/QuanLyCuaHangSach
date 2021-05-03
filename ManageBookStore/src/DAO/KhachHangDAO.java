@@ -19,7 +19,7 @@ public class KhachHangDAO {
     
     public KhachHangDAO(){
         try{
-          //  conn.testDriver();
+            //conn.testDriver();
         } catch(Exception e){
             JOptionPane.showMessageDialog(null, "Lỗi kết nối database");
         }
