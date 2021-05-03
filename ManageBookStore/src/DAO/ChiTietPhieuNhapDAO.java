@@ -115,6 +115,15 @@ public class ChiTietPhieuNhapDAO {
                 }
         
     }
+    public void deletebyMaSach(String idSach)
+    {
+        try {
+                    this.connect.Delete("chitietphieunhap","MaSach ='"+idSach+"'");
+                } catch (Exception e) {
+                    System.out.println("Lỗi không thể xóa !!");
+                }
+        
+    }
 }
 
 

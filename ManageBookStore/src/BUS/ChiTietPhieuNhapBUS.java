@@ -66,6 +66,24 @@ public class ChiTietPhieuNhapBUS {
         }
         
     }
+    public void deleteChiTietPhieuNhapByMaSach(String MaSach) throws Exception{
+        
+        for(ChiTietPhieuNhapDTO sach : listChiTietPhieuNhap )
+        {
+            if(sach.getMaSach().equalsIgnoreCase(MaSach))
+            {   
+                try {
+                   listChiTietPhieuNhap.remove(sach);
+                    ChiTietPhieuNhapDAO data =new ChiTietPhieuNhapDAO();
+                    data.deletebyMaSach(MaSach);
+                } catch (Exception e) {
+                    System.out.println("Khong the Xoa ChiTietPhieuNhap trong database  bằng Mã Sách !!!");
+                } 
+                return;
+            }
+        }
+        
+    }
     public void updateChiTietPhieuNhap(ChiTietPhieuNhapDTO sach) throws Exception{
          for(int i = 0 ; i < listChiTietPhieuNhap.size() ; i++)
         {
@@ -84,34 +102,33 @@ public class ChiTietPhieuNhapBUS {
             }
         }
     }
-   
-    /*public ArrayList<ChiTietPhieuNhapDTO> searchChiTietPhieuNhap(String mapn,String manv,String mancc,float tienmin,float tienmax,String min,String max) throws ParseException
+   public ArrayList<ChiTietPhieuNhapDTO> searchMaPN(String idPN ){
+       ArrayList<ChiTietPhieuNhapDTO> list =new ArrayList<>();
+       for(ChiTietPhieuNhapDTO ct : listChiTietPhieuNhap){
+           if( ct.getMaPN().equalsIgnoreCase(idPN)) list.add(ct);
+       }
+       return list;
+   }
+    public ArrayList<ChiTietPhieuNhapDTO> searchChiTietPhieuNhap(String mactpn,String masach,int giamin,int giamax,float tienmin,float tienmax) throws ParseException
     {
         ArrayList<ChiTietPhieuNhapDTO> search = new ArrayList<>();
-        mapn = mapn.isEmpty()?mapn = "": mapn;
-        manv = manv.equalsIgnoreCase("Không")?manv = "": manv;
-        mancc = mancc.equalsIgnoreCase("Không")?mancc = "": mancc; 
-        DateCustom daymin=new DateCustom();
-        DateCustom daymax=new DateCustom();
-        setDate(daymin,min);
-        setDate(daymax,max);   
-        DateCustom ngaynhap;
-        for(ChiTietPhieuNhapDTO sach : listChiTietPhieuNhap)
+        mactpn = mactpn.isEmpty()?mactpn = "": mactpn;
+        masach = masach.equalsIgnoreCase("Không")?masach = "": masach;
+       
+        for(ChiTietPhieuNhapDTO ct : listChiTietPhieuNhap)
         {
-            ngaynhap =new DateCustom(); setDate(ngaynhap,sach.getMaPN();
-            if( sach.getMaPN().contains(mapn) &&
-                sach.getMaNV().contains(manv) &&
-                sach.getMaNCC().contains(mancc) &&
-                sach.getTongTien()>= tienmin && sach.getTongTien()<= tienmax &&
-                 daymin.CompareTo(ngaynhap) <= 0 && daymax.CompareTo(ngaynhap) >= 0
+            if( ct.getID().contains(mactpn) &&
+                ct.getMaSach().contains(masach) &&
+                ct.getDonGia() >= giamin && ct.getDonGia() <= giamax &&
+                    ct.getThanhTien()>= tienmin && ct.getThanhTien() <=tienmax
                ) 
             {
                 
-                search.add(sach);
+                search.add(ct);
             }
         }
         return search;
-    }*/
+    }
   
     
 }

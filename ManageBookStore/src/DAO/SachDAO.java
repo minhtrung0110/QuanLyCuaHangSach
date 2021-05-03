@@ -16,6 +16,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.sql.*;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFCellStyle;
+import org.apache.poi.xssf.usermodel.XSSFFont;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class SachDAO {
    MyConnectUnit connect ;
@@ -67,7 +76,7 @@ public class SachDAO {
     }
       public void updateSach(SachDTO sach) throws Exception
     {
-         HashMap<String,Object> Updatevalues =new  HashMap<String,Object>();
+        HashMap<String,Object> Updatevalues =new  HashMap<String,Object>();
          
         Updatevalues.put("MaSach",sach.getMaSach());
         Updatevalues.put("MaNXB", sach.getMaNXB());
@@ -92,5 +101,163 @@ public class SachDAO {
                     System.out.println("Lỗi không thể xóa !!");
                 }
         
+    }
+    public void ExportExcelDatabase() throws Exception{
+        try{          
+            ResultSet rs = connect.Select("sach");
+            XSSFWorkbook workbook = new XSSFWorkbook();
+            XSSFSheet sheet = workbook.createSheet("SachDB");
+            
+                    
+            XSSFFont font = workbook.createFont();
+            font.setFontHeightInPoints((short) 12);
+            font.setBold(true);
+        
+            XSSFCellStyle style = workbook.createCellStyle();
+            style.setFont(font);
+            
+            XSSFRow row = sheet.createRow(0);
+            XSSFCell cell;
+            
+            cell = row.createCell(0,CellType.STRING);
+            cell.setCellValue("Mã Sách");
+            cell.setCellStyle(style);
+            cell = row.createCell(1,CellType.STRING);
+            cell.setCellValue("Mã NXB");
+            cell.setCellStyle(style);
+            cell = row.createCell(2,CellType.STRING);
+            cell.setCellValue("Mã Tác Giả");
+            cell.setCellStyle(style);
+            cell = row.createCell(3,CellType.STRING);
+            cell.setCellValue("Mã Thể Loại");
+            cell.setCellStyle(style);
+            cell = row.createCell(4,CellType.STRING);
+            cell.setCellValue("Tên Sách");
+            cell.setCellStyle(style);
+            cell = row.createCell(5,CellType.NUMERIC);
+            cell.setCellValue("Năm Xuất Bản");
+            cell.setCellStyle(style);
+            cell = row.createCell(6,CellType.NUMERIC);
+            cell.setCellValue("Số Lượng");
+            cell.setCellStyle(style);
+            cell = row.createCell(7,CellType.NUMERIC);
+            cell.setCellValue("Đơn Giá");
+            cell.setCellStyle(style);
+            cell = row.createCell(8,CellType.STRING);
+            cell.setCellValue("Hình Ảnh");
+            cell.setCellStyle(style);
+            int i = 1;
+       
+        while(rs.next()){
+            row = sheet.createRow(i);
+            cell = row.createCell(0,CellType.STRING);
+            cell.setCellValue(rs.getString("MaSach"));
+            cell = row.createCell(1,CellType.STRING);
+            cell.setCellValue(rs.getString("MaNXB"));
+            cell = row.createCell(2,CellType.STRING);
+            cell.setCellValue(rs.getString("MaTG"));
+            cell = row.createCell(3,CellType.STRING);
+            cell.setCellValue(rs.getString("MaTL"));
+            cell = row.createCell(4,CellType.STRING);
+            cell.setCellValue(rs.getString("TenSach"));
+            cell = row.createCell(5,CellType.NUMERIC);
+            cell.setCellValue(rs.getInt("NamXuatBan"));
+            cell = row.createCell(6,CellType.NUMERIC);
+            cell.setCellValue(rs.getInt("SoLuong"));
+            cell = row.createCell(7,CellType.NUMERIC);
+            cell.setCellValue(rs.getFloat("DonGia"));
+            cell = row.createCell(8,CellType.STRING);
+            cell.setCellValue(rs.getString("imgName"));
+            i++;
+        }
+        
+        for(int colNum = 0;colNum < row.getLastCellNum();colNum++) {
+            sheet.autoSizeColumn((short) (colNum));
+        }
+         
+        FileOutputStream out = new FileOutputStream(new File("./report/SachDB.xlsx"));
+        workbook.write(out);
+        out.close();
+        JOptionPane.showMessageDialog(null, "Xuất file excel thành công");
+        
+        } catch (Exception ex) {
+         JOptionPane.showMessageDialog(null, "Xuất file excel thất bại");
+        }
+    }
+    
+    public void ImportExcelDatabase(File file) throws Exception{
+        try{
+            FileInputStream in = new FileInputStream(file);
+            XSSFWorkbook workbook = new XSSFWorkbook(in);
+            XSSFSheet sheet = workbook.getSheetAt(0);
+            Row row;
+            for(int i = 1; i <= sheet.getLastRowNum(); i++){
+                row = sheet.getRow(i);
+             /*   String masach = row.getCell(0).getStringCellValue();
+                String manxb = row.getCell(1).getStringCellValue();
+                String matg = row.getCell(2).getStringCellValue();
+                String matl = row.getCell(3).getStringCellValue();
+                String tensach = row.getCell(4).getStringCellValue();
+                int namxb = (int) row.getCell(5).getNumericCellValue();
+                int sl = (int) row.getCell(6).getNumericCellValue();
+                int gia = (int) row.getCell(7).getNumericCellValue();
+                String IMG = row.getCell(8).getStringCellValue();
+                
+                String sql_check = "MaSP='"+masach+"'";
+                ResultSet rs = connect.Select("sach",sql_check);
+                if(!rs.next()){
+                    String sql = "INSERT INTO sanpham VALUES (";
+                    sql += "'"+masach+"',";
+                    sql += "N'"+manxb+"',";
+                    sql += "N'"+matg+"',";
+                    sql += "N'"+matl+"',";
+                    sql += "N'"+tensach+"',";
+                     sql += "'"+namxb+"',";
+                    sql += "'"+sl+"',";
+                    sql += "'"+gia+"',";
+                    sql += "'"+IMG+"')";
+                    System.out.println(sql);
+                    mySQL.executeUpdate(sql);
+                }
+                else{
+                    String sql = "UPDATE sanpham SET ";
+                    sql += "TENSP='"+tenSP+"', ";
+                    sql += "SOLUONG='"+sl+"', ";
+                    sql += "GIA='"+gia+"', ";
+                    sql += "DONVITINH='"+DVT+"', ";
+                    sql += "MALOAI='"+maLoai+"', ";
+                    sql += "MANSX='"+maNsx+"', ";
+                    sql += "IMG='"+IMG+"' ";
+                    sql += "WHERE MASP='"+maSP+"'";
+                    System.out.println(sql);    
+                    mySQL.executeUpdate(sql);
+                }
+            }
+            in.close();
+          
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException | SQLException ex) {
+            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        */
+            SachDTO sach=new SachDTO(row.getCell(0).getStringCellValue(),row.getCell(1).getStringCellValue(),
+                row.getCell(2).getStringCellValue(),row.getCell(3).getStringCellValue(),row.getCell(4).getStringCellValue(),
+                (int) row.getCell(5).getNumericCellValue(),(int) row.getCell(6).getNumericCellValue(),
+                (float) row.getCell(7).getNumericCellValue(),row.getCell(8).getStringCellValue()
+                );
+            
+            String sql_check = "MaSach='"+sach.getMaSach()+"'";
+            ResultSet rs = connect.Select("sach",sql_check);
+            if(!rs.next())
+             this.addSach(sach);
+            else 
+               this.updateSach(sach);
+      
+            }
+        }
+        catch(Exception ex){
+          System.out.println("Không Thể Import Sach Từ file Excel");
+        }
     }
 }

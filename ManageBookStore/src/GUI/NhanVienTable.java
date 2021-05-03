@@ -26,12 +26,14 @@ public class NhanVienTable extends javax.swing.JDialog {
     
     public NhanVienTable() {
         initComponents();
+        setModal(true);
         loadDSNhanVien();
     }
 
     public NhanVienTable(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        setModal(true);
         loadDSNhanVien();
     }
     
@@ -487,7 +489,8 @@ public class NhanVienTable extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     public String getMaNhanVien(){
-        return txMaNhanVien.getText();
+        String manv= txMaNhanVien.getText(); 
+        return manv;
     }
     private void loadDSNhanVien(){
          try {
@@ -573,7 +576,7 @@ public class NhanVienTable extends javax.swing.JDialog {
     }//GEN-LAST:event_txSearchNgaySinhMaxActionPerformed
 
     private void btXacNhanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btXacNhanMouseClicked
-               dispose();
+         dispose(); //return manv;
     }//GEN-LAST:event_btXacNhanMouseClicked
 
     private void tbNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbNhanVienMouseClicked

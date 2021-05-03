@@ -42,6 +42,7 @@ public class ChiTietHoaDonDAO {
        String sql="INSERT INTO chitiethoadon VALUES ('"
                + ct.getMaHD()+"','"
                + ct.getMaSach()+"','"
+               + ct.getTenSach()+"','"
                + ct.getSoLuong()+"','"
                + ct.getDonGia()+"','"
                + ct.getGiamGia()+"','"

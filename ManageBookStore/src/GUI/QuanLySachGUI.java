@@ -1,5 +1,6 @@
 
 package GUI;
+import BUS.ChiTietPhieuNhapBUS;
 import BUS.NXBBUS;
 import BUS.SachBUS;
 import BUS.TacGiaBUS;
@@ -92,8 +93,6 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         btXacNhan = new javax.swing.JButton();
         btQuayLai = new javax.swing.JButton();
         btChonAnh = new javax.swing.JButton();
-        lbImg = new javax.swing.JLabel();
-        btHienThiTatCa = new javax.swing.JButton();
         pSearch = new javax.swing.JPanel();
         lbSearchMaSach = new javax.swing.JLabel();
         txSearchMaSach = new javax.swing.JTextField();
@@ -128,6 +127,12 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         txTongSoSach = new javax.swing.JTextField();
         lbGiaMax = new javax.swing.JLabel();
         txDonGiaMax = new javax.swing.JTextField();
+        pButton2 = new javax.swing.JPanel();
+        btNhapExcel = new javax.swing.JButton();
+        btXuatExcel = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        lbImg = new javax.swing.JLabel();
+        btHienThiTatCa = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -355,41 +360,25 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                     .addComponent(btXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
                     .addComponent(btChonAnh, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                     .addComponent(btQuayLai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pButtonLayout.setVerticalGroup(
             pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pButtonLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(0, 0, 0)
                 .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btThem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
                 .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSua, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
+                .addGap(10, 10, 10)
                 .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btChonAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(10, 10, 10))
         );
-
-        lbImg.setBackground(new java.awt.Color(102, 255, 102));
-        lbImg.setForeground(new java.awt.Color(153, 153, 153));
-        lbImg.setText("Ảnh");
-        lbImg.setToolTipText("");
-        lbImg.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 153)));
-        lbImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        btHienThiTatCa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btHienThiTatCa.setText("HIỂN THỊ TẤT CẢ");
-        btHienThiTatCa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btHienThiTatCa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btHienThiTatCaActionPerformed(evt);
-            }
-        });
 
         pSearch.setBackground(new java.awt.Color(255, 255, 255));
         pSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204)), "Tìm Kiếm", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(0, 0, 153))); // NOI18N
@@ -518,7 +507,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                         .addComponent(txSearchMax, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(btTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         pSearchLayout.setVerticalGroup(
             pSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -560,7 +549,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         tbSach.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(0, 153, 51), new java.awt.Color(102, 102, 102)));
-        tbSach.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
+        tbSach.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tbSach.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -671,6 +660,80 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
+        pButton2.setBackground(new java.awt.Color(255, 255, 255));
+
+        btNhapExcel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btNhapExcel.setText("NHẬP  EXCEL");
+        btNhapExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btNhapExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNhapExcelActionPerformed(evt);
+            }
+        });
+
+        btXuatExcel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btXuatExcel.setText("XUẤT EXCEL");
+        btXuatExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btXuatExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btXuatExcelActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pButton2Layout = new javax.swing.GroupLayout(pButton2);
+        pButton2.setLayout(pButton2Layout);
+        pButton2Layout.setHorizontalGroup(
+            pButton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pButton2Layout.createSequentialGroup()
+                .addGroup(pButton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btXuatExcel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btNhapExcel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
+                .addGap(0, 20, Short.MAX_VALUE))
+        );
+        pButton2Layout.setVerticalGroup(
+            pButton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pButton2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btXuatExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btNhapExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        lbImg.setBackground(new java.awt.Color(102, 255, 102));
+        lbImg.setForeground(new java.awt.Color(153, 153, 153));
+        lbImg.setText("Ảnh");
+        lbImg.setToolTipText("");
+        lbImg.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 153)));
+        lbImg.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lbImg, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 10, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbImg, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        btHienThiTatCa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btHienThiTatCa.setText("HIỂN THỊ TẤT CẢ");
+        btHienThiTatCa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btHienThiTatCa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btHienThiTatCaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MainPanelLayout = new javax.swing.GroupLayout(MainPanel);
         MainPanel.setLayout(MainPanelLayout);
         MainPanelLayout.setHorizontalGroup(
@@ -683,15 +746,18 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                     .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addComponent(pInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(MainPanelLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
+                                .addGap(2, 2, 2)
+                                .addComponent(pButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btHienThiTatCa, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbImg, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 160, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 24, Short.MAX_VALUE))
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
@@ -699,9 +765,9 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(pThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(40, 40, 40))
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1079, Short.MAX_VALUE))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1110, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -709,28 +775,31 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(pButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btHienThiTatCa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(pInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(pButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btHienThiTatCa, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 1, Short.MAX_VALUE))
                     .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(lbImg)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(19, 19, 19)
+                        .addComponent(pButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(pSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(21, 21, 21)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(301, Short.MAX_VALUE))
+                .addContainerGap(322, Short.MAX_VALUE))
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MainPanelLayout.createSequentialGroup()
                     .addGap(392, 392, 392)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(753, Short.MAX_VALUE)))
+                    .addContainerGap(769, Short.MAX_VALUE)))
         );
 
         jScrollPane2.setViewportView(MainPanel);
@@ -790,7 +859,9 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 String idSach=txMaSach.getText();
                 try {
                     SachBUS bus =new SachBUS();
+                    ChiTietPhieuNhapBUS ctpn = new ChiTietPhieuNhapBUS();
                     bus.deleteSach(idSach);
+                    ctpn.deleteChiTietPhieuNhapByMaSach(idSach);//xóa trong chi tiết phiếu nhập luôn
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(this, "Lỗi Không Thể Xóa","Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
                 }
@@ -1006,6 +1077,41 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
     private void txDonGiaMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txDonGiaMaxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txDonGiaMaxActionPerformed
+
+    private void btXuatExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btXuatExcelActionPerformed
+        SachBUS bus =new SachBUS();
+        try {
+            bus.ExportExcelDatabase();
+            //JOptionPane.showMessageDialog(null, "Xuất file excel thành công");     
+        } catch (Exception ex) {
+             JOptionPane.showMessageDialog(null, "Xuất file excel thất bại");     
+        }
+    }//GEN-LAST:event_btXuatExcelActionPerformed
+
+    private void btNhapExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNhapExcelActionPerformed
+       JFileChooser fc = new JFileChooser();
+                FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "Excel", "xlsx");
+                fc.setFileFilter(filter);
+                SachBUS bus =new SachBUS();
+                int result = fc.showOpenDialog(null);
+                if (result == JFileChooser.APPROVE_OPTION) 
+                {
+                    File file = fc.getSelectedFile(); //Lấy URL
+           try {
+               bus.ImportExcelDatabase(file);
+           } catch (Exception ex) {
+               JOptionPane.showMessageDialog(null, "Import file excel thất bại"); 
+           }
+           try {
+               bus.loadDSSach();
+           } catch (Exception ex) {
+               JOptionPane.showMessageDialog(null, "Xuất file excel ra table thất bại"); 
+           }
+                    outModel(model, bus.getlistSach());
+                    JOptionPane.showMessageDialog(null, "Nhap file excel thanh cong");
+                }
+    }//GEN-LAST:event_btNhapExcelActionPerformed
     private void InitVisible(){
         lbImg.setIcon(new ImageIcon("./src/img/profile01-250px.png"));
                 btXacNhan.setVisible(false);
@@ -1198,6 +1304,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
     private javax.swing.JLabel TongSoSach;
     private javax.swing.JButton btChonAnh;
     private javax.swing.JButton btHienThiTatCa;
+    private javax.swing.JButton btNhapExcel;
     private javax.swing.JButton btQuayLai;
     private javax.swing.JButton btSua;
     private javax.swing.JButton btThem;
@@ -1205,6 +1312,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
     private javax.swing.JButton btTimKiem;
     private javax.swing.JButton btXacNhan;
     private javax.swing.JButton btXoa;
+    private javax.swing.JButton btXuatExcel;
     private javax.swing.JComboBox<String> cbMaNXB;
     private javax.swing.JComboBox<String> cbMaTG;
     private javax.swing.JComboBox<String> cbMaTL;
@@ -1213,6 +1321,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
     private javax.swing.JComboBox<String> cbSearchMaTL;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
@@ -1237,6 +1346,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
     private javax.swing.JLabel lbTenSach;
     private javax.swing.JLabel lnNamXuatBan;
     private javax.swing.JPanel pButton;
+    private javax.swing.JPanel pButton2;
     private javax.swing.JPanel pInput;
     private javax.swing.JPanel pSearch;
     private javax.swing.JPanel pThongKe;

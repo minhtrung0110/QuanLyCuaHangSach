@@ -3,7 +3,10 @@ package BUS;
 
 import DAO.SachDAO;
 import DTO.SachDTO;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class SachBUS {
@@ -16,7 +19,13 @@ public class SachBUS {
     public static ArrayList<SachDTO> getListSach() {
         return listSach;
     }
-    
+    public  void setlistSach(ArrayList<SachDTO> listSach) {
+        SachBUS.listSach = listSach;
+    }
+
+    public  ArrayList<SachDTO> getlistSach() {
+        return listSach;
+    }
     public SachBUS() {
     }
     public void  loadDSSach() throws Exception{
@@ -67,7 +76,35 @@ public class SachBUS {
             }
         }
     }
-   
+   public boolean CheckSL(String MaSP,int SoLuong){
+        for(SachDTO sach : listSach)
+         {
+             if(sach.getMaSach().equals(MaSP))
+             {
+                
+                int old = sach.getSoluong();
+                if(SoLuong > old)
+                {
+                    JOptionPane.showMessageDialog(null, "Không đủ hàng");
+                    return false;
+                }
+                old -= SoLuong;
+                sach.setSoluong(old);
+                
+                 try {
+                    SachDAO sachDAO = new SachDAO();
+                    sachDAO.updateSach(sach);
+                 } catch (IOException ex) {
+                    System.out.println("Không thể cập nhật số lượng.");
+                 } catch (Exception ex) {
+                    System.out.println("Không thể cập nhật số Lượng.");
+                 }
+                
+                return true;
+             }
+         }
+         return false;
+    }
     public ArrayList<SachDTO> searchSach(String masach,String manxb,String matg,String matl,String tensach,int namxbmin,int namxbmax,float min,float max)
     {
         ArrayList<SachDTO> search = new ArrayList<>();
@@ -124,5 +161,15 @@ public class SachBUS {
     public int getLengthListSach(){
         return listSach.size();
     }
+    public void ExportExcelDatabase() throws IOException, Exception{
+        SachDAO data = new SachDAO();
+        data.ExportExcelDatabase();
+    }
+    
+    public void ImportExcelDatabase(File file) throws IOException, Exception{
+        SachDAO data = new SachDAO();
+        data.ImportExcelDatabase(file);
+    }
+
     
 }

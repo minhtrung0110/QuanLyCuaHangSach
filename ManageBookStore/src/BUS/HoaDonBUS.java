@@ -120,10 +120,27 @@ public class HoaDonBUS {
         }
         return TimKiem;
     }
+    public String AutoMaHD(){
+        int max=0;
+        String s="";
+        for(HoaDonDTO hd:DSHoaDon){
+            int id=Integer.parseInt(hd.getMaHD());
+            if(id>max){
+                max=id;
+            }
+        }
+        for(int i=0;i<4-String.valueOf(max+1).length();i++){
+            s+="0";
+        }
+        return s+(max+1);
+    }
     public ArrayList<HoaDonDTO> getList(){
         return DSHoaDon;
     }
     /*public static void main(String []args){
         System.out.println("Khoi dep trai");
     }*/
+
+   
+
 }
