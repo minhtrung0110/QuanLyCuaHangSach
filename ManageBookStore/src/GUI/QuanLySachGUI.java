@@ -402,7 +402,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         btTimKiem.setBackground(new java.awt.Color(0, 0, 153));
         btTimKiem.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btTimKiem.setForeground(new java.awt.Color(153, 153, 153));
-        btTimKiem.setIcon(new javax.swing.ImageIcon("D:\\Leanring\\Universe\\SecondYear\\HK2\\Java\\QuanLyCuaHangSach\\ManageBookStore\\src\\img\\search_25px_focus.png")); // NOI18N
+        btTimKiem.setIcon(new javax.swing.ImageIcon("D:\\Leanring\\Universe\\SecondYear\\HK2\\Java\\QuanLyCuaHangSach\\ManageBookStore\\src\\img\\search_25px.png")); // NOI18N
         btTimKiem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

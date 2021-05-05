@@ -48,12 +48,35 @@ public class MyConnectUnit  {
          System.out.println(query);
         return connect.excuteQuery(query.toString());
     }
+    
     public ResultSet Select(String tableName,String condition) throws Exception {
        return this.Select(tableName, condition, null);
     } 
     public ResultSet Select(String tableName) throws Exception {
        return this.Select(tableName, null);
     } 
+    public ResultSet SelectCustom(String tableName,String Custom, String condition,String GroupBy,String Oderby) throws Exception {
+        StringBuilder query = new StringBuilder("SELECT "+Custom+" FROM "+tableName);
+        this.AddCondition(query,condition);
+        this.AddOderby(query,Oderby);
+        this.AddGroupby(query, GroupBy);
+        query.append(";");
+         System.out.println(query);
+        return connect.excuteQuery(query.toString());
+    }
+    public ResultSet SelectCustom(String tableName,String Custom, String condition,String Groupby) throws Exception {
+        return SelectCustom(tableName,Custom,condition,Groupby,null);
+    }
+    public ResultSet SelectCustomGroupBy(String tableName,String Custom,String Groupby) throws Exception {
+        return SelectCustom(tableName,Custom,null,Groupby,null);
+    }
+    public ResultSet SelectCustom(String tableName,String Custom, String condition) throws Exception {
+        return SelectCustom(tableName,Custom,condition,null,null);
+    }
+    public ResultSet SelectCustom(String tableName,String Custom) throws Exception {
+        return SelectCustom(tableName,Custom,null,null,null);
+    }
+    
     public boolean Insert(String tableName,HashMap<String,Object> columnValue) throws Exception {
          StringBuilder query = new StringBuilder("INSERT INTO " +tableName);
         StringBuilder valueInsert = new StringBuilder();
@@ -125,6 +148,9 @@ public class MyConnectUnit  {
     }
     private void AddOderby (StringBuilder query,String Oderby){
         if(Oderby!=null) query.append(" ODERBY "+Oderby);
+    }
+    private void AddGroupby (StringBuilder query,String Groupby){
+        if(Groupby!=null) query.append(" GROUP BY "+Groupby);
     }
     public void Close()throws SQLException{
         connect.Close();
