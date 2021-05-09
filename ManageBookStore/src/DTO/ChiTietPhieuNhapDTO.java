@@ -22,7 +22,14 @@ public class ChiTietPhieuNhapDTO {
         this.DonGia = DonGia;
         this.ThanhTien = ThanhTien;
     }
-
+     public ChiTietPhieuNhapDTO(String ID, String MaPN, String MaSach, int DonGia, int SoLuong) {
+        this.ID = ID;
+        this.MaPN = MaPN;
+        this.MaSach = MaSach;
+        this.SoLuong = SoLuong;
+        this.DonGia = DonGia;
+        this.ThanhTien = SoLuong * DonGia;
+    }
     public String getID() {
         return ID;
     }
@@ -68,7 +75,9 @@ public class ChiTietPhieuNhapDTO {
     public float getThanhTien() {
         return ThanhTien;
     }
-
+    public float caculateThanhTien(){
+        return SoLuong * DonGia;
+    }
     public void setThanhTien(float ThanhTien) {
         this.ThanhTien = ThanhTien;
     }

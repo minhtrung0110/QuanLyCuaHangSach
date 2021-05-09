@@ -859,9 +859,8 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 String idSach=txMaSach.getText();
                 try {
                     SachBUS bus =new SachBUS();
-                    ChiTietPhieuNhapBUS ctpn = new ChiTietPhieuNhapBUS();
                     bus.deleteSach(idSach);
-                    ctpn.deleteChiTietPhieuNhapByMaSach(idSach);//xóa trong chi tiết phiếu nhập luôn
+                   
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(this, "Lỗi Không Thể Xóa","Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
                 }

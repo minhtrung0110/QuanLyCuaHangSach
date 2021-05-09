@@ -4,6 +4,7 @@ package BUS;
 import DAO.PhieuNhapDAO;
 import DTO.PhieuNhapDTO;
 import DTO.DateCustom;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -21,7 +22,13 @@ public class PhieuNhapBUS {
     public static ArrayList<PhieuNhapDTO> getListPhieuNhap() {
         return listPhieuNhap;
     }
-    
+     public void setlistPhieuNhap(ArrayList<PhieuNhapDTO> listPhieuNhap) {
+        PhieuNhapBUS.listPhieuNhap = listPhieuNhap;
+    }
+
+    public ArrayList<PhieuNhapDTO> getlistPhieuNhap() {
+        return listPhieuNhap;
+    }
     public PhieuNhapBUS() {
     }
     public void  loadDSPhieuNhap() throws Exception{
@@ -73,7 +80,7 @@ public class PhieuNhapBUS {
             }
         }
     }
-   
+    
     public ArrayList<PhieuNhapDTO> searchPhieuNhap(String mapn,String manv,String mancc,float tienmin,float tienmax,String min,String max) throws ParseException
     {
         ArrayList<PhieuNhapDTO> search = new ArrayList<>();

@@ -124,6 +124,15 @@ public class ChiTietPhieuNhapDAO {
                 }
         
     }
+    public void deletebyMaPN(String idPN)
+    {
+        try {
+                    this.connect.Delete("chitietphieunhap","MaPN ='"+idPN+"'");
+                } catch (Exception e) {
+                    System.out.println("Lỗi không thể xóa !!");
+                }
+        
+    }
 }
 
 

@@ -66,6 +66,24 @@ public class ChiTietPhieuNhapBUS {
         }
         
     }
+    public void deleteChiTietPhieuNhapByMaPN(String MaPN) throws Exception{
+        
+        for(ChiTietPhieuNhapDTO sach : listChiTietPhieuNhap )
+        {
+            if(sach.getMaPN().equalsIgnoreCase(MaPN))
+            {   
+                try {
+                   listChiTietPhieuNhap.remove(sach);
+                    ChiTietPhieuNhapDAO data =new ChiTietPhieuNhapDAO();
+                    data.deletebyMaPN(MaPN);
+                } catch (Exception e) {
+                    System.out.println("Khong the Xoa ChiTietPhieuNhap trong database  bằng Mã Phiếu Nhập !!!");
+                } 
+                return;
+            }
+        }
+        
+    }
     public void deleteChiTietPhieuNhapByMaSach(String MaSach) throws Exception{
         
         for(ChiTietPhieuNhapDTO sach : listChiTietPhieuNhap )
@@ -102,6 +120,7 @@ public class ChiTietPhieuNhapBUS {
             }
         }
     }
+    
    public ArrayList<ChiTietPhieuNhapDTO> searchMaPN(String idPN ){
        ArrayList<ChiTietPhieuNhapDTO> list =new ArrayList<>();
        for(ChiTietPhieuNhapDTO ct : listChiTietPhieuNhap){
