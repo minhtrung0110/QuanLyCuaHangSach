@@ -128,6 +128,13 @@ public class ChiTietPhieuNhapBUS {
        }
        return list;
    }
+   
+   public ChiTietPhieuNhapDTO searchMaChiTietPN(String idCTPN ){
+       for(ChiTietPhieuNhapDTO ct : listChiTietPhieuNhap){
+           if( ct.getID().equalsIgnoreCase(idCTPN)) return ct;
+       }
+       return null ;
+   }
     public ArrayList<ChiTietPhieuNhapDTO> searchChiTietPhieuNhap(String mactpn,String masach,int giamin,int giamax,float tienmin,float tienmax) throws ParseException
     {
         ArrayList<ChiTietPhieuNhapDTO> search = new ArrayList<>();
@@ -148,7 +155,20 @@ public class ChiTietPhieuNhapBUS {
         }
         return search;
     }
-  
+  public ArrayList<ChiTietPhieuNhapDTO> searchMaSach(String idPN ){
+       ArrayList<ChiTietPhieuNhapDTO> list =new ArrayList<>();
+       for(ChiTietPhieuNhapDTO ct : listChiTietPhieuNhap){
+           if( ct.getMaPN().equalsIgnoreCase(idPN)) list.add(ct);
+       }
+       return list;
+   }
+   public ArrayList<String> getListMaSach( ) throws Exception{
+       ArrayList<String> list =new ArrayList<String>();
+       for(ChiTietPhieuNhapDTO ct : listChiTietPhieuNhap) {
+           list.add(ct.getMaSach());
+       }
+       return list ;
+   }
     
 }
 //SELECT * FROM phieunhap WHERE NgayNhap BETWEEN '2020-01-12' AND '2021-12-01'

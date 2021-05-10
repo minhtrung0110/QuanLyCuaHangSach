@@ -96,9 +96,8 @@ public class ThongKeDAO {
         }
         return Sum;
     }
-    public float  TongTienPhieuNhapTheoNgayNhapvaNCC(String IDNCC,String ngaymin,String ngaymax){
-       //SELECT  SUM(TongTien) AS TongTienPhieuNhap FROM phieunhap WHERE MaNV='K02' AND NgayNhap BETWEEN '2020-12-20' AND '2021-05-02'
-        float Sum=0;
+    public float  TongTienPhieuNhapTheoQuyvaNCC(String IDNCC,String ngaymin,String ngaymax){
+        //SELECT MANCC,SUM(TongTien) AS TongTienPhieuNhap ,QUARTER(NgayNhap) AS QUY FROM `phieunhap` GROUP BY QUY        float Sum=0;
         try {
           ResultSet rs = connect.SelectCustom("phieunhap", "SUM(TongTien) AS TongTienPhieuNhap","MaNV='"+IDNCC+"' AND NgayNhap BETWEEN '"+ngaymin+"' AND '"+ngaymax+"'");
           Sum=rs.getFloat("TongTienPhieuNhap");

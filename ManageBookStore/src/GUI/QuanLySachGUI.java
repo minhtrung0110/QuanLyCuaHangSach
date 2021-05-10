@@ -2,12 +2,14 @@
 package GUI;
 import BUS.ChiTietPhieuNhapBUS;
 import BUS.NXBBUS;
+import BUS.PhieuNhapBUS;
 import BUS.SachBUS;
 import BUS.TacGiaBUS;
 import BUS.TheLoaiBUS;
 import BUS.ValidatorBUS;
 import DTO.SachDTO;
 import DAO.SachDAO;
+import DTO.ChiTietPhieuNhapDTO;
 import DTO.NXBDTO;
 import DTO.TacGiaDTO;
 import DTO.TheLoaiDTO;
@@ -36,6 +38,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
 
     private int DEFALUT_WIDTH;
     private DefaultTableModel model;
+    private ChiTietPhieuNhapBUS ctpnBUS =new ChiTietPhieuNhapBUS();
     private NXBBUS nxbBUS =new NXBBUS();
     private TacGiaBUS tgBUS =new TacGiaBUS();
     private TheLoaiBUS tlBUS =new TheLoaiBUS();
@@ -77,8 +80,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         lbTenSach = new javax.swing.JLabel();
         lbSoLuong = new javax.swing.JLabel();
         lbDonGia = new javax.swing.JLabel();
-        txMaSach = new javax.swing.JTextField();
-        cbMaNXB = new javax.swing.JComboBox<>();
+        cbMaSach = new javax.swing.JComboBox<>();
         cbMaTL = new javax.swing.JComboBox<>();
         cbMaTG = new javax.swing.JComboBox<>();
         txTenSach = new javax.swing.JTextField();
@@ -86,6 +88,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         txDonGia = new javax.swing.JTextField();
         lnNamXuatBan = new javax.swing.JLabel();
         txNamXuatBan = new javax.swing.JTextField();
+        cbMaNXB = new javax.swing.JComboBox<>();
         pButton = new javax.swing.JPanel();
         btThem = new javax.swing.JButton();
         btSua = new javax.swing.JButton();
@@ -95,13 +98,12 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         btChonAnh = new javax.swing.JButton();
         pSearch = new javax.swing.JPanel();
         lbSearchMaSach = new javax.swing.JLabel();
-        txSearchMaSach = new javax.swing.JTextField();
         lbSearchMaNXB = new javax.swing.JLabel();
         lbSearchMaTG = new javax.swing.JLabel();
         lbSearchTenSach = new javax.swing.JLabel();
         txSearchTenSach = new javax.swing.JTextField();
         btTimKiem = new javax.swing.JButton();
-        cbSearchMaNXB = new javax.swing.JComboBox<>();
+        cbSearchMaSach = new javax.swing.JComboBox<>();
         cbSearchMaTG = new javax.swing.JComboBox<>();
         cbSearchMaTL = new javax.swing.JComboBox<>();
         lbSearchMATL = new javax.swing.JLabel();
@@ -114,6 +116,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         txSearchNamXuatBanMin = new javax.swing.JTextField();
         txSearchNamXuatBanMax = new javax.swing.JTextField();
         lbSearchNamXuatBanMax = new javax.swing.JLabel();
+        cbSearchMaNXB = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbSach = new javax.swing.JTable();
@@ -165,14 +168,12 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         lbDonGia.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbDonGia.setText("ĐƠN GIÁ:");
 
-        txMaSach.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        cbMaNXB.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbMaNXB.addItem(" ");
-        cbMaNXB.addKeyListener(this);
-        cbMaNXB.addActionListener(new java.awt.event.ActionListener() {
+        cbMaSach.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cbMaSach.addItem(" ");
+        cbMaSach.addKeyListener(this);
+        cbMaSach.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbMaNXBActionPerformed(evt);
+                cbMaSachActionPerformed(evt);
             }
         });
 
@@ -194,6 +195,15 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         lnNamXuatBan.setText("NĂM XUẤT BẢN:");
 
         txNamXuatBan.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        cbMaNXB.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cbMaNXB.addItem(" ");
+        cbMaSach.addKeyListener(this);
+        cbMaNXB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbMaNXBActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pInputLayout = new javax.swing.GroupLayout(pInput);
         pInput.setLayout(pInputLayout);
@@ -222,9 +232,10 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                             .addComponent(lbMaTL, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txMaSach, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbMaNXB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbMaTL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(pInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cbMaSach, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbMaTL, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbMaNXB, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pInputLayout.createSequentialGroup()
                         .addComponent(lnNamXuatBan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(10, 10, 10)
@@ -237,7 +248,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 .addGap(0, 0, 0)
                 .addGroup(pInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbMaNXB, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -386,8 +397,6 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         lbSearchMaSach.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbSearchMaSach.setText("MÃ SÁCH:");
 
-        txSearchMaSach.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
         lbSearchMaNXB.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lbSearchMaNXB.setText("MÃ NXB:");
 
@@ -410,8 +419,8 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             }
         });
 
-        cbSearchMaNXB.addItem("Không");
-        cbSearchMaNXB.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cbSearchMaSach.addItem("Không");
+        cbSearchMaSach.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         cbSearchMaTG.addItem("Không");
         cbSearchMaTG.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -456,6 +465,14 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         lbSearchNamXuatBanMax.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lbSearchNamXuatBanMax.setText("NĂM XB ĐẾN:");
 
+        cbSearchMaNXB.addItem("Không");
+        cbSearchMaNXB.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cbSearchMaNXB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSearchMaNXBActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pSearchLayout = new javax.swing.GroupLayout(pSearch);
         pSearch.setLayout(pSearchLayout);
         pSearchLayout.setHorizontalGroup(
@@ -463,12 +480,14 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             .addGroup(pSearchLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbSearchMaSach)
-                    .addComponent(lbSearchMaNXB))
-                .addGap(0, 0, 0)
-                .addGroup(pSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cbSearchMaNXB, 0, 161, Short.MAX_VALUE)
-                    .addComponent(txSearchMaSach))
+                    .addGroup(pSearchLayout.createSequentialGroup()
+                        .addComponent(lbSearchMaNXB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cbSearchMaNXB, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pSearchLayout.createSequentialGroup()
+                        .addComponent(lbSearchMaSach)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbSearchMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lbSearchMaTG)
@@ -507,7 +526,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                         .addComponent(txSearchMax, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(btTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         pSearchLayout.setVerticalGroup(
             pSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -516,19 +535,19 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                     .addGroup(pSearchLayout.createSequentialGroup()
                         .addGroup(pSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbSearchMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txSearchMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbSearchMaTG, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbSearchMaTG, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lbSearchTenSach, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txSearchTenSach, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbSearchMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(1, 1, 1)
                         .addGroup(pSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(lbSearchMaNXB, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbSearchMaNXB, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lbSearchMATL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbSearchMaTL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cbSearchMaTL, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbSearchMaNXB, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(pSearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(txSearchMax, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lbMax, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -540,7 +559,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                                 .addComponent(txSearchNamXuatBanMin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lbSearchNamXuatBanMin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(btTimKiem))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5))
         );
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 102));
@@ -757,7 +776,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 24, Short.MAX_VALUE))
+                .addGap(0, 28, Short.MAX_VALUE))
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
@@ -767,7 +786,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 .addComponent(pThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40))
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1110, Short.MAX_VALUE))
+                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1114, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -790,11 +809,11 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                         .addComponent(pButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(pSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addGap(10, 10, 10)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(322, Short.MAX_VALUE))
+                .addContainerGap(336, Short.MAX_VALUE))
             .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MainPanelLayout.createSequentialGroup()
                     .addGap(392, 392, 392)
@@ -818,9 +837,9 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbMaNXBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMaNXBActionPerformed
+    private void cbMaSachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMaSachActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbMaNXBActionPerformed
+    }//GEN-LAST:event_cbMaSachActionPerformed
 
     private void btThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btThemActionPerformed
         EditorAdd=true;
@@ -848,6 +867,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         btXacNhan.setVisible(true);
         btQuayLai.setVisible(true);
         btChonAnh.setVisible(true);
+        
     }//GEN-LAST:event_btSuaActionPerformed
 
     private void btXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btXoaActionPerformed
@@ -856,7 +876,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         {
             int k = JOptionPane.showConfirmDialog(null, "Bạn Thực Sự Muốn Xóa Sách Này ?","Thông Báo",JOptionPane.YES_NO_OPTION);
             if(k == 0){
-                String idSach=txMaSach.getText();
+                String idSach=cbMaSach.getSelectedItem().toString();
                 try {
                     SachBUS bus =new SachBUS();
                     bus.deleteSach(idSach);
@@ -875,8 +895,8 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             try {
                 // Validate
                 StringBuilder sb =new StringBuilder();
-                ValidatorBUS.checkEmpty(txMaSach, sb, "Mã Sách Còn Trống!");
-                ValidatorBUS.checkEmpty(cbMaNXB, sb, "Mã Nhà Xuất Bản Còn Trống!");
+                ValidatorBUS.checkEmpty(cbMaSach, sb, "Mã Sách Còn Trống!");
+                ValidatorBUS.checkEmpty(cbMaSach, sb, "Mã Nhà Xuất Bản Còn Trống!");
                 ValidatorBUS.checkEmpty(cbMaTG, sb, "Mã Tác Giả Còn Trống!");
                 ValidatorBUS.checkEmpty(cbMaTL, sb, "Mã Thể Loại Còn Trống!");
                 ValidatorBUS.checkEmpty(txTenSach, sb, "Tên Sách Còn Trống!");
@@ -888,8 +908,8 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                     return ;
                 }
                 SachDTO sach=new SachDTO();
-                sach.setMaSach(txMaSach.getText());
-                sach.setMaNXB((String)cbMaNXB.getSelectedItem());
+                sach.setMaSach((String)cbMaSach.getSelectedItem());
+                sach.setMaNXB((String)cbMaSach.getSelectedItem());
                 sach.setMaTL((String)cbMaTL.getSelectedItem());
                 sach.setMaTG((String)cbMaTG.getSelectedItem());
                 sach.setTenSach(txTenSach.getText());
@@ -913,8 +933,8 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             {
                 try{
                     StringBuilder sb =new StringBuilder();
-                    ValidatorBUS.checkEmpty(txMaSach, sb, "Mã Sách Còn Trống!");
-                    ValidatorBUS.checkEmpty(cbMaNXB, sb, "Mã Nhà Xuất Bản Còn Trống!");
+                    ValidatorBUS.checkEmpty(cbMaSach, sb, "Mã Sách Còn Trống!");
+                    ValidatorBUS.checkEmpty(cbMaSach, sb, "Mã Nhà Xuất Bản Còn Trống!");
                     ValidatorBUS.checkEmpty(cbMaTG, sb, "Mã Tác Giả Còn Trống!");
                     ValidatorBUS.checkEmpty(cbMaTL, sb, "Mã Thể Loại Còn Trống!");
                     ValidatorBUS.checkEmpty(txTenSach, sb, "Tên Sách Còn Trống!");
@@ -927,8 +947,8 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                     }
 
                     SachDTO sach=new SachDTO();
-                    sach.setMaSach(txMaSach.getText());
-                    sach.setMaNXB(cbMaNXB.getSelectedItem().toString());
+                    sach.setMaSach(cbMaSach.getSelectedItem().toString());
+                    sach.setMaNXB(cbMaSach.getSelectedItem().toString());
                     sach.setMaTL(cbMaTL.getSelectedItem().toString());
                     sach.setMaTG(cbMaTG.getSelectedItem().toString());
                     sach.setTenSach(txTenSach.getText());
@@ -988,7 +1008,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             try {
                 File file = fc.getSelectedFile(); //Lấy URL hình
                 this.i = ImageIO.read(file); // Lấy hình
-                imgName = txMaSach.getText().concat(".jpg"); //Tên hình
+                imgName = cbMaSach.getSelectedItem().toString().concat(".jpg"); //Tên hình
 
                 // Thay đổi hình hiển thị
                 lbImg.setText("");
@@ -1032,7 +1052,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 newImage = new ImageIcon("./src/img/SanPham/NoImage.jpg").getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
             }
 
-            txMaSach.setText(tbSach.getModel().getValueAt(i, 0).toString());
+            cbMaSach.setSelectedItem(tbSach.getModel().getValueAt(i, 0).toString());
             cbMaNXB.setSelectedItem(nxbBUS.searchMaNXB(tbSach.getModel().getValueAt(i, 1).toString()).getMaNXB());
             cbMaTL.setSelectedItem(tlBUS.searchMaTL(tbSach.getModel().getValueAt(i, 2).toString()).getMaTL());
             cbMaTG.setSelectedItem(tgBUS.searchMaTG(tbSach.getModel().getValueAt(i, 3).toString()).getMaTG());
@@ -1111,6 +1131,14 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                     JOptionPane.showMessageDialog(null, "Nhap file excel thanh cong");
                 }
     }//GEN-LAST:event_btNhapExcelActionPerformed
+
+    private void cbMaNXBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbMaNXBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbMaNXBActionPerformed
+
+    private void cbSearchMaNXBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSearchMaNXBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbSearchMaNXBActionPerformed
     private void InitVisible(){
         lbImg.setIcon(new ImageIcon("./src/img/profile01-250px.png"));
                 btXacNhan.setVisible(false);
@@ -1166,8 +1194,8 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         
     }
     private void cleanView(){
-        txMaSach.setText("");
-        cbMaNXB.setSelectedItem("");
+        cbMaSach.setSelectedItem("");
+        cbMaSach.setSelectedItem("");
         cbMaTG.setSelectedItem("");
         cbMaTL.setSelectedItem("");
         txTenSach.setText("");
@@ -1201,12 +1229,12 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             int namxbmax = txSearchNamXuatBanMax.getText().equals("") ? 4000: Integer.parseInt(txSearchNamXuatBanMax.getText()); 
             float min = txSearchMin.getText().equals("") ? 0 : Float.parseFloat(txSearchMin.getText());
             float max = txSearchMax.getText().equals("") ? 999999: Float.parseFloat(txSearchMax.getText());    
-            search=bus.searchSach(txSearchMaSach.getText(),
+            search=bus.searchSach(cbSearchMaSach.getSelectedItem().toString(),
                     cbSearchMaNXB.getSelectedItem().toString(),
                     cbSearchMaTG.getSelectedItem().toString(), 
                     cbSearchMaTL.getSelectedItem().toString(), 
                     txSearchTenSach.getText(),namxbmin,namxbmax,min,max);
-          System.out.println(txSearchMaSach.getText()+" "+cbSearchMaNXB.getSelectedItem()+" "+namxbmin+" --- "+txSearchTenSach.getText() +" "+min+" -- "+max);
+          System.out.println(cbSearchMaSach.getSelectedItem().toString()+" "+cbSearchMaNXB.getSelectedItem().toString()+" "+cbSearchMaTG.getSelectedItem().toString()+" "+namxbmin+" --- "+txSearchTenSach.getText() +" "+min+" -- "+max);
         } catch (Exception e) {
          JOptionPane.showMessageDialog(this,"Không Thể Tìm Kiếm ", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
         }
@@ -1252,12 +1280,14 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             Logger.getLogger(QuanLySachGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }    public void LoadComboBox() throws Exception{
+        listMaSach(cbMaSach,cbSearchMaSach);
         listNXB(cbMaNXB);
         listTG(cbMaTG);
         listTL(cbMaTL);
         listNXB(cbSearchMaNXB);
         listTG(cbSearchMaTG);
         listTL(cbSearchMaTL);
+       
         
     }
     public void listNXB(JComboBox cmb) throws Exception
@@ -1287,6 +1317,16 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         }
       
     }
+    public void listMaSach(JComboBox cmb1,JComboBox cmb2) throws Exception
+    {
+        if(ctpnBUS.getListChiTietPN() == null) ctpnBUS.loadDSChiTietPhieuNhap();            System.out.println("Sach");
+         ArrayList<ChiTietPhieuNhapDTO> list  = ctpnBUS.getListChiTietPN();
+        for(ChiTietPhieuNhapDTO  a: list){
+            cmb1.addItem(a.getMaSach());
+            cmb2.addItem(a.getMaSach());
+        }
+      
+    }
     public void addCombo(JComboBox cmb,ArrayList<Object> list)
     {
         for(Object a:list)
@@ -1313,9 +1353,11 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
     private javax.swing.JButton btXoa;
     private javax.swing.JButton btXuatExcel;
     private javax.swing.JComboBox<String> cbMaNXB;
+    private javax.swing.JComboBox<String> cbMaSach;
     private javax.swing.JComboBox<String> cbMaTG;
     private javax.swing.JComboBox<String> cbMaTL;
     private javax.swing.JComboBox<String> cbSearchMaNXB;
+    private javax.swing.JComboBox<String> cbSearchMaSach;
     private javax.swing.JComboBox<String> cbSearchMaTG;
     private javax.swing.JComboBox<String> cbSearchMaTL;
     private javax.swing.JLabel jLabel1;
@@ -1353,9 +1395,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
     private javax.swing.JTextField txDonGia;
     private javax.swing.JTextField txDonGiaMax;
     private javax.swing.JTextField txDonGiaMin;
-    private javax.swing.JTextField txMaSach;
     private javax.swing.JTextField txNamXuatBan;
-    private javax.swing.JTextField txSearchMaSach;
     private javax.swing.JTextField txSearchMax;
     private javax.swing.JTextField txSearchMin;
     private javax.swing.JTextField txSearchNamXuatBanMax;
@@ -1375,7 +1415,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         Object a = e.getSource();
-        if(a.equals(cbSearchMaTG) || a.equals(cbSearchMaTL) || a.equals(cbSearchMaNXB) || a.equals(txSearchMaSach) 
+        if(a.equals(cbSearchMaTG) || a.equals(cbSearchMaTL) || a.equals(cbSearchMaSach) || a.equals(cbSearchMaSach.getSelectedItem().toString()) 
                 || a.equals(txSearchTenSach) || a.equals(txSearchMin) || a.equals(txSearchMax)
                 || a.equals(txSearchNamXuatBanMin) /*|| a.equals(txSearchMin)*/ )
         {

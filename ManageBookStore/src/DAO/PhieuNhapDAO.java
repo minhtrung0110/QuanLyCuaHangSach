@@ -33,6 +33,17 @@ public class PhieuNhapDAO {
     public PhieuNhapDAO() throws IOException {
         connect  =new MyConnectUnit();
     }
+    public PhieuNhapDTO getPhieuNhap(String MaPN) throws IOException, Exception{
+         ResultSet rs=connect.Select("phieunhap","MaPN = "+"'"+MaPN+"'");
+         PhieuNhapDTO pn =new PhieuNhapDTO();
+         pn.setMaPN(rs.getString("MaPN"));
+         pn.setMaNV(rs.getString("MaNV"));              
+         pn.setMaNV(rs.getString("MaNCC"));
+         pn.setTrangThai(rs.getInt("TrangThai"));               
+         pn.setTongTien(rs.getLong("TongTien"));                      
+         pn.setNgayNhap(rs.getString("NgayNhap"));   
+         return pn;        
+    } 
      public ArrayList<PhieuNhapDTO> loadDatabase() throws Exception
     {
         ArrayList<PhieuNhapDTO> dsd = new ArrayList<>();

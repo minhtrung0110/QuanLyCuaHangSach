@@ -105,18 +105,38 @@ public class SachBUS {
          }
          return false;
     }
+   public SachDTO searchMaSach (String masach)
+    {
+        for(SachDTO s : listSach)
+        {
+            if(s.getMaSach().equalsIgnoreCase(masach) )
+            {
+                return s;
+            }
+        }
+        return null;
+    }
     public ArrayList<SachDTO> searchSach(String masach,String manxb,String matg,String matl,String tensach,int namxbmin,int namxbmax,float min,float max)
     {
         ArrayList<SachDTO> search = new ArrayList<>();
-        masach = masach.isEmpty()?masach = "": masach;
+        masach = masach.equalsIgnoreCase("Không")?masach = "": masach;
         manxb = manxb.equalsIgnoreCase("Không")?manxb = "": manxb;
         matg = matg.equalsIgnoreCase("Không")?matg = "": matg;
         matl = matl.equalsIgnoreCase("Không")?matl = "": matl;
         tensach = tensach.isEmpty()?tensach = "": tensach;
-     
+        
         for(SachDTO sach : listSach)
         {
-            if( sach.getMaSach().contains(masach) &&
+            /* System.out.println(sach.getMaSach().contains(masach) );
+
+            System.out.println( sach.getMaNXB().contains(manxb));
+            System.out.println( sach.getMaTG().contains(matg)  );
+            System.out.println( sach.getMaTL().contains(matl) );
+            System.out.println( sach.getTenSach().contains(tensach));
+            System.out.println( sach.getNamXuatBan()>= namxbmin && sach.getNamXuatBan()<= namxbmax );
+            System.out.println(sach.getDongia() >= min && sach.getDongia() <= max );*/
+            
+             if( sach.getMaSach().contains(masach) &&
                 sach.getMaNXB().contains(manxb) &&
                 sach.getMaTG().contains(matg) &&
                 sach.getMaTL().contains(matl) &&
@@ -125,6 +145,7 @@ public class SachBUS {
                 sach.getDongia() >= min && sach.getDongia() <= max
                )
             {
+                
                 search.add(sach);
             }
         }

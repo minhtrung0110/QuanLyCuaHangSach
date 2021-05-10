@@ -217,6 +217,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
             }
         });
 
+        txMaNhanVien.setEditable(false);
         txMaNhanVien.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txMaNhanVien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,6 +411,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setText("MÃ NHÂN VIÊN:");
 
+        txSearchMaNhanVien.setEditable(false);
         txSearchMaNhanVien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txSearchMaNhanVienActionPerformed(evt);
@@ -1136,7 +1138,11 @@ public class NhapHangGUI extends javax.swing.JPanel {
                
                 this.insertHeader();
                 this.outModel(model,PhieuNhapBUS.getListPhieuNhap());
-
+                try {
+                    listPN(cbMaPN);
+                } catch (Exception ex) {
+                    Logger.getLogger(NhapHangGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this,"Lỗi Thêm Phiếu Nhập ", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
             }
@@ -1189,24 +1195,23 @@ public class NhapHangGUI extends javax.swing.JPanel {
             if(k == 0){
                 String idPhieuNhap=txMaPN.getText();
                 try {
+                     ChiTietPhieuNhapBUS busct =new ChiTietPhieuNhapBUS();
+                    busct.deleteChiTietPhieuNhapByMaPN(idPhieuNhap);
                     PhieuNhapBUS bus =new PhieuNhapBUS();
-                    bus.deletePhieuNhap(idPhieuNhap);
-                    System.out.println("1");
-                    
+                    bus.deletePhieuNhap(idPhieuNhap);                 
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(this, "Lỗi Không Thể Xóa","Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
                 }
                 model.removeRow(i);
                 tbPhieuNhap.setModel(model);
+                /* Cap nhat lai combobox MaPN*/
+                try {
+                    listPN(cbMaPN);
+                } catch (Exception ex) {
+                    Logger.getLogger(NhapHangGUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
-        ChiTietPhieuNhapBUS busct =new ChiTietPhieuNhapBUS();
-        try {
-            busct.deleteChiTietPhieuNhapByMaPN(txMaPN.getText());
-        } catch (Exception ex) {
-            Logger.getLogger(NhapHangGUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-System.out.println("1");
     }//GEN-LAST:event_btXoaActionPerformed
 
     private void btShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btShowAllActionPerformed
@@ -1230,25 +1235,27 @@ System.out.println("1");
         ct.setMaPN(cbMaPN.getSelectedItem().toString());
         ct.setMaSach(txMaSach.getText());
         ct.setDonGia(Integer.parseInt(txDonGia.getText()));
-        ct.setSoLuong(Integer.parseInt(txSoLuong.getText()));
-        
+        ct.setSoLuong(Integer.parseInt(txSoLuong.getText()));        
         ct.setThanhTien(ct.caculateThanhTien());
         //Validate
-        //System.out.println(ct.getID());
+        
        
         try {
             ChiTietPhieuNhapBUS bus =new ChiTietPhieuNhapBUS();
-                bus.addChiTietPhieuNhap(ct);      
-            PhieuNhapBUS pnbus =new PhieuNhapBUS();
-                long totalprice=pnbus.SearchMaPhieuNhap(ct.getMaPN()).getTongTien();
-                totalprice+=ct.getThanhTien();
-            PhieuNhapDTO pn=new PhieuNhapDTO();         
-                pn.setTongTien(totalprice);
-            pnbus.updatePhieuNhap(pn);
-            insertHeader();
-            outModel(model,pnbus.getlistPhieuNhap());              
+                bus.addChiTietPhieuNhap(ct);    
             insertHeaderChiTiet();
             outModelChiTiet(modelchitiet,bus.getListChiTietPN());
+             //Cập Nhật Lại Tồng Tiền Phiếu Nhập
+            PhieuNhapBUS pnbus =new PhieuNhapBUS();  
+                long totalprice=pnbus.SearchMaPhieuNhap(ct.getMaPN()).getTongTien();
+                totalprice+=ct.getThanhTien();               
+                PhieuNhapDTO pn=new PhieuNhapDTO();
+                pn=pnbus.SearchMaPhieuNhap(ct.getMaPN());      
+                pn.setTongTien(totalprice);
+            pnbus.updatePhieuNhap(pn);                
+            insertHeader();
+            outModel(model,pnbus.getlistPhieuNhap());              
+            
         } catch (Exception ex) {
              JOptionPane.showMessageDialog(this,"Không Thể Thêm ChiTietPhieuNhap ", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
         }
@@ -1270,7 +1277,24 @@ System.out.println("1");
                 ChiTietPhieuNhapBUS bus =new ChiTietPhieuNhapBUS();
                 boolean check=true;
                     try {
+                        ChiTietPhieuNhapDTO temp1=bus.searchMaChiTietPN(ct.getID());
                         bus.updateChiTietPhieuNhap(ct);
+                        ChiTietPhieuNhapDTO temp2=bus.searchMaChiTietPN(ct.getID());
+                        /*Kiem tra thanh tien co thay doi hay khong*/
+                        float sum1,sum2;sum1=temp1.getThanhTien();sum2=temp2.getThanhTien();
+                        if(sum1!=sum2) {
+                            PhieuNhapBUS pnbus =new PhieuNhapBUS();  
+                            long totalprice=pnbus.SearchMaPhieuNhap(ct.getMaPN()).getTongTien();
+                            //Tính lại tồng số tiền
+                            if(sum1<sum2) totalprice+=(sum2-sum1);      
+                            else totalprice-=(sum1-sum2);      
+                            PhieuNhapDTO pn=new PhieuNhapDTO();
+                            pn=pnbus.SearchMaPhieuNhap(ct.getMaPN());      
+                            pn.setTongTien(totalprice);
+                            pnbus.updatePhieuNhap(pn);         
+                            insertHeader();
+                            outModel(model,pnbus.getlistPhieuNhap());
+                        }
                     } catch (Exception e) {
                         check=false;
                         JOptionPane.showMessageDialog(this,"Không Thể Sửa Phiếu Nhập", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
@@ -1297,10 +1321,23 @@ System.out.println("1");
         {
             int k = JOptionPane.showConfirmDialog(null, "Bạn Thực Sự Muốn Xóa Chi Tiết Phiếu Nhập Này ?","Thông Báo",JOptionPane.YES_NO_OPTION);
             if(k == 0){
-                String idPhieuNhap=txMaCTPN.getText();
+                String idCTPhieuNhap=txMaCTPN.getText();
                 try {
                     ChiTietPhieuNhapBUS bus =new ChiTietPhieuNhapBUS();
-                    bus.deleteChiTietPhieuNhap(idPhieuNhap);
+                    /*Tinh lai tổng tiền của phiếu nhập*/
+
+                    ChiTietPhieuNhapDTO ct=bus.searchMaChiTietPN(idCTPhieuNhap);System.out.println(ct.getID()); 
+                    bus.deleteChiTietPhieuNhap(idCTPhieuNhap);
+                    PhieuNhapBUS pnbus =new PhieuNhapBUS();  
+                            long totalprice=pnbus.SearchMaPhieuNhap(ct.getMaPN()).getTongTien();
+                            totalprice-=ct.getThanhTien();       System.out.println(totalprice);        
+                            PhieuNhapDTO pn=new PhieuNhapDTO();
+                            pn=pnbus.SearchMaPhieuNhap(ct.getMaPN());      
+                            pn.setTongTien(totalprice);
+                            pnbus.updatePhieuNhap(pn);  
+                            insertHeader();
+                            outModel(model,pnbus.getlistPhieuNhap());
+                   
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(this, "Lỗi Không Thể Xóa","Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
                 }
@@ -1549,34 +1586,17 @@ System.out.println("1");
     }
     private void listPN(JComboBox cmb) throws Exception
     {
-        if(PhieuNhapBUS.getListPhieuNhap()== null) pn.loadDSPhieuNhap();
+        /*if(PhieuNhapBUS.getListPhieuNhap()== null)*/ pn.loadDSPhieuNhap();
         ArrayList<PhieuNhapDTO> tg = PhieuNhapBUS.getListPhieuNhap();
+        cmb.removeAllItems();
+        cmb.addItem("");
         for(PhieuNhapDTO  a: tg){
             cmb.addItem(a.getMaPN());
         }
       
     }
-    private java.util.Date ConvertToDate(String date){
-        String[] arr = date.split("-",3);
-        int y,d,m;
-        d=Integer.parseInt(arr[2]);
-        m=Integer.parseInt(arr[1]);
-        y=Integer.parseInt(arr[0]);  
-        System.out.println("day: "+arr[2]+" months: "+arr[1]+" year: "+arr[0] );
-        Calendar day= Calendar.getInstance();
-        day.set(y, m, d);
-       // sdf.format(day);
-         System.out.println(day.getTime( ));
-         return day.getTime();
-    }
-    private Date getNgayNhap(String date) throws ParseException{
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
-        Date day =new Date();
-       String  Sdate =sdf.format(day);
-        Date date1  = sdf1.parse(Sdate);
-        return date1;
-    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAddMaNV;
     private javax.swing.JButton btInPhieuNhap;
@@ -1664,7 +1684,6 @@ System.out.println("1");
     private javax.swing.JTextField txTrangThai;
     // End of variables declaration//GEN-END:variables
 }
-/*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-                Calendar date = Calendar.getInstance();
-                txtNgayNhap.setText(sdf.format(date.getTime()));*/
-// lấy Ngày giờ hiện tại
+/* lỗi sữa CTPN nhiều luc ko đc nhất la khi sua MAPN 
+Sữa nhiều lúc sai MACTPN
+*/

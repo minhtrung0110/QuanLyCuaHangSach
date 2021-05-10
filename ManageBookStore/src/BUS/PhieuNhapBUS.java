@@ -62,6 +62,11 @@ public class PhieuNhapBUS {
         }
         
     }
+    public PhieuNhapDTO getPhieuNhap(String MaPN) throws IOException, Exception{
+         PhieuNhapDAO data =new PhieuNhapDAO();
+         PhieuNhapDTO pn =new PhieuNhapDTO(); pn=data.getPhieuNhap(MaPN);
+         return pn;
+    }
     public void updatePhieuNhap(PhieuNhapDTO sach) throws Exception{
          for(int i = 0 ; i < listPhieuNhap.size() ; i++)
         {

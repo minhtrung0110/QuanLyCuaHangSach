@@ -73,7 +73,7 @@
                               <Component id="pButton2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="24" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="28" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
@@ -86,7 +86,7 @@
                       <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Component id="jSeparator1" alignment="0" pref="1110" max="32767" attributes="0"/>
+                      <Component id="jSeparator1" alignment="0" pref="1114" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -116,11 +116,11 @@
                           </Group>
                       </Group>
                       <Component id="pSearch" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="317" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="pThongKe" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="322" max="32767" attributes="0"/>
+                      <EmptySpace pref="336" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -182,9 +182,11 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txMaSach" alignment="1" min="-2" pref="223" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="cbMaSach" alignment="1" min="-2" pref="223" max="-2" attributes="0"/>
+                                          <Component id="cbMaTL" alignment="1" min="-2" pref="223" max="-2" attributes="0"/>
+                                      </Group>
                                       <Component id="cbMaNXB" alignment="1" min="-2" pref="223" max="-2" attributes="0"/>
-                                      <Component id="cbMaTL" alignment="1" min="-2" pref="223" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -203,7 +205,7 @@
                           <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbMaSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="txMaSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="cbMaSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -301,24 +303,17 @@
                     <Property name="text" type="java.lang.String" value="&#x110;&#x1a0;N GI&#xc1;:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txMaSach">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="12" style="0"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JComboBox" name="cbMaNXB">
+                <Component class="javax.swing.JComboBox" name="cbMaSach">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbMaNXBActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbMaSachActionPerformed"/>
                   </Events>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="cbMaNXB.addItem(&quot; &quot;);&#xd;&#xa;        cbMaNXB.addKeyListener(this);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="cbMaSach.addItem(&quot; &quot;);&#xd;&#xa;        cbMaSach.addKeyListener(this);"/>
                     <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="QuanLySachGUI_cbMaNXB"/>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -386,6 +381,21 @@
                       <Font name="Tahoma" size="12" style="0"/>
                     </Property>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cbMaNXB">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="12" style="0"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbMaNXBActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="cbMaNXB.addItem(&quot; &quot;);&#xd;&#xa;        cbMaSach.addKeyListener(this);"/>
+                    <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="QuanLySachGUI_cbMaNXB"/>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -626,13 +636,16 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="lbSearchMaSach" min="-2" max="-2" attributes="0"/>
-                              <Component id="lbSearchMaNXB" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="cbSearchMaNXB" alignment="0" pref="161" max="32767" attributes="0"/>
-                              <Component id="txSearchMaSach" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lbSearchMaNXB" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="cbSearchMaNXB" min="-2" pref="161" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lbSearchMaSach" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cbSearchMaSach" min="-2" pref="161" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -680,7 +693,7 @@
                               </Group>
                           </Group>
                           <Component id="btTimKiem" min="-2" pref="44" max="-2" attributes="0"/>
-                          <EmptySpace pref="59" max="32767" attributes="0"/>
+                          <EmptySpace pref="58" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -691,20 +704,20 @@
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lbSearchMaSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                      <Component id="txSearchMaSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                       <Component id="lbSearchMaTG" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                       <Component id="cbSearchMaTG" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                       <Component id="lbSearchTenSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                       <Component id="txSearchTenSach" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                                       <Component id="jLabel18" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                      <Component id="cbSearchMaSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                           <Component id="lbSearchMaNXB" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                                          <Component id="cbSearchMaNXB" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                           <Component id="lbSearchMATL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                           <Component id="cbSearchMaTL" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                                          <Component id="cbSearchMaNXB" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                                           <Component id="txSearchMax" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
@@ -722,7 +735,7 @@
                               </Group>
                               <Component id="btTimKiem" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -734,13 +747,6 @@
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="M&#xc3; S&#xc1;CH:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txSearchMaSach">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="12" style="0"/>
-                    </Property>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lbSearchMaNXB">
@@ -796,7 +802,7 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btTimKiemActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cbSearchMaNXB">
+                <Component class="javax.swing.JComboBox" name="cbSearchMaSach">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="0"/>
@@ -806,7 +812,7 @@
                     </Property>
                   </Properties>
                   <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="cbSearchMaNXB.addItem(&quot;Kh&#xf4;ng&quot;);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="cbSearchMaSach.addItem(&quot;Kh&#xf4;ng&quot;);"/>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
@@ -922,6 +928,23 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="N&#x102;M XB &#x110;&#x1ebe;N:"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JComboBox" name="cbSearchMaNXB">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Tahoma" size="12" style="0"/>
+                    </Property>
+                    <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbSearchMaNXBActionPerformed"/>
+                  </Events>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="cbSearchMaNXB.addItem(&quot;Kh&#xf4;ng&quot;);"/>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>

@@ -325,6 +325,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txMaNhanVienActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txMaNhanVien.setEditable(false);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btAddMaNV">
           <Properties>
@@ -738,6 +741,9 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txSearchMaNhanVienActionPerformed"/>
           </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="txSearchMaNhanVien.setEditable(false);"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="btSearchAddMaNV">
           <Properties>
