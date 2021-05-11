@@ -2,6 +2,7 @@
 
 package DAO;
 
+import DTO.ThongKeDTO;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -96,18 +97,23 @@ public class ThongKeDAO {
         }
         return Sum;
     }
-    public float  TongTienPhieuNhapTheoQuyvaNCC(String IDNCC,String ngaymin,String ngaymax){
+    public ArrayList<ThongKeDTO>  TongTienPhieuNhapTheoQuyvaNCC(){
         //SELECT MANCC,SUM(TongTien) AS TongTienPhieuNhap ,QUARTER(NgayNhap) AS QUY FROM `phieunhap` GROUP BY QUY        float Sum=0;
+       ArrayList<ThongKeDTO> values = new ArrayList<ThongKeDTO>();
         try {
-          ResultSet rs = connect.SelectCustom("phieunhap", "SUM(TongTien) AS TongTienPhieuNhap","MaNV='"+IDNCC+"' AND NgayNhap BETWEEN '"+ngaymin+"' AND '"+ngaymax+"'");
-          Sum=rs.getFloat("TongTienPhieuNhap");
-          rs.close();
-            connect.Close();//dong ket noi;
+          ResultSet rs = connect.SelectCustomGroupBy("phieunhap", " MANCC,SUM(TongTien) AS TongTienPhieuNhap ,QUARTER(NgayNhap) AS QUY " , " QUY");
+         while(rs.next())
+            {
+               ThongKeDTO tk =new ThongKeDTO(rs.getString("MANCC"),rs.getFloat("TongTienPhieuNhap"),rs.getString("QUY"));
+               values.add(tk);
+            }
+            rs.close();
+            connect.Close();
 
         } catch (Exception e) {
-            System.out.println("Khong the lay Tổng Tiền Tất Cả Phiếu Nhập Theo Ngày Nhập ");
+            System.out.println("Khong the lay Tổng Tiền Tất Cả Phiếu Nhập Theo Mã NCC");
         }
-        return Sum;
+        return values;
     }
    
     public void ExportExcelDatabase() throws Exception{

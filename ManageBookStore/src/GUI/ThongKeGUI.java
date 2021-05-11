@@ -2,6 +2,8 @@ package GUI;
 
 import BUS.SachBUS;
 import BUS.ThongKeBUS;
+import DTO.ThongKeDTO;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -51,9 +53,12 @@ public class ThongKeGUI extends javax.swing.JPanel {
         txSearchDayMax = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
         btMaNV = new javax.swing.JButton();
+        btTKtheoQuyvaNCC = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbPNtheoMaNCC = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbThongKeTheoQuyVaNCC = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -120,6 +125,13 @@ public class ThongKeGUI extends javax.swing.JPanel {
             }
         });
 
+        btTKtheoQuyvaNCC.setText("thongke");
+        btTKtheoQuyvaNCC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTKtheoQuyvaNCCActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -152,6 +164,8 @@ public class ThongKeGUI extends javax.swing.JPanel {
                         .addContainerGap(30, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btThongKePNtheoMaNCC, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btTKtheoQuyvaNCC)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -177,8 +191,10 @@ public class ThongKeGUI extends javax.swing.JPanel {
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txSearchDayMax, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(btThongKePNtheoMaNCC, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                .addGap(376, 376, 376))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btThongKePNtheoMaNCC)
+                    .addComponent(btTKtheoQuyvaNCC))
+                .addGap(517, 517, 517))
         );
 
         tbPNtheoMaNCC.setModel(new javax.swing.table.DefaultTableModel(
@@ -191,20 +207,37 @@ public class ThongKeGUI extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tbPNtheoMaNCC);
 
+        tbThongKeTheoQuyVaNCC.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+            }
+        ));
+        jScrollPane2.setViewportView(tbThongKeTheoQuyVaNCC);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane2)
+                .addGap(23, 23, 23))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -226,7 +259,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 16, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -266,9 +299,46 @@ public class ThongKeGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btMaNVActionPerformed
 
+    private void btTKtheoQuyvaNCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTKtheoQuyvaNCCActionPerformed
+         DefaultTableModel temp =new DefaultTableModel() ;   
+        ArrayList<ThongKeDTO> values =new  ArrayList<ThongKeDTO>();
+        
+        try {
+            ThongKeBUS bus =new ThongKeBUS();
+        if(bus.getTbthongke()==null) bus.ThongKeTienTheoQuyVaMaNCC();
+        values=bus.getTbthongketheoQuy();
+        //set Header
+        Vector header = new Vector();
+        header.add("   ");
+        header.add("QUÝ 1");
+        header.add("QUÝ 2");
+        header.add("QUÝ 3");
+        header.add("QUÝ 4");
+        temp=new DefaultTableModel(header,0);
+
+        //set content table
+       
+        Vector data;
+         temp.setRowCount(0);
+        for (ThongKeDTO tk : values) {
+            data=new Vector();
+            data.add(tk.getMa());
+            if(tk.getQuy().equalsIgnoreCase("1")) data.add(tk.getTien()); else data.add(" ");
+            if(tk.getQuy().equalsIgnoreCase("2")) data.add(tk.getTien()); else data.add(" ");
+            if(tk.getQuy().equalsIgnoreCase("3")) data.add(tk.getTien()); else data.add(" ");
+            if(tk.getQuy().equalsIgnoreCase("4")) data.add(tk.getTien()); else data.add(" ");           
+            temp.addRow(data);
+        }
+        tbThongKeTheoQuyVaNCC.setModel(temp);
+           } catch (Exception e) {
+            JOptionPane.showMessageDialog(this,"Không Thể Thống Kê tổng tiền Phiếu Nhập  Quý và Mã NCC ", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btTKtheoQuyvaNCCActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btMaNV;
+    private javax.swing.JButton btTKtheoQuyvaNCC;
     private javax.swing.JButton btThongKePNtheoMaNCC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;
@@ -280,8 +350,10 @@ public class ThongKeGUI extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tbPNtheoMaNCC;
+    private javax.swing.JTable tbThongKeTheoQuyVaNCC;
     private com.toedter.calendar.JDateChooser txSearchDayMax;
     private com.toedter.calendar.JDateChooser txSearchDayMin;
     // End of variables declaration//GEN-END:variables
