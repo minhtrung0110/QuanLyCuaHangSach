@@ -31,7 +31,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
     private String role;
     private boolean flag = true;
     private JPanel header,nav,main;
-    private int DEFAULT_HEIGHT = 1000,DEFALUT_WIDTH = 1300 ;
+    private int DEFAULT_HEIGHT = 1000,DEFALUT_WIDTH = 1350 ;
     private ArrayList<String> navItem = new ArrayList<>();  //Chứa thông tin có button cho menu gồm
     private ArrayList<navItem> navObj = new ArrayList<>();  //Chứa cái button trên thanh menu
     public QLNhaSach(String userID, String userName, String role) throws Exception
@@ -162,7 +162,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
         {
             
         }
-        QLNhaSach ql = new QLNhaSach();
+        //QLNhaSach ql = new QLNhaSach();
         
     }
 
