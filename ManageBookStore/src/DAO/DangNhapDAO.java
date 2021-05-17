@@ -34,11 +34,11 @@ public class DangNhapDAO {
             
             while(rs.next()){
                 TaiKhoanDTO tk = new TaiKhoanDTO();
-                tk.setMaTK(rs.getString(1));
-                tk.setTenTK(rs.getString(2));
-                tk.setMk(rs.getString(3));
-                tk.setStatus(rs.getBoolean(4));
-                tk.setQuyen(rs.getString(5));
+                tk.setMaTK(rs.getString("MaTK"));
+                tk.setTenTK(rs.getString("TenTaiKhoan"));
+                tk.setMk(rs.getString("MatKhau"));
+                tk.setQuyen(rs.getString("Quyen"));
+                tk.setStatus(rs.getBoolean("TrangThai"));
                 
                 taikhoan.add(tk);
             }

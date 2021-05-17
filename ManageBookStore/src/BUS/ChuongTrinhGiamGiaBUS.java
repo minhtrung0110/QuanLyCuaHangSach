@@ -8,6 +8,7 @@ package BUS;
 import DAO.ChuongTrinhGiamGiaDAO;
 import DTO.ChuongTrinhGiamGiaDTO;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -60,5 +61,19 @@ public class ChuongTrinhGiamGiaBUS {
             }
             i++;
         }
+    }
+    public ArrayList<ChuongTrinhGiamGiaDTO> timkiem (Date ngayBD, Date ngayKT){
+        ArrayList<ChuongTrinhGiamGiaDTO> dsTimThay = new ArrayList<>();
+        
+        for(ChuongTrinhGiamGiaDTO ct : dsChuongTrinh){
+            Date ctBD = ct.getNgayBD();
+            Date ctKT = ct.getNgayKT();
+            
+            if(ngayBD.compareTo(ctBD) <= 0 && ngayKT.compareTo(ctKT) >= 0){
+                dsTimThay.add(ct);
+                System.out.println("found");
+            }
+        }
+        return dsTimThay;
     }
 }

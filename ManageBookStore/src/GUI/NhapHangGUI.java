@@ -8,10 +8,12 @@ package GUI;
 import BUS.ChiTietPhieuNhapBUS;
 import BUS.NCCBUS;
 import BUS.PhieuNhapBUS;
+import BUS.SachBUS;
 import BUS.outBillNhapHang;
 import DTO.ChiTietPhieuNhapDTO;
 import DTO.NCCDTO;
 import DTO.PhieuNhapDTO;
+import DTO.SachDTO;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -1264,6 +1266,9 @@ public class NhapHangGUI extends javax.swing.JPanel {
                 bus.addChiTietPhieuNhap(ct);    
             insertHeaderChiTiet();
             outModelChiTiet(modelchitiet,bus.getListChiTietPN());
+            /* Tăng so lượng sản phẩm lên*/
+            SachBUS sachbus=new SachBUS();
+            sachbus.updateTangSLNhap(ct.getMaSach(), ct.getSoLuong());
              //Cập Nhật Lại Tồng Tiền Phiếu Nhập
             PhieuNhapBUS pnbus =new PhieuNhapBUS();  
                 long totalprice=pnbus.SearchMaPhieuNhap(ct.getMaPN()).getTongTien();
@@ -1292,15 +1297,19 @@ public class NhapHangGUI extends javax.swing.JPanel {
             ct.setDonGia(Integer.parseInt(txDonGia.getText()));
             ct.setSoLuong(Integer.parseInt(txSoLuong.getText()));
             ct.setThanhTien(ct.caculateThanhTien());
-
+           
                 ChiTietPhieuNhapBUS bus =new ChiTietPhieuNhapBUS();
                 boolean check=true;
                     try {
                         ChiTietPhieuNhapDTO temp1=bus.searchMaChiTietPN(ct.getID());
                         bus.updateChiTietPhieuNhap(ct);
                         ChiTietPhieuNhapDTO temp2=bus.searchMaChiTietPN(ct.getID());
+                        System.out.println(temp1.getMaSach());
+                        /*Cap nhat lai so luong trong Sach*/
+  
                         /*Kiem tra thanh tien co thay doi hay khong*/
                         float sum1,sum2;sum1=temp1.getThanhTien();sum2=temp2.getThanhTien();
+                        System.out.println(sum1 + "   "+sum2);
                         if(sum1!=sum2) {
                             PhieuNhapBUS pnbus =new PhieuNhapBUS();  
                             long totalprice=pnbus.SearchMaPhieuNhap(ct.getMaPN()).getTongTien();
@@ -1313,6 +1322,18 @@ public class NhapHangGUI extends javax.swing.JPanel {
                             pnbus.updatePhieuNhap(pn);         
                             insertHeader();
                             outModel(model,pnbus.getlistPhieuNhap());
+                           // System.out.println("update ben Nhap Hang ok");
+                         /*Cap nhat lai so luong trong Sach*/
+                         SachBUS sachbus=new SachBUS(); //System.out.println(Integer.parseInt((String) tbChiTietPN.getModel().getValueAt(i, 4)));
+                         int soluongnhap=Integer.parseInt( tbChiTietPN.getModel().getValueAt(i, 4).toString());
+                          int soluongcapnhat=ct.getSoLuong();
+                         
+                         //System.out.println(soluongcapnhat + " " + soluongnhap);
+                         /*neu capnhat lon hon thi tang nguoc lai thi giam*/
+                         if(soluongnhap <soluongcapnhat){ sachbus.updateTangSLNhap(ct.getMaSach(),soluongcapnhat - soluongnhap);
+                       //  System.out.println("capnhat tang dc");
+                         }
+                         else if(soluongnhap > soluongcapnhat) sachbus.updateGiamSLNhap(ct.getMaSach(),soluongnhap-soluongcapnhat);
                         }
                     } catch (Exception e) {
                         check=false;

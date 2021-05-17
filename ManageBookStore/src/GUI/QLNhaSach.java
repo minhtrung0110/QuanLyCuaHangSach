@@ -217,8 +217,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
             case 3: // QUẢN LÝ KHÁCH HÀNG
                 main.removeAll();
 
-              // main.add(new KhachHangGUI(DEFALUT_WIDTH));
-
+                main.add(new KhachHangGUI(DEFALUT_WIDTH));
                 //main.add(new KhachHangGUI(DEFALUT_WIDTH));
                 main.repaint();
                 main.revalidate();

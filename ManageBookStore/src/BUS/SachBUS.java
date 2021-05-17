@@ -93,6 +93,50 @@ public class SachBUS {
             }
         }
     }
+    public boolean updateTangSLNhap(String MaSP,int SoLuong){
+        for(SachDTO sach : listSach)
+         {
+             if(sach.getMaSach().equals(MaSP))
+             {
+                int temp=sach.getSoluong();
+                sach.setSoluong(temp + SoLuong);
+                
+                 try {
+                    SachDAO sachDAO = new SachDAO();
+                    sachDAO.updateSach(sach);
+                 } catch (IOException ex) {
+                    System.out.println("Không thể cập nhật số lượng.");
+                 } catch (Exception ex) {
+                    System.out.println("Không thể cập nhật số Lượng.");
+                 }
+                
+                return true;
+             }
+         }
+         return false;
+    }
+    public boolean updateGiamSLNhap(String MaSP,int SoLuong){
+        for(SachDTO sach : listSach)
+         {
+             if(sach.getMaSach().equals(MaSP))
+             {
+                int temp=sach.getSoluong();
+                sach.setSoluong(temp - SoLuong);
+                
+                 try {
+                    SachDAO sachDAO = new SachDAO();
+                    sachDAO.updateSach(sach);
+                 } catch (IOException ex) {
+                    System.out.println("Không thể cập nhật số lượng.");
+                 } catch (Exception ex) {
+                    System.out.println("Không thể cập nhật số Lượng.");
+                 }
+                
+                return true;
+             }
+         }
+         return false;
+    }
     public boolean updateSL(String MaSP,int SoLuong){
         for(SachDTO sach : listSach)
          {

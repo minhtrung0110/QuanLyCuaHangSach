@@ -900,7 +900,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 sach.setDongia(Float.parseFloat(txDonGia.getText()));
                 sach.setImgName(imgName);// dể tam dể sau này thêm Ảnh ở đây
                 SachBUS bus =new SachBUS();
-                /* Kiem sao so luong co hop le hong*/
+                /* Kiem sao so luong co hop le hong
                 ChiTietPhieuNhapBUS ctpnbus =new ChiTietPhieuNhapBUS();
                 if(!ctpnbus.CheckSL(sach.getMaSach(), sach.getSoluong())) 
                     sach.setSoluong(ctpnbus.getSoLuong(sach.getMaSach()));
@@ -943,7 +943,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                     sach.setSoluong(Integer.parseInt(txSoLuong.getText()));
                     sach.setDongia(Float.parseFloat(txDonGia.getText()));
                     sach.setImgName(imgName);
-                       /* Kiem sao so luong co hop le hong*/
+                       /* Kiem sao so luong co hop le hong
                     ChiTietPhieuNhapBUS ctpnbus =new ChiTietPhieuNhapBUS();
                     if(!ctpnbus.CheckSL(sach.getMaSach(), sach.getSoluong())) 
                         sach.setSoluong(ctpnbus.getSoLuong(sach.getMaSach()));

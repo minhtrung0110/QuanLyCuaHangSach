@@ -94,7 +94,7 @@ public class ChiTietPhieuNhapDAO {
       public void updateChiTietPhieuNhap(ChiTietPhieuNhapDTO pn) throws Exception
     {
          HashMap<String,Object> Updatevalues =new  HashMap<String,Object>();
-        Updatevalues.put("MaCTPN",pn.getMaPN());
+        Updatevalues.put("MaCTPN",pn.getID());
         Updatevalues.put("MaPN",pn.getMaPN());
         Updatevalues.put("MaSach", pn.getMaSach());
         Updatevalues.put("DonGia", pn.getDonGia());
