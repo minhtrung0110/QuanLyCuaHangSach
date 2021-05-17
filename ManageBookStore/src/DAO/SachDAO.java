@@ -36,13 +36,13 @@ public class SachDAO {
     {
         ArrayList<SachDTO> dssach = new ArrayList<>();
         try {
-            ResultSet rs = connect.Select("sach");
+            ResultSet rs = connect.Select("sach","TrangThai=1");
             while(rs.next())
             {
                 SachDTO sach = new  SachDTO(rs.getString("MaSach"),
                         rs.getString("MaNXB"),rs.getString("MaTG"),
                         rs.getString("MaTL"),rs.getString("TenSach"),rs.getInt("NamXuatBan"),
-                        rs.getInt("SoLuong"),rs.getFloat("DonGia"),rs.getString("imgName"));       
+                        rs.getInt("SoLuong"),rs.getFloat("DonGia"),rs.getString("imgName"),rs.getInt("TrangThai"));       
                 dssach.add(sach);
             }
             rs.close();
@@ -88,7 +88,7 @@ public class SachDAO {
         Updatevalues.put("DonGia", sach.getDongia());
         Updatevalues.put("imgName", sach.getImgName());
          try {
-           connect.Update("sach", Updatevalues," MaSach ='"+sach.getMaSach()+"'");
+           connect.Update("sach", Updatevalues," MaSach ='"+sach.getMaSach()+"' AND TrangThai=1");
         } catch (SQLException ex) {
             System.out.println("Khong the Cap nhat Sach vao database !!!");
         }
@@ -101,6 +101,25 @@ public class SachDAO {
                     System.out.println("Lỗi không thể xóa !!");
                 }
         
+    }
+     public void updateSachTrangThai(SachDTO sach) throws Exception
+    {
+        HashMap<String,Object> Updatevalues =new  HashMap<String,Object>();
+        Updatevalues.put("MaSach",sach.getMaSach());
+        Updatevalues.put("MaNXB", sach.getMaNXB());
+        Updatevalues.put("MaTG", sach.getMaTG());
+        Updatevalues.put("MaTL", sach.getMaTL());
+        Updatevalues.put("TenSach", sach.getTenSach());
+        Updatevalues.put("NamXuatBan", sach.getNamXuatBan());
+        Updatevalues.put("SoLuong", sach.getSoluong());
+        Updatevalues.put("DonGia", sach.getDongia());
+        Updatevalues.put("imgName", sach.getImgName());
+        Updatevalues.put("TrangThai", 0);
+         try {
+           connect.Update("sach", Updatevalues," MaSach ='"+sach.getMaSach()+"' AND TrangThai=1");
+        } catch (SQLException ex) {
+            System.out.println("Khong the Cap nhat Sach vao database !!!");
+        }
     }
     public void ExportExcelDatabase() throws Exception{
         try{          
@@ -193,59 +212,12 @@ public class SachDAO {
             Row row;
             for(int i = 1; i <= sheet.getLastRowNum(); i++){
                 row = sheet.getRow(i);
-             /*   String masach = row.getCell(0).getStringCellValue();
-                String manxb = row.getCell(1).getStringCellValue();
-                String matg = row.getCell(2).getStringCellValue();
-                String matl = row.getCell(3).getStringCellValue();
-                String tensach = row.getCell(4).getStringCellValue();
-                int namxb = (int) row.getCell(5).getNumericCellValue();
-                int sl = (int) row.getCell(6).getNumericCellValue();
-                int gia = (int) row.getCell(7).getNumericCellValue();
-                String IMG = row.getCell(8).getStringCellValue();
-                
-                String sql_check = "MaSP='"+masach+"'";
-                ResultSet rs = connect.Select("sach",sql_check);
-                if(!rs.next()){
-                    String sql = "INSERT INTO sanpham VALUES (";
-                    sql += "'"+masach+"',";
-                    sql += "N'"+manxb+"',";
-                    sql += "N'"+matg+"',";
-                    sql += "N'"+matl+"',";
-                    sql += "N'"+tensach+"',";
-                     sql += "'"+namxb+"',";
-                    sql += "'"+sl+"',";
-                    sql += "'"+gia+"',";
-                    sql += "'"+IMG+"')";
-                    System.out.println(sql);
-                    mySQL.executeUpdate(sql);
-                }
-                else{
-                    String sql = "UPDATE sanpham SET ";
-                    sql += "TENSP='"+tenSP+"', ";
-                    sql += "SOLUONG='"+sl+"', ";
-                    sql += "GIA='"+gia+"', ";
-                    sql += "DONVITINH='"+DVT+"', ";
-                    sql += "MALOAI='"+maLoai+"', ";
-                    sql += "MANSX='"+maNsx+"', ";
-                    sql += "IMG='"+IMG+"' ";
-                    sql += "WHERE MASP='"+maSP+"'";
-                    System.out.println(sql);    
-                    mySQL.executeUpdate(sql);
-                }
-            }
-            in.close();
-          
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException | SQLException ex) {
-            Logger.getLogger(SanPhamDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
+       
             SachDTO sach=new SachDTO(row.getCell(0).getStringCellValue(),row.getCell(1).getStringCellValue(),
                 row.getCell(2).getStringCellValue(),row.getCell(3).getStringCellValue(),row.getCell(4).getStringCellValue(),
                 (int) row.getCell(5).getNumericCellValue(),(int) row.getCell(6).getNumericCellValue(),
-                (float) row.getCell(7).getNumericCellValue(),row.getCell(8).getStringCellValue()
-                );
+                (float) row.getCell(7).getNumericCellValue(),row.getCell(8).getStringCellValue(),
+                (int) row.getCell(9).getNumericCellValue());
             
             String sql_check = "MaSach='"+sach.getMaSach()+"'";
             ResultSet rs = connect.Select("sach",sql_check);

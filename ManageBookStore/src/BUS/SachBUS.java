@@ -76,6 +76,23 @@ public class SachBUS {
             }
         }
     }
+    public void deleteSachByMaSach(String MaSach) throws Exception{
+         for(int i = 0 ; i < listSach.size() ; i++)
+        {
+            if(listSach.get(i).getMaSach().equals(MaSach))
+            {
+                try {
+                SachDAO data =new SachDAO();
+                data.updateSachTrangThai(listSach.get(i));
+                } catch (Exception e) {
+                    System.out.println("Khong the Cap nhat Sach vao database !!!");
+                   
+                }
+                
+                return;
+            }
+        }
+    }
    public boolean CheckSL(String MaSP,int SoLuong){
         for(SachDTO sach : listSach)
          {

@@ -181,7 +181,9 @@ public class timSachGiamGiaGUI extends javax.swing.JFrame {
                 Integer.parseInt(table.getValueAt(index, 5).toString()), 
                 Integer.parseInt(table.getValueAt(index, 6).toString()), 
                 Float.parseFloat(table.getValueAt(index, 7).toString() ), 
-                "");
+                "",
+                Integer.parseInt(table.getValueAt(index, 8).toString())
+                );
         GiamGiaGUI.setKetQuaTimKiem(sach);
         GiamGiaGUI.textTenSachTimKiem.setText(sach.getTenSach());
         dispose();

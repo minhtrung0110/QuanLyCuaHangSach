@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 
 public class ChiTietPhieuNhapBUS {
@@ -120,7 +121,26 @@ public class ChiTietPhieuNhapBUS {
             }
         }
     }
-    
+    public boolean CheckSL(String MaSP,int SoLuong){
+        for(ChiTietPhieuNhapDTO ctpn : listChiTietPhieuNhap)
+         {
+             if(ctpn.getMaSach().equalsIgnoreCase(MaSP))
+             {               
+                if(SoLuong <= ctpn.getSoLuong())   return true;
+             }
+         }
+         return false;
+    }
+    public int getSoLuong(String MaSP){
+        for(ChiTietPhieuNhapDTO ctpn : listChiTietPhieuNhap)
+         {
+             if(ctpn.getMaSach().equalsIgnoreCase(MaSP))
+             {               
+                return ctpn.getSoLuong();
+             }
+         }
+         return 0;
+    }
    public ArrayList<ChiTietPhieuNhapDTO> searchMaPN(String idPN ){
        ArrayList<ChiTietPhieuNhapDTO> list =new ArrayList<>();
        for(ChiTietPhieuNhapDTO ct : listChiTietPhieuNhap){

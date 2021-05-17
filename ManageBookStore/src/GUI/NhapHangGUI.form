@@ -110,7 +110,7 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="286" max="32767" attributes="0"/>
+              <EmptySpace pref="284" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -163,7 +163,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jLabel3" max="32767" attributes="0"/>
@@ -222,7 +222,7 @@
                       <Component id="jLabel7" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="txNgayNhap" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="40" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -917,7 +917,9 @@
                           <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txSearchMaSach" min="-2" pref="92" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btSearchAddMaSach" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel26" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txSearchGiaMin" min="-2" pref="108" max="-2" attributes="0"/>
@@ -972,6 +974,7 @@
                       <Component id="txSearchTongTienMin" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       <Component id="jLabel29" alignment="3" max="32767" attributes="0"/>
                       <Component id="txSearchTongTienMax" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="btSearchAddMaSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -1071,6 +1074,17 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btTimKiemCTPNActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btSearchAddMaSach">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="..."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSearchAddMaSachActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -1283,7 +1297,9 @@
                                   <Component id="txThanhTien" min="-2" pref="195" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btAddMaSach" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -1308,10 +1324,11 @@
                       <Component id="cbMaPN" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="jLabel8" alignment="1" min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                  <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel9" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="txMaSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="btAddMaSach" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -1437,6 +1454,17 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txMaCTPN">
+        </Component>
+        <Component class="javax.swing.JButton" name="btAddMaSach">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="..."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAddMaSachActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

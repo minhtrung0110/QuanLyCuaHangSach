@@ -878,8 +878,11 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             if(k == 0){
                 String idSach=cbMaSach.getSelectedItem().toString();
                 try {
+                    /*ChiTietPhieuNhapBUS ctpnbus=new  ChiTietPhieuNhapBUS();
+                    ctpnbus.deleteChiTietPhieuNhapByMaSach(idSach);
+                    ChiTiet*/
                     SachBUS bus =new SachBUS();
-                    bus.deleteSach(idSach);
+                    bus.deleteSachByMaSach(idSach);
                    
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(this, "Lỗi Không Thể Xóa","Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
@@ -900,7 +903,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 ValidatorBUS.checkEmpty(cbMaTG, sb, "Mã Tác Giả Còn Trống!");
                 ValidatorBUS.checkEmpty(cbMaTL, sb, "Mã Thể Loại Còn Trống!");
                 ValidatorBUS.checkEmpty(txTenSach, sb, "Tên Sách Còn Trống!");
-                ValidatorBUS.checkSoLuong(txNamXuatBan, sb, "Năm Xuất Bản Còn Trống !");
+                ValidatorBUS.checkEmpty(txNamXuatBan, sb, "Năm Xuất Bản Còn Trống !");
                 ValidatorBUS.checkSoLuong(txSoLuong, sb, "Số Lượng Là Số Nguyên !");
                 ValidatorBUS.checkDonGia(txDonGia, sb, "Đơn Giá là Số !");
                 if(sb.length()>0){
@@ -909,7 +912,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 }
                 SachDTO sach=new SachDTO();
                 sach.setMaSach((String)cbMaSach.getSelectedItem());
-                sach.setMaNXB((String)cbMaSach.getSelectedItem());
+                sach.setMaNXB((String)cbMaNXB.getSelectedItem());
                 sach.setMaTL((String)cbMaTL.getSelectedItem());
                 sach.setMaTG((String)cbMaTG.getSelectedItem());
                 sach.setTenSach(txTenSach.getText());
@@ -918,6 +921,11 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 sach.setDongia(Float.parseFloat(txDonGia.getText()));
                 sach.setImgName(imgName);// dể tam dể sau này thêm Ảnh ở đây
                 SachBUS bus =new SachBUS();
+                /* Kiem sao so luong co hop le hong*/
+                ChiTietPhieuNhapBUS ctpnbus =new ChiTietPhieuNhapBUS();
+                if(!ctpnbus.CheckSL(sach.getMaSach(), sach.getSoluong())) 
+                    sach.setSoluong(ctpnbus.getSoLuong(sach.getMaSach()));
+                /*Them sach len ke*/
                 bus.addSach(sach);
                 saveIMG();
                 this.insertHeader();
@@ -956,7 +964,11 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                     sach.setSoluong(Integer.parseInt(txSoLuong.getText()));
                     sach.setDongia(Float.parseFloat(txDonGia.getText()));
                     sach.setImgName(imgName);
-
+                       /* Kiem sao so luong co hop le hong*/
+                    ChiTietPhieuNhapBUS ctpnbus =new ChiTietPhieuNhapBUS();
+                    if(!ctpnbus.CheckSL(sach.getMaSach(), sach.getSoluong())) 
+                        sach.setSoluong(ctpnbus.getSoLuong(sach.getMaSach()));
+                        /*Them sach len ke*/
                     SachBUS bus =new SachBUS();boolean check=true;
                     try {
                         bus.updateSach(sach);
