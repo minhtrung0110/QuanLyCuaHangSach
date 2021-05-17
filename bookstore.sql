@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2021 at 10:57 AM
+-- Generation Time: May 17, 2021 at 04:59 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -20,6 +20,19 @@ SET time_zone = "+00:00";
 --
 -- Database: `bookstore`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chitietgiamgia`
+--
+
+CREATE TABLE `chitietgiamgia` (
+  `ID_CTGG` int(5) UNSIGNED NOT NULL,
+  `MaGG` varchar(5) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
+  `MaSach` varchar(5) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
+  `phanTramGiam` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
 
 -- --------------------------------------------------------
 
@@ -57,8 +70,10 @@ CREATE TABLE `chitietphieunhap` (
 --
 
 INSERT INTO `chitietphieunhap` (`MaCTPN`, `MaPN`, `MaSach`, `DonGia`, `SoLuong`, `ThanhTien`) VALUES
-('CT01', 'A01', 'KD03', 95000, 2, 190000),
-('CT02', 'A02', 'KD01', 125000, 1, 125000);
+('A01', 'HM01', 'KD01', 25000, 25, 625000),
+('A02', 'HK416', 'KD01', 75000, 50, 3750000),
+('A03', 'HQ01', 'KD06', 75000, 50, 3750000),
+('A04', 'HQ02', 'KD06', 75000, 25, 1875000);
 
 -- --------------------------------------------------------
 
@@ -97,6 +112,17 @@ CREATE TABLE `hoadon` (
   `GiamGia` float NOT NULL,
   `ThanhTien` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+--
+-- Dumping data for table `hoadon`
+--
+
+INSERT INTO `hoadon` (`MaHD`, `MaKH`, `MaNV`, `MaGG`, `NgayLapHD`, `TongTien`, `GiamGia`, `ThanhTien`) VALUES
+('A01', 'K02', 'MT', 'A01', '2021-04-12', 250000, 0, 250000),
+('A02', 'K02', 'MT', 'A01', '2021-01-18', 150000, 0, 150000),
+('A03', 'K03', 'PK', 'A01', '2021-07-24', 350000, 0, 350000),
+('A04', 'K04', 'TT', 'A01', '2021-10-04', 750000, 0, 750000),
+('A05', 'K04', 'TT', 'A01', '2021-05-06', 1250000, 0, 1250000);
 
 -- --------------------------------------------------------
 
@@ -224,7 +250,11 @@ CREATE TABLE `phieunhap` (
 
 INSERT INTO `phieunhap` (`MaPN`, `MaNV`, `MaNCC`, `TrangThai`, `TongTien`, `NgayNhap`) VALUES
 ('A01', 'MT', 'KĐ', 0, 25000000, '2020-10-02'),
-('A02', 'VV', 'NVC', 1, 4500000, '2021-04-29');
+('A02', 'VV', 'NVC', 1, 4500000, '2021-04-29'),
+('HK416', 'TT', 'NVC', 1, 5625000, '2021-05-09'),
+('HM01', 'MT', 'NN', 1, 8375000, '2021-05-09'),
+('HQ01', 'VV', 'KĐ', 1, 3750000, '2021-05-09'),
+('HQ02', 'PK', 'PĐ', 1, 6625000, '2021-05-09');
 
 -- --------------------------------------------------------
 
@@ -240,19 +270,21 @@ CREATE TABLE `sach` (
   `TenSach` varchar(50) COLLATE utf32_unicode_ci NOT NULL,
   `NamXuatBan` int(11) NOT NULL,
   `SoLuong` int(20) NOT NULL,
-  `DonGia` int(50) NOT NULL,
-  `imgName` varchar(20) COLLATE utf32_unicode_ci NOT NULL
+  `DonGia` double NOT NULL,
+  `imgName` varchar(20) COLLATE utf32_unicode_ci NOT NULL,
+  `TrangThai` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 --
 -- Dumping data for table `sach`
 --
 
-INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`, `imgName`) VALUES
-('KD01', 'NXB_Hội_Nhà_Văn', 'H.Trương', 'Tôn_Giáo&Tâm_Lý', 'Nhớ Em Cô Gái Ngày Hôm QUa', 2019, 2000, 125000, 'KD01.jpg'),
-('KD02', 'NXB_Tổng_Hợp_HCM', 'Nguyễn Du', 'Truyện', 'Kiều Nguyệt Nga', 1980, 5000, 95000, 'KD02.jpg'),
-('KD03', 'NXB_Hội_Nhà_Văn', 'D.N.Nam', 'Thiếu_Nhi', 'Chiều Hôm', 2005, 245, 450000, 'KD03.jpg'),
-('KD05', 'NXB_Hội_Nhà_Văn', 'H.Trương', 'Tôn_Giáo&Tâm_Lý', 'asaad', 2346, 12, 25000, 'null');
+INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`, `imgName`, `TrangThai`) VALUES
+('KD01', 'NXB_Hội_Nhà_Văn', 'H.Trương', 'Tôn_Giáo&Tâm_Lý', 'Nhớ Em Cô Gái Ngày Hôm QUa', 2019, 2000, 125000, 'KD01.jpg', 1),
+('KD02', 'NXB_Tổng_Hợp_HCM', 'Nguyễn Du', 'Tiểu_Thuyết', 'Kiều Nguyệt Nga', 1980, 5000, 95000, 'KD02.jpg', 1),
+('KD03', 'NXB_Hội_Nhà_Văn', 'D.N.Nam', 'Thiếu_Nhi', 'Chiều Hôm', 2005, 245, 450000, 'KD03.jpg', 1),
+('KD04', 'NXB_Đại_Học_Quốc_Gia', 'P.Việt', 'Thiếu_Nhi', 'Trường Làng', 2020, 125, 25000, 'null', 1),
+('KD06', 'NXB_Lao_Động', 'D.N.Nam', 'Chính_Trị', 'Tiến Về Miền Nam', 2001, 50, 75000, 'null', 0);
 
 -- --------------------------------------------------------
 
@@ -300,8 +332,7 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`MaTK`, `TenTaiKhoan`, `MatKhau`, `Quyen`, `TrangThai`) VALUES
-('001', 'admin', 'admin', 'Admin', 1),
-('002', 'sale', 'sale', 'Sale', 1);
+('MT', 'admin', 'admin', 'Admin', 1);
 
 -- --------------------------------------------------------
 
@@ -331,6 +362,14 @@ INSERT INTO `theloai` (`MaTL`, `TenTL`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `chitietgiamgia`
+--
+ALTER TABLE `chitietgiamgia`
+  ADD PRIMARY KEY (`ID_CTGG`),
+  ADD KEY `MaGG` (`MaGG`),
+  ADD KEY `MaSach` (`MaSach`);
 
 --
 -- Indexes for table `chitiethoadon`
@@ -413,7 +452,7 @@ ALTER TABLE `tacgia`
 -- Indexes for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  ADD PRIMARY KEY (`MaTK`,`TenTaiKhoan`);
+  ADD KEY `MaTK` (`MaTK`);
 
 --
 -- Indexes for table `theloai`
@@ -422,8 +461,25 @@ ALTER TABLE `theloai`
   ADD PRIMARY KEY (`MaTL`);
 
 --
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `chitietgiamgia`
+--
+ALTER TABLE `chitietgiamgia`
+  MODIFY `ID_CTGG` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `chitietgiamgia`
+--
+ALTER TABLE `chitietgiamgia`
+  ADD CONSTRAINT `chitietgiamgia_ibfk_1` FOREIGN KEY (`MaGG`) REFERENCES `chuongtrinhgiamgia` (`MaGG`),
+  ADD CONSTRAINT `chitietgiamgia_ibfk_2` FOREIGN KEY (`MaSach`) REFERENCES `sach` (`MaSach`);
 
 --
 -- Constraints for table `chitiethoadon`
@@ -461,6 +517,12 @@ ALTER TABLE `sach`
   ADD CONSTRAINT `sach_ibfk_1` FOREIGN KEY (`MaNXB`) REFERENCES `nhaxuatban` (`MaNXB`),
   ADD CONSTRAINT `sach_ibfk_2` FOREIGN KEY (`MaTG`) REFERENCES `tacgia` (`MaTG`),
   ADD CONSTRAINT `sach_ibfk_3` FOREIGN KEY (`MaTL`) REFERENCES `theloai` (`MaTL`);
+
+--
+-- Constraints for table `taikhoan`
+--
+ALTER TABLE `taikhoan`
+  ADD CONSTRAINT `taikhoan_ibfk_1` FOREIGN KEY (`MaTK`) REFERENCES `nhanvien` (`MaNV`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

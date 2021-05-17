@@ -162,7 +162,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
         {
             
         }
-        //QLNhaSach ql = new QLNhaSach();
+        QLNhaSach ql = new QLNhaSach();
         
     }
 

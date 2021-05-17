@@ -11,10 +11,9 @@ import java.util.HashMap;
 
 public class MyConnectUnit  {
     MySQLConnect connect;
-    private  String FILE_URL = "D:\\Leanring\\Universe\\SecondYear\\HK2\\Java\\QuanLyCuaHangSach\\Connection.txt";
-
-    //public MyConnectUnit() {
-    //}
+    public MyConnectUnit() {
+        connect =new MySQLConnect("localhost","root","", "bookstore");
+    }
 
     public MyConnectUnit(MySQLConnect connect) {
         this.connect = connect;
@@ -24,20 +23,7 @@ public class MyConnectUnit  {
         connect =new MySQLConnect(host, username, password, database);
 
     }
-    public  MyConnectUnit() throws IOException {
-        File file = new File(FILE_URL);
-        InputStream inputStream = new FileInputStream(file);
-        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-        BufferedReader reader = new BufferedReader(inputStreamReader);
- 
-        String host,username,password,database;
-            host=reader.readLine();
-            database=reader.readLine();
-            username =reader.readLine();
-            password=reader.readLine();         
-        //System.out.println(host+" "+database+" "+username+" - "+password);
-        connect =new MySQLConnect(host, username, password, database);
-    }
+
     
     
     public ResultSet Select(String tableName, String condition,String Oderby) throws Exception {
