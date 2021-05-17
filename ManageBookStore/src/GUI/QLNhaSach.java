@@ -132,14 +132,14 @@ public class QLNhaSach extends JFrame implements MouseListener {
             navItem.add("Quản Lý Khách Hàng:KhachHang_20px.png:KhachHang_20px_active.png");
             navItem.add("Nhập & Xuất Sách:NhapHang_20px_active.png:NhapHang_20px_active.png");
             navItem.add("Giảm Giá:GiamGia_20px_active.png:GiamGia_20px.png");
-            //navItem.add("Nhà Cung Cấp:CongCu_20px.png:CongCu_20px_active.png");
+            
         if( role == null || role.equals("Admin") )
         {
             navItem.add("Tài Khoản:CaiDat_20px.png:CaiDat_20px_active.png");
             navItem.add("Thống Kê:ThongKe_20px.png:ThongKe_20px_active.png");
             
         }
-        
+        navItem.add("Nhà Cung Cấp:CongCu_20px.png:CongCu_20px_active.png");
         outNav();
         
 /************ PHẦN MAIN ( HIỂN THỊ ) **************************/        
@@ -189,7 +189,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
 
     public void changeMainInfo(int i) throws Exception //Đổi Phần hiển thị khi bấm btn trên menu
     {
-        if(flag && i>4 && i<8) // Thay đổi nếu Thông kế đang dropdown
+        if(flag && i>4 && i<9) // Thay đổi nếu Thông kế đang dropdown
         {
             i = i + 2;
         }
@@ -270,6 +270,12 @@ public class QLNhaSach extends JFrame implements MouseListener {
             case 9: // THỐNG KÊ
                 main.removeAll();
                main.add(new ThongKeGUI(DEFALUT_WIDTH));
+                main.repaint();
+                main.revalidate();
+            break;
+            case 10: // THỐNG KÊ
+                main.removeAll();
+               main.add(new CungCapGUI(DEFALUT_WIDTH));
                 main.repaint();
                 main.revalidate();
             break;
