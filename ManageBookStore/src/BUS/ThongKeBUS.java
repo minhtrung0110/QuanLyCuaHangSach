@@ -22,8 +22,14 @@ public class ThongKeBUS {
         return tbthongketheoQuy;
     }
     
-    
-    
+    public float TongTienPNTheoTG(String ngaymin,String ngaymax) throws IOException{
+         ThongKeDAO dao =new ThongKeDAO();
+         return dao.TongTienPhieuNhapTheoNgayNhap(ngaymin, ngaymax);
+    }
+    public float TongTienPN() throws IOException{
+         ThongKeDAO dao =new ThongKeDAO();
+         return dao.TongTienPhieuNhap();
+    }
     public void ThongKeTienTheoMaNCC() throws IOException{
         ThongKeDAO dao =new ThongKeDAO();
         if(tbthongke==null ) tbthongke = new HashMap<String,Object>();

@@ -40,7 +40,8 @@ public class ThongKeDAO {
         float Sum=0;
         try {
           ResultSet rs = connect.SelectCustom("phieunhap", "SUM(TongTien) AS TongTienPhieuNhap");
-          Sum=rs.getFloat("TongTienPhieuNhap");
+          while(rs.next()){
+          Sum=rs.getFloat("TongTienPhieuNhap");}
           rs.close();
             connect.Close();//dong ket noi;
 
@@ -88,7 +89,8 @@ public class ThongKeDAO {
         float Sum=0;
         try {
           ResultSet rs = connect.SelectCustom("phieunhap", "SUM(TongTien) AS TongTienPhieuNhap"," NgayNhap BETWEEN '"+ngaymin+"' AND '"+ngaymax+"'");
-          Sum=rs.getFloat("TongTienPhieuNhap");
+         while(rs.next()){
+          Sum=rs.getFloat("TongTienPhieuNhap");}
           rs.close();
             connect.Close();//dong ket noi;
 
