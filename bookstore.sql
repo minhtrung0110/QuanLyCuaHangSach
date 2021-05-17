@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2021 at 04:59 AM
+-- Generation Time: May 17, 2021 at 08:39 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -24,24 +24,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `chitietgiamgia`
---
-
-CREATE TABLE `chitietgiamgia` (
-  `ID_CTGG` int(5) UNSIGNED NOT NULL,
-  `MaGG` varchar(5) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
-  `MaSach` varchar(5) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
-  `phanTramGiam` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `chitiethoadon`
 --
 
 CREATE TABLE `chitiethoadon` (
-  `MaHD` varchar(5) COLLATE utf32_unicode_ci NOT NULL,
+  `MaHD` int(5) NOT NULL,
   `MaSach` varchar(5) COLLATE utf32_unicode_ci NOT NULL,
   `TenSach` varchar(50) COLLATE utf32_unicode_ci NOT NULL,
   `SoLuong` int(20) NOT NULL,
@@ -103,7 +90,7 @@ INSERT INTO `chuongtrinhgiamgia` (`MaGG`, `TenChuongTrinh`, `LoaiChuongTrinh`, `
 --
 
 CREATE TABLE `hoadon` (
-  `MaHD` varchar(5) COLLATE utf32_unicode_ci NOT NULL,
+  `MaHD` int(5) NOT NULL,
   `MaKH` varchar(5) COLLATE utf32_unicode_ci NOT NULL,
   `MaNV` varchar(5) COLLATE utf32_unicode_ci NOT NULL,
   `MaGG` varchar(5) COLLATE utf32_unicode_ci NOT NULL,
@@ -118,11 +105,11 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`MaHD`, `MaKH`, `MaNV`, `MaGG`, `NgayLapHD`, `TongTien`, `GiamGia`, `ThanhTien`) VALUES
-('A01', 'K02', 'MT', 'A01', '2021-04-12', 250000, 0, 250000),
-('A02', 'K02', 'MT', 'A01', '2021-01-18', 150000, 0, 150000),
-('A03', 'K03', 'PK', 'A01', '2021-07-24', 350000, 0, 350000),
-('A04', 'K04', 'TT', 'A01', '2021-10-04', 750000, 0, 750000),
-('A05', 'K04', 'TT', 'A01', '2021-05-06', 1250000, 0, 1250000);
+(1, 'K02', 'MT', 'A01', '2021-04-12', 250000, 0, 250000),
+(2, 'K02', 'MT', 'A01', '2021-01-18', 150000, 0, 150000),
+(3, 'K03', 'PK', 'A01', '2021-07-24', 350000, 0, 350000),
+(4, 'K04', 'TT', 'A01', '2021-10-04', 750000, 0, 750000),
+(5, 'K04', 'TT', 'A01', '2021-05-06', 1250000, 0, 1250000);
 
 -- --------------------------------------------------------
 
@@ -137,21 +124,21 @@ CREATE TABLE `khachhang` (
   `SDT` varchar(10) COLLATE utf32_unicode_ci NOT NULL,
   `Email` varchar(30) COLLATE utf32_unicode_ci NOT NULL,
   `Phai` tinyint(1) NOT NULL,
-  `NgaySinh` date DEFAULT NULL,
-  `TCT` int(10) NOT NULL
+  `TCT` int(10) NOT NULL,
+  `NgaySinh` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 --
 -- Dumping data for table `khachhang`
 --
 
-INSERT INTO `khachhang` (`MaKH`, `Ho`, `Ten`, `SDT`, `Email`, `Phai`, `NgaySinh`, `TCT`) VALUES
-('K01', 'Nguyễn Trần Văn', 'Vũ', '0902638361', 'vanvu21@gmail.com', 1, '2001-04-16', 1000),
-('K02', 'Phạm Thiên', 'Phúc', '0363691591', 'phuc@gmail.com', 0, '2001-03-18', 1000),
-('K03', 'thanh ', 'huy', '0121455123', 'truc@gmail.com', 1, '1996-06-23', 1000),
-('K04', 'Trần Thanh', 'Tùng', '9999999999', 'tung@gmail.com', 1, '1980-04-17', 2000),
-('K05', 'Nguyễn Trần Văn', 'Bưởi', '0363691591', 'daubuoi111@gmail.com', 1, '2000-08-19', 0),
-('K06', 'Trần Thanh', 'Tèo', '0363691591', 'teo21@gmail.com', 0, '2000-06-19', 50000);
+INSERT INTO `khachhang` (`MaKH`, `Ho`, `Ten`, `SDT`, `Email`, `Phai`, `TCT`, `NgaySinh`) VALUES
+('K01', 'Nguyễn Trần Văn', 'Vũ', '0902638361', 'vanvu21@gmail.com', 1, 1000, NULL),
+('K02', 'Phạm Thiên', 'Phúc', '0363691591', 'phuc@gmail.com', 0, 1000, NULL),
+('K03', 'thanh ', 'huy', '0121455123', 'truc@gmail.com', 1, 1000, NULL),
+('K04', 'Trần Thanh', 'Tùng', '9999999999', 'tung@gmail.com', 1, 2000, NULL),
+('K05', 'Nguyễn Trần Văn', 'Bưởi', '0363691591', 'daubuoi111@gmail.com', 1, 0, NULL),
+('K06', 'Trần Thanh', 'Tèo', '0363691591', 'teo21@gmail.com', 0, 50000, NULL);
 
 -- --------------------------------------------------------
 
@@ -364,14 +351,6 @@ INSERT INTO `theloai` (`MaTL`, `TenTL`) VALUES
 --
 
 --
--- Indexes for table `chitietgiamgia`
---
-ALTER TABLE `chitietgiamgia`
-  ADD PRIMARY KEY (`ID_CTGG`),
-  ADD KEY `MaGG` (`MaGG`),
-  ADD KEY `MaSach` (`MaSach`);
-
---
 -- Indexes for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
@@ -465,28 +444,21 @@ ALTER TABLE `theloai`
 --
 
 --
--- AUTO_INCREMENT for table `chitietgiamgia`
+-- AUTO_INCREMENT for table `hoadon`
 --
-ALTER TABLE `chitietgiamgia`
-  MODIFY `ID_CTGG` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `hoadon`
+  MODIFY `MaHD` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `chitietgiamgia`
---
-ALTER TABLE `chitietgiamgia`
-  ADD CONSTRAINT `chitietgiamgia_ibfk_1` FOREIGN KEY (`MaGG`) REFERENCES `chuongtrinhgiamgia` (`MaGG`),
-  ADD CONSTRAINT `chitietgiamgia_ibfk_2` FOREIGN KEY (`MaSach`) REFERENCES `sach` (`MaSach`);
-
---
 -- Constraints for table `chitiethoadon`
 --
 ALTER TABLE `chitiethoadon`
-  ADD CONSTRAINT `chitiethoadon_ibfk_1` FOREIGN KEY (`MaHD`) REFERENCES `hoadon` (`MaHD`),
-  ADD CONSTRAINT `chitiethoadon_ibfk_2` FOREIGN KEY (`MaSach`) REFERENCES `sach` (`MaSach`);
+  ADD CONSTRAINT `chitiethoadon_ibfk_2` FOREIGN KEY (`MaSach`) REFERENCES `sach` (`MaSach`),
+  ADD CONSTRAINT `chitiethoadon_ibfk_3` FOREIGN KEY (`MaHD`) REFERENCES `hoadon` (`MaHD`);
 
 --
 -- Constraints for table `chitietphieunhap`

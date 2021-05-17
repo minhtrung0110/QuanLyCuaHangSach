@@ -80,37 +80,43 @@ public class HoaDonBUS {
         }
         return manv;
     }
-    public ArrayList<HoaDonDTO> TimKiem(int m,int y,float max,float min,String MaHD,String MaKH,String MaNV){
-       
-        int m1 = 0, m2 = 12;
-        int y1 = 0, y2 = Calendar.getInstance().get(Calendar.YEAR);
-        
-        if(m != -1)
-        {
-            m1 =m;
-            m2 = m;
-        }
-        if(y != 0)
-        {
-            y1 = y;
-            y2 = y;
-        }
+    public ArrayList<HoaDonDTO> TimKiem(String DAYMIN, String DAYMAX,float max,float min,String MaHD,String MaKH,String MaNV){
+        String MIN=DAYMIN.equals("")?"1970-01-01":DAYMIN;
+        String MAX=DAYMAX.equals("")?"9999-12-31":DAYMAX;
         ArrayList<HoaDonDTO> ds=TimMAHDKHNV(MaHD,MaKH,MaNV);
         ArrayList<HoaDonDTO> TimKiem = new ArrayList<>();
         for(HoaDonDTO hd : ds)
         {
            try {
+               //Ngày Lập
                 String date=hd.getNgayLap();
                 SimpleDateFormat a=new SimpleDateFormat("yyyy-MM-dd");
                 Date b=a.parse(date);
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(b);
+                int day= calendar.get(Calendar.DATE);
                 int month = calendar.get(Calendar.MONTH);
                 int year = calendar.get(Calendar.YEAR);
                 
+               //Ngày đầu
+               Date dau=a.parse(MIN);
+               Calendar calendar1=Calendar.getInstance();
+               calendar1.setTime(dau);
+               int day1=calendar1.get(Calendar.DATE);
+               int month1=calendar1.get(Calendar.MONTH);
+               int year1=calendar1.get(Calendar.YEAR);
+               
+               //Ngày cuối
+               Date cuoi=a.parse(MAX);
+               Calendar calendar2=Calendar.getInstance();
+               calendar2.setTime(cuoi);
+               int day2=calendar2.get(Calendar.DATE);
+               int month2=calendar2.get(Calendar.MONTH);
+               int year2=calendar2.get(Calendar.YEAR);
                 if( hd.getThanhTien() >= min && hd.getThanhTien() <= max
-                        && (month >= m1 && month <= m2)
-                        && (year >= y1 && year <= y2))
+                       && day>=day1 && day<=day2
+                       && month>=month1 && month<=month2
+                       && year>=year1 && year<=year2)
                 {
                     TimKiem.add(hd);
                 }
@@ -129,17 +135,15 @@ public class HoaDonBUS {
                 max=id;
             }
         }
-        for(int i=0;i<4-String.valueOf(max+1).length();i++){
-            s+="0";
-        }
+       
         return s+(max+1);
     }
     public ArrayList<HoaDonDTO> getList(){
         return DSHoaDon;
     }
-    /*public static void main(String []args){
+    public static void main(String []args){
         System.out.println("Khoi dep trai");
-    }*/
+    }
 
    
 

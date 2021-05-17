@@ -55,6 +55,25 @@ public class ChiTietHoaDonDAO {
        System.out.println(sql);
        
    }
+   public void Sua(ChiTietHoaDonDTO ct){
+       try{
+       MySQLConnect MySQL=new MySQLConnect("localhost","root","","bookstore");
+       String sql="UPDATE chitiethoadon SET ";
+       sql+="MaHD='"+ct.getMaHD()+"',";
+       sql+="MaSach='"+ct.getMaSach()+"',";
+       sql+="TenSach='"+ct.getTenSach()+"',";
+       sql+="SoLuong='"+ct.getSoLuong()+"',";
+       sql+="DonGia='"+ct.getDonGia()+"',";
+       sql+="GiamGia='"+ct.getGiamGia()+"',";
+       sql+="ThanhTien='"+ct.getThanhTien()+"'";
+       sql+=" WHERE MaHD='"+ct.getMaHD()+"' AND MaSach='"+ct.getMaSach()+"'";
+       System.out.println(sql);
+       MySQL.excuteUpdate(sql);
+       MySQL.Close();
+       }catch(Exception ex){
+           System.out.println("Không update được cthd.");
+       }
+   }
    public void Xoa(String MaHD){
        MySQLConnect MySQL=new MySQLConnect("localhost","root","","bookstore");
        String sql="DELETE FROM chitiethoadon WHERE MaHD='"+MaHD+"'";
@@ -65,11 +84,21 @@ public class ChiTietHoaDonDAO {
        }
        System.out.println(sql);
    }
-   /*public static void main(String []args){
+    public void XoaMS(String MaSach,String MaHD){
+       MySQLConnect MySQL=new MySQLConnect("localhost","root","","bookstore");
+       String sql="DELETE FROM chitiethoadon WHERE MaSach='"+MaSach+"' AND MaHD='"+MaHD+"'";
+       try {
+           MySQL.excuteUpdate(sql);
+       } catch (Exception ex) {
+          System.out.print("Chi tiet HD khong xoa duoc.");
+       }
+       System.out.println(sql);
+   }
+   public static void main(String []args){
     ChiTietHoaDonDAO ct=new ChiTietHoaDonDAO();
     ArrayList<ChiTietHoaDonDTO> cthd=ct.List();
     for(int i=0;i<cthd.size();i++){
         System.out.println(cthd.get(i).getMaHD());
     }
-    }*/
+    }
 }

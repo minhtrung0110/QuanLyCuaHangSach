@@ -536,7 +536,7 @@ public class NhanVienTable extends javax.swing.JDialog {
             data.add(s.getSDT());
             data.add(s.getEmail());
             data.add(s.getPhai());
-            data.add(s.getNgaysinh());
+            data.add(s.getngaysinh());
             data.add(s.getChucVu());
             data.add(s.getLuong());
             model.addRow(data);

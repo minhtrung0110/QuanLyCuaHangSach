@@ -74,6 +74,51 @@ public class NCCBUS {
         return null;
     }
    
+    public ArrayList<NCCDTO> list() throws Exception
+    {
+        if (this.listNCC == null)
+        {
+            this.loadDSNCC();
+        }
+        return listNCC;
+    }
+
+    public NCCDTO timkiem_MaNCC(String id)
+    {
+        NCCDTO n = new NCCDTO();
+        for(NCCDTO ncc : listNCC)
+        {
+            if(ncc.getMaNCC().compareTo(id) == 0)
+            {
+                n = ncc;
+            }
+        }
+        return n;
+    }
+    public ArrayList<NCCDTO> timkiem_TenNCC(String ten)
+    {
+        ArrayList<NCCDTO> n = new ArrayList<NCCDTO>();
+        for(NCCDTO ncc : listNCC)
+        {
+            if(ncc.getTenNCC().indexOf(ten) != -1)
+            {
+                n.add(ncc);
+            }
+        }
+        return n;
+    }
+    public ArrayList<NCCDTO> timkiem_DiaChi(String diachi)
+    {
+        ArrayList<NCCDTO> n = new ArrayList<NCCDTO>();
+        for(NCCDTO ncc : listNCC)
+        {
+            if(ncc.getDiaChi().indexOf(diachi) != -1)
+            {
+                n.add(ncc);
+            }
+        }
+        return n;
+    }
    
     
 }

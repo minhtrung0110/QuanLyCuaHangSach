@@ -31,7 +31,7 @@ public class DangNhapBUS {
     public boolean isExisted(String username, String password){
         boolean flag = false;
         for(TaiKhoanDTO tk : taikhoan){
-            if( (tk.getUsername().equals( username ) && tk.getPassword().equals( password )) ){
+            if( (tk.getTenTK().equals( username ) && tk.getMk().equals( password )) ){
                 flag = true;
                 taiKhoanDaDangNhap = tk;
             }

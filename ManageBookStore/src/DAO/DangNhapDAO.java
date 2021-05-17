@@ -34,10 +34,10 @@ public class DangNhapDAO {
             
             while(rs.next()){
                 TaiKhoanDTO tk = new TaiKhoanDTO();
-                tk.setId(rs.getString(1));
-                tk.setUsername(rs.getString(2));
-                tk.setPassword(rs.getString(3));
-                tk.setTrangtrai(rs.getInt(4));
+                tk.setMaTK(rs.getString(1));
+                tk.setTenTK(rs.getString(2));
+                tk.setMk(rs.getString(3));
+                tk.setStatus(rs.getBoolean(4));
                 tk.setQuyen(rs.getString(5));
                 
                 taikhoan.add(tk);

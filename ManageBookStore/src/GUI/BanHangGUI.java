@@ -1,14 +1,17 @@
 package GUI;
 
+import BUS.ChiTietChuongTrinhGiamGiaBUS;
 import BUS.ChiTietHoaDonBUS;
 import BUS.HoaDonBUS;
 import BUS.KhachHangBUS;
 import BUS.NhanVienBUS;
 import BUS.SachBUS;
+import DTO.ChiTietChuongTrinhGiamGiaDTO;
 import DTO.ChiTietHoaDonDTO;
 import DTO.HoaDonDTO;
 import DTO.KhachHangDTO;
 import DTO.NhanVienDTO;
+import DTO.SachDTO;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.sql.Timestamp;
@@ -21,7 +24,8 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane; 
+import com.toedter.calendar.JDateChooser;
 import javax.swing.table.DefaultTableModel;
 
 public class BanHangGUI extends javax.swing.JPanel {
@@ -46,7 +50,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         hdBUS.List();
         txMaHD.setText(hdBUS.AutoMaHD());
         panelCTHD.setVisible(false);
-        this.setSize(this.DEFALUT_WIDTH - 220, 750);
+        this.setSize(this.DEFALUT_WIDTH - 220, 800);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -91,6 +95,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         txGiamGia = new javax.swing.JTextField();
         txThanhTien = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        btMaGG = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -117,11 +122,12 @@ public class BanHangGUI extends javax.swing.JPanel {
         txMaHD.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         txMaKH.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txMaKH.setText("K01");
 
         txMaNV.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txMaNV.setText("PK");
 
         txMaGG.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txMaGG.setText("A00");
 
         btMaNV.setText("...");
         btMaNV.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -147,13 +153,9 @@ public class BanHangGUI extends javax.swing.JPanel {
                 btTaoHDMouseClicked(evt);
             }
         });
-        btTaoHD.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                btTaoHDKeyPressed(evt);
-            }
-        });
 
         panelCTHD.setBackground(new java.awt.Color(255, 255, 255));
+        panelCTHD.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3), "THÔNG TIN HÓA ĐƠN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(0, 153, 51))); // NOI18N
 
         lbAnh.setBackground(new java.awt.Color(51, 255, 51));
         lbAnh.setForeground(new java.awt.Color(204, 204, 204));
@@ -171,6 +173,13 @@ public class BanHangGUI extends javax.swing.JPanel {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setText("Đơn giá:");
+
+        txMaSach.setText("KD01");
+        txMaSach.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txMaSachKeyPressed(evt);
+            }
+        });
 
         txTenSach.setEditable(false);
 
@@ -286,8 +295,8 @@ public class BanHangGUI extends javax.swing.JPanel {
                                         .addGap(41, 41, 41)
                                         .addComponent(jLabel10)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txTenSach, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE))
+                                        .addComponent(txTenSach)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCTHDLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(lbAnh, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -368,11 +377,18 @@ public class BanHangGUI extends javax.swing.JPanel {
                 .addGroup(panelCTHDLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSua, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("------------------------------------------------------------------------------------------------------------");
+
+        btMaGG.setText("...");
+        btMaGG.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btMaGGMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -407,8 +423,9 @@ public class BanHangGUI extends javax.swing.JPanel {
                         .addComponent(btTaoHD, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txMaGG, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(140, 140, 140))
-            .addComponent(panelCTHD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btMaGG, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -418,6 +435,10 @@ public class BanHangGUI extends javax.swing.JPanel {
                         .addGap(98, 98, 98)
                         .addComponent(jLabel7)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelCTHD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -435,7 +456,8 @@ public class BanHangGUI extends javax.swing.JPanel {
                     .addComponent(txMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txMaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btMaNV)
-                    .addComponent(btMaKH))
+                    .addComponent(btMaKH)
+                    .addComponent(btMaGG))
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -443,8 +465,9 @@ public class BanHangGUI extends javax.swing.JPanel {
                     .addComponent(btTaoHD, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelCTHD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelCTHD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -492,6 +515,20 @@ public class BanHangGUI extends javax.swing.JPanel {
             Logger.getLogger(BanHangGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
       String []s=sp.MaSP().split("%");
+      if(s.length==0){
+          txMaSach.setText("");
+      txTenSach.setText("");
+      txDonGia.setText("");
+      Image newImage ;
+            try{
+                newImage = new ImageIcon("./src/img/SanPham/"+"").getImage().getScaledInstance(205, 230, Image.SCALE_DEFAULT);
+            }catch(NullPointerException E)
+            {
+                newImage = new ImageIcon("./src/img/SanPham/NoImage.jpg").getImage().getScaledInstance(205, 230, Image.SCALE_DEFAULT); 
+            }
+            lbAnh.setText("");
+            lbAnh.setIcon(new ImageIcon(newImage));
+      }else{
       txMaSach.setText(s[0]);
       txTenSach.setText(s[1]);
       txDonGia.setText(s[2]);
@@ -503,18 +540,51 @@ public class BanHangGUI extends javax.swing.JPanel {
                 newImage = new ImageIcon("./src/img/SanPham/NoImage.jpg").getImage().getScaledInstance(205, 230, Image.SCALE_DEFAULT); 
             }
             lbAnh.setText("");
-            lbAnh.setIcon(new ImageIcon(newImage));
+            lbAnh.setIcon(new ImageIcon(newImage));}
     }//GEN-LAST:event_btMaSachMouseClicked
 
-    private void btTaoHDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btTaoHDKeyPressed
-        Object a=evt.getSource();
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-             if(a.equals(txMaHD) || a.equals(txMaKH) || a.equals(txMaNV)) //Enter TXT ở Hóa Đơn
+    private void btMaGGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btMaGGMouseClicked
+       JDGG gg=new JDGG();
+       String s=gg.LayMaGG();
+       txMaGG.setText(s);
+    }//GEN-LAST:event_btMaGGMouseClicked
+
+    private void txMaSachKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txMaSachKeyPressed
+       Object a=evt.getSource();
+       SachBUS sach=new SachBUS();
+       ArrayList<SachDTO> sa=new ArrayList<>();
+       if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+       if(a.equals(txMaSach)){
+       try{
+               int dem=0;
+               if(sach.getListSach()==null) sach.loadDSSach();
+               sa=sach.getListSach();
+                   for(SachDTO s:sa){
+                   if(txMaSach.getText().toUpperCase().equals(s.getMaSach().toUpperCase())){
+                       dem++;
+                      txTenSach.setText(s.getTenSach());
+                      txDonGia.setText(String.valueOf(s.getDongia()));
+                      Image newImage ;
+            try{
+                newImage = new ImageIcon("./src/img/SanPham/"+s.getImgName()).getImage().getScaledInstance(205, 230, Image.SCALE_DEFAULT);
+            }catch(NullPointerException E)
             {
-                btTaoHD.doClick();
+                newImage = new ImageIcon("./src/img/SanPham/NoImage.jpg").getImage().getScaledInstance(205, 230, Image.SCALE_DEFAULT); 
             }
+            lbAnh.setText("");
+            lbAnh.setIcon(new ImageIcon(newImage));
+                      }
+                   }
+                   if(dem==0){
+                       JOptionPane.showMessageDialog(null,"Không tìm thấy mã sách.");
+                       return ;
+                   }
+        }catch(Exception ex){
+            System.out.println("Lỗi bấm enter.");
         }
-    }//GEN-LAST:event_btTaoHDKeyPressed
+    }
+       }
+    }//GEN-LAST:event_txMaSachKeyPressed
 //header
     public void Header(){
         Vector header=new Vector();
@@ -655,11 +725,26 @@ public class BanHangGUI extends javax.swing.JPanel {
              return;
         }
         // giá
-        Float gia=Float.parseFloat(txDonGia.getText());
+        float gia=Float.parseFloat(txDonGia.getText());
         // giảm giá
-         Float giamgia=s*gia*25/100;
+        float giamgia;
+        float giam = 0;
+        if(txMaGG.getText().equals("")){
+         giamgia=0;
+        }else{
+            
+            ChiTietChuongTrinhGiamGiaBUS ctct=new ChiTietChuongTrinhGiamGiaBUS();
+            if(ctct.dsChiTiet==null) ctct.docDSCTGG(txMaGG.getText());
+            ArrayList<ChiTietChuongTrinhGiamGiaDTO> ct=new ArrayList<>();
+            ct=ctct.dsChiTiet;
+            for(ChiTietChuongTrinhGiamGiaDTO a:ct){
+                if(a.getMaSach().equals(txMaSach.getText()))
+                    giam=(float)a.getPercent();
+            }
+            giamgia=s*gia*giam/100;
+        }
         // thành tiền
-         Float thanhtien=s*gia-giamgia;
+         float thanhtien=s*gia-giamgia;
         // kt tồn tại
         boolean flag=true;
         for(ChiTietHoaDonDTO ct: DSCT){
@@ -669,6 +754,21 @@ public class BanHangGUI extends javax.swing.JPanel {
                 break;
             }
         }
+        for(ChiTietHoaDonDTO ct : DSCT )
+            {
+                System.out.println(ct.getMaSach()+" "+txMaSach.getText());
+                if(ct.getMaSach().equals(txMaSach.getText()))
+                {
+                    int old = ct.getSoLuong();
+                    if(!sachBUS.CheckSL(txMaSach.getText(), s + old))
+                    {
+                        return;
+                    }
+                    ct.setSoLuong(s + old);
+                    flag = false ;
+                    break;
+                }
+            }
         if(flag){
             if(!sachBUS.CheckSL(txMaSach.getText(), s)){
                 return;
@@ -677,6 +777,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         }
         outModel(model,DSCT);
         TongTienGiamGiaThanhTien();
+        txSoLuong.setText("");
     }
 // tổng tiền
     public void TongTienGiamGiaThanhTien(){
@@ -709,14 +810,37 @@ public class BanHangGUI extends javax.swing.JPanel {
         int i=tbCTHD.getSelectedRow();
         String masp=tbCTHD.getModel().getValueAt(i,0).toString();
         int sl=Integer.parseInt(JOptionPane.showInputDialog(null, "Nhập số lượng sản phẩm :"));
-        /*while(!spBus.checkSL(masp,sl)){
+        while(!sachBUS.CheckSL(masp,sl)){
         sl=Integer.parseInt(JOptionPane.showInputDialog(null, "Nhập số lượng sản phẩm :"));
         }
-        */
+        
          for(ChiTietHoaDonDTO ct : DSCT)
                 {
                     if(ct.getMaSach().equals(masp))
                     {
+                        
+                        float giamgia;
+                        float giam = 0;
+                        float gia=ct.getDonGia();
+                        if(txMaGG.getText().equals("")){
+                             giamgia=0;
+                        }else{
+            
+                          ChiTietChuongTrinhGiamGiaBUS ctct=new ChiTietChuongTrinhGiamGiaBUS();
+                          if(ctct.dsChiTiet==null) ctct.docDSCTGG(txMaGG.getText());
+                          ArrayList<ChiTietChuongTrinhGiamGiaDTO> ct1=new ArrayList<>();
+                          ct1=ctct.dsChiTiet;
+                          for(ChiTietChuongTrinhGiamGiaDTO a:ct1){
+                          if(a.getMaSach().equals(txMaSach.getText())){
+                                 giam=(float)a.getPercent();
+                              }
+                          }
+                          giamgia=sl*gia*giam/100;
+                          }
+        // thành tiền
+                        float thanhtien=sl*gia-giamgia;
+                        ct.setThanhTien(thanhtien);
+                        ct.setGiamGia(giamgia);
                         ct.setSoLuong(sl);
                     }
                 }
@@ -741,9 +865,11 @@ public class BanHangGUI extends javax.swing.JPanel {
         float TongTien=Float.parseFloat(txTongTien.getText());
         float GiamGia=Float.parseFloat(txGiamGia.getText());
         float ThanhTien=Float.parseFloat(txThanhTien.getText());
-        HoaDonDTO hd=new HoaDonDTO(MaHD,MaKH,MaNV,MaGG,NgayLap,TongTien,GiamGia,ThanhTien);
-        hdBUS.Them(hd);
+            HoaDonDTO hd=new HoaDonDTO(MaHD,MaKH,MaNV,MaGG,NgayLap,TongTien,GiamGia,ThanhTien);
+            hdBUS.Them(hd);
+       
         for(ChiTietHoaDonDTO ct:DSCT){
+            sachBUS.updateSL(ct.getMaSach(),ct.getSoLuong());
             ctBUS.Them(ct);
         }
         txMaHD.setText(hdBUS.AutoMaHD());
@@ -755,6 +881,7 @@ public class BanHangGUI extends javax.swing.JPanel {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btHuy;
+    private javax.swing.JButton btMaGG;
     private javax.swing.JButton btMaKH;
     private javax.swing.JButton btMaNV;
     private javax.swing.JButton btMaSach;
@@ -794,4 +921,8 @@ public class BanHangGUI extends javax.swing.JPanel {
     private javax.swing.JTextField txThanhTien;
     private javax.swing.JTextField txTongTien;
     // End of variables declaration//GEN-END:variables
+
+    /*private void txMaSachKeyPressed(java.awt.event.KeyEvent e) {
+     
+ }*/
 }

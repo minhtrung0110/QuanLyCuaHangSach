@@ -7,61 +7,74 @@ package DTO;
 
 /**
  *
- * @author tungk
+ * @author Vu
  */
 public class TaiKhoanDTO {
-    private String id;
-    private String username;
-    private String password;
-    private String quyen;
-    private int trangtrai;
-
-    public String getId() {
-        return id;
+    
+    private String MaTK;
+    private String TenTK;
+    private String mk;
+    private String Quyen;
+    private boolean status;
+    
+    public TaiKhoanDTO() {
+        this.MaTK = "";
+        this.TenTK = "";
+        this.mk = "";
+        this.Quyen = "";
+        this.status = false;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public TaiKhoanDTO(String MaTK, String TenTK, String mk, String Quyen, boolean status) {
+        this.MaTK = MaTK;
+        this.TenTK = TenTK;
+        this.mk = mk;
+        this.Quyen = Quyen;
+        this.status = status;
+    }
+
+    public String getMaTK() {
+        return MaTK;
+    }
+
+    public void setMaTK(String MaTK) {
+        this.MaTK = MaTK;
+    }
+
+    public String getTenTK() {
+        return TenTK;
+    }
+
+    public void setTenTK(String TenTK) {
+        this.TenTK = TenTK;
+    }
+
+    public String getMk() {
+        return mk;
+    }
+
+    public void setMk(String mk) {
+        this.mk = mk;
     }
 
     public String getQuyen() {
-        return quyen;
+        return Quyen;
     }
 
-    public void setQuyen(String quyen) {
-        this.quyen = quyen;
+    public void setQuyen(String Quyen) {
+        this.Quyen = Quyen;
     }
 
-    public int getTrangtrai() {
-        return trangtrai;
+    public boolean isStatus() {
+        return status;
     }
 
-    public void setTrangtrai(int trangtrai) {
-        this.trangtrai = trangtrai;
+    public void setStatus(boolean status) {
+        this.status = status;
     }
     
-    public TaiKhoanDTO(){}
     
-    public TaiKhoanDTO(String username, String password){
-        this.username = username;
-        this.password = password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+     
     
     
 }

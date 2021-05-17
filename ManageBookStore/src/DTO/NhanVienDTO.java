@@ -13,13 +13,11 @@ public class NhanVienDTO {
 	private double Luong;
 	private boolean Phai;
 	private String ngaysinh;
-	
-	
-	
-	
+       
 
-
-
+    
+	
+	
 	public NhanVienDTO(String maNV, String ho, String ten, String sDT, String email, String ChucVu, double luong) {
 		
 		MaNV = maNV;
@@ -133,30 +131,55 @@ public class NhanVienDTO {
 		if(this.Phai == true) return 1;
 		else return 0;
 	}
-        public String getPhai(){
-            return (Phai)?"Nam":"Nữ";
-        }
-
+        public String getPhai() {
+		return (this.Phai == true) ?"Nam":"Nữ";
+	}
 
 
 	public void setPhai(boolean phai) {
 		Phai = phai;
 	}
-	public String getNgaysinh() {
-		return ngaysinh;
-	}
+	
+	
+	public String getngaysinh()
+        {
+            return this.ngaysinh;
+        }
+        
+        public int getngay()
+        {
+            String a[] = this.ngaysinh.split("-");
+            int ngay = Integer.parseInt(a[2]);
+            return ngay;
+        }
+         public int getthang()
+        {
+            String a[] = this.ngaysinh.split("-");
+            int thang = Integer.parseInt(a[1]);
+            return thang;
+        }
+          public int getnam()
+        {
+            String a[] = this.ngaysinh.split("-");
+            int nam = Integer.parseInt(a[0]);
+            return nam;
+        }
+        
+        
+        public void setngaysinh(String ngaysinh)
+        {
+           this.ngaysinh = ngaysinh;
+        }
+        
+       
 
+        
+        
 
-
-	public void setNgaysinh(String ngaysinh) {
-		this.ngaysinh = ngaysinh;
-	}
-	
-	
-	
-	
-	
-	
-	
+    @Override
+    public String toString() {
+        return "NhanVienDTO{" + "MaNV=" + MaNV + ", Ho=" + Ho + ", Ten=" + Ten + ", SDT=" + SDT + ", Email=" + Email + ", ChucVu=" + ChucVu + ", Luong=" + Luong + ", Phai=" + Phai + ", ngaysinh=" + ngaysinh + '}';
+    }
+        
 	
 }

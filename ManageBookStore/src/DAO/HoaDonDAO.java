@@ -44,12 +44,12 @@ public class HoaDonDAO {
            
            try {
            MySQLConnect MySQL=new MySQLConnect("localhost","root","","bookstore");
-           String MaKH=hd.getMaKH().equals("")?null:"'"+hd.getMaKH()+"'";
+           String MaGG=hd.getMaGG().equals("")?null:"'"+hd.getMaGG()+"'";
            String sql="UPDATE hoadon SET ";
            sql+="MaHD='"+hd.getMaHD()+"',";
            sql+="MaKH='"+hd.getMaKH()+"',";
            sql+="MaNV='"+hd.getMaNV()+"',";
-           sql+="MaGG='"+hd.getMaGG()+"',";
+           sql+="MaGG="+MaGG+",";
            sql+="NgayLapHD='"+hd.getNgayLap().toString()+"',";
            sql+="TongTien='"+hd.getTongTien()+"',";
            sql+="GiamGia='"+hd.getGiamGia()+"',";
@@ -75,12 +75,12 @@ public class HoaDonDAO {
        }
        public void Them(HoaDonDTO hd){
            MySQLConnect MySQL=new MySQLConnect("localhost","root","","bookstore");
-           String MaKH=hd.getMaKH().equals("")?null:"'"+hd.getMaKH()+"'";
+           String MaGG=hd.getMaGG().equals("")?null:"'"+hd.getMaGG()+"'";
            String sql="INSERT INTO hoadon VALUES (";
            sql+="'"+hd.getMaHD()+"',";
            sql+="'"+hd.getMaKH()+"',";
            sql+="'"+hd.getMaNV()+"',";
-           sql+="'"+hd.getMaGG()+"',";
+           sql+=""+MaGG+",";
            sql+="'"+hd.getNgayLap().toString()+"',";
            sql+="'"+hd.getTongTien()+"',";
            sql+="'"+hd.getGiamGia()+"',";
@@ -93,7 +93,7 @@ public class HoaDonDAO {
            }
            
        }
-     /*public static void main(String []args){
+     public static void main(String []args){
            MySQLConnect c=new MySQLConnect("localhost","root","","bookstore");
            String sql="UPDATE hoadon SET MaHD='HD03',MaKH='a11',MaNV='A01',MaGG='GG01',NgayLapHD='2020-04-04',TongTien='12',GiamGia='11',ThanhTien='1' WHERE MaHD='HD03'";
            try {
@@ -101,5 +101,5 @@ public class HoaDonDAO {
            } catch (Exception ex) {
                System.out.print("abc");
            }
-   }*/
+   }
 }

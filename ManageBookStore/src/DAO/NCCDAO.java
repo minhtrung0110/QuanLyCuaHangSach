@@ -45,10 +45,10 @@ public class NCCDAO {
     }
      public void addNCC(NCCDTO ncc) throws Exception
     {
-         HashMap<String,Object> Insertvalues =new  HashMap<String,Object>();        
+        HashMap<String,Object> Insertvalues =new  HashMap<String,Object>();        
         Insertvalues.put("MaNCC",ncc.getMaNCC());
-        Insertvalues.put("MaNXB", ncc.getTenNCC());
-        Insertvalues.put("MaTG", ncc.getDiaChi());
+        Insertvalues.put("TenNCC", ncc.getTenNCC());
+        Insertvalues.put("DiaChi", ncc.getDiaChi());
          try {
              connect.Insert("nhacungcap", Insertvalues);
         } catch (SQLException ex) {
@@ -57,10 +57,10 @@ public class NCCDAO {
     }
       public void updateNCC(NCCDTO ncc) throws Exception
     {
-         HashMap<String,Object> Updatevalues =new  HashMap<String,Object>();
+        HashMap<String,Object> Updatevalues =new  HashMap<String,Object>();
         Updatevalues.put("MaNCC",ncc.getMaNCC());
-        Updatevalues.put("MaNXB", ncc.getTenNCC());
-        Updatevalues.put("MaTG", ncc.getDiaChi());
+        Updatevalues.put("TenNCC", ncc.getTenNCC());
+        Updatevalues.put("DiaChi", ncc.getDiaChi());
          try {
            connect.Update("nhacungcap", Updatevalues," MaNCC ='"+ncc.getMaNCC()+"'");
         } catch (SQLException ex) {

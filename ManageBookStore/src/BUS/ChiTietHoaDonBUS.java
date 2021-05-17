@@ -6,7 +6,7 @@ import DTO.HoaDonDTO;
 import java.util.ArrayList;
 
 public class ChiTietHoaDonBUS {
-    private static ArrayList<ChiTietHoaDonDTO> CTHD;
+    private ArrayList<ChiTietHoaDonDTO> CTHD;
     public ChiTietHoaDonBUS(){
         
     }
@@ -32,6 +32,15 @@ public class ChiTietHoaDonBUS {
         ChiTietHoaDonDAO ctdao=new ChiTietHoaDonDAO();
         ctdao.Them(ct);
     }
+    public void Sua(ChiTietHoaDonDTO ct){
+        for(int i=0;i<CTHD.size();i++){
+            if(CTHD.get(i).getMaHD().equals(ct.getMaHD()) && CTHD.get(i).getMaSach().equals(ct.getMaSach())){
+                CTHD.set(i,ct);
+                ChiTietHoaDonDAO ctDAO=new ChiTietHoaDonDAO();
+                ctDAO.Sua(ct);
+            }
+        }
+    }
     public void Xoa(String MaHD){
         for(ChiTietHoaDonDTO ct: CTHD){
             if(ct.getMaHD().equals(MaHD)){
@@ -42,8 +51,22 @@ public class ChiTietHoaDonBUS {
             }
         }
     }
+    public void XoaMS(String MaSach,String MaHD){
+        for(ChiTietHoaDonDTO ct: CTHD){
+            if(ct.getMaSach().equals(MaSach) && ct.getMaHD().equals(MaHD)){
+                CTHD.remove(ct);
+                ChiTietHoaDonDAO CTDAO=new ChiTietHoaDonDAO();
+                CTDAO.XoaMS(MaSach,MaHD);
+                return;
+            }
+        }
+    }
     public ArrayList<ChiTietHoaDonDTO> getList(){
         return CTHD;
     }
-    
+    public static void main(String []args){
+        
+            System.out.println("aaa");
+        
+    }
 }

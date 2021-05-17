@@ -98,7 +98,62 @@ public class NXBBUS {
         }
         return search;
     }
+    public ArrayList<NXBDTO> list() throws Exception
+    {
+        if (this.listNXB == null)
+        {
+            this.loadDSNXB();
+        }
+        return listNXB;
+    }
 
-    
+    public NXBDTO timkiem_MaNXB(String id)
+    {
+        NXBDTO n = new NXBDTO();
+        for(NXBDTO nxb : listNXB)
+        {
+            if(nxb.getMaNXB().compareTo(id) == 0)
+            {
+                n = nxb;
+            }
+        }
+        return n;
+    }
+    public ArrayList<NXBDTO> timkiem_TenNXB(String ten)
+    {
+        ArrayList<NXBDTO> n = new ArrayList<NXBDTO>();
+        for(NXBDTO nxb : listNXB)
+        {
+            if(nxb.getTenNXB().indexOf(ten) != -1)
+            {
+                n.add(nxb);
+            }
+        }
+        return n;
+    }
+    public ArrayList<NXBDTO> timkiem_DiaChiNXB(String diachi)
+    {
+        ArrayList<NXBDTO> n = new ArrayList<NXBDTO>();
+        for(NXBDTO nxb : listNXB)
+        {
+            if(nxb.getDiaChi().indexOf(diachi) != -1)
+            {
+                n.add(nxb);
+            }
+        }
+        return n;
+    }
+    public ArrayList<NXBDTO> timkiem_SDT(String sdt)
+    {
+        ArrayList<NXBDTO> n = new ArrayList<NXBDTO>();
+        for(NXBDTO nxb : listNXB)
+        {
+            if(nxb.getSDT().indexOf(sdt) != -1)
+            {
+                n.add(nxb);
+            }
+        }
+        return n;
+    }
     
 }

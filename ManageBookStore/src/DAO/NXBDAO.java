@@ -40,7 +40,7 @@ public class NXBDAO {
          
         Insertvalues.put("MaNXB",nxb.getMaNXB());
         Insertvalues.put("TenNXB",nxb.getTenNXB());
-        Insertvalues.put("DiaChi",nxb.getDiaChi());
+        Insertvalues.put("DiaChiNXB",nxb.getDiaChi());
         Insertvalues.put("SDT",nxb.getSDT());
         
          try {
@@ -55,7 +55,7 @@ public class NXBDAO {
          
          Updatevalues.put("MaNXB",nxb.getMaNXB());
          Updatevalues.put("TenNXB",nxb.getTenNXB());
-         Updatevalues.put("DiaChi",nxb.getDiaChi());
+         Updatevalues.put("DiaChiNXB",nxb.getDiaChi());
          Updatevalues.put("SDT",nxb.getSDT());
          try {
            connect.Update("nhaxuatban", Updatevalues," MaNXB ='"+nxb.getMaNXB()+"'");
