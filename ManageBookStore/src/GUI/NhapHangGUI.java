@@ -353,7 +353,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
         btShowAll.setBackground(new java.awt.Color(0, 102, 0));
         btShowAll.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btShowAll.setForeground(new java.awt.Color(255, 255, 255));
-        btShowAll.setText("HIỂN THỊ CHI TIẾT");
+        btShowAll.setText("TẤT CẢ");
         btShowAll.setToolTipText("");
         btShowAll.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(51, 51, 51), new java.awt.Color(102, 102, 102)));
         btShowAll.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -384,9 +384,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
                     .addComponent(btThem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btSua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btXoa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btShowAll)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(btShowAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
         jPanel3Layout.setVerticalGroup(
@@ -809,6 +807,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setText("THÀNH TIỀN:");
 
+        txThanhTien.setEditable(false);
         txThanhTien.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txThanhTien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1292,17 +1291,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_txMaSachActionPerformed
 
     private void btThemChiTietActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btThemChiTietActionPerformed
-        
-        ChiTietPhieuNhapDTO ct =new ChiTietPhieuNhapDTO();
-        ct.setID(txMaCTPN.getText());
-        ct.setMaPN(cbMaPN.getSelectedItem().toString());
-        ct.setMaSach(txMaSach.getText());
-        ct.setDonGia(Integer.parseInt(txDonGia.getText()));
-        ct.setSoLuong(Integer.parseInt(txSoLuong.getText()));        
-        ct.setThanhTien(ct.caculateThanhTien());
-        //Validate
-        
-       
+
         try {
             //Validate
                 StringBuilder sb =new StringBuilder();
@@ -1317,6 +1306,14 @@ public class NhapHangGUI extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this,sb.toString(), "Thông Báo Lỗi Nhập",JOptionPane.ERROR_MESSAGE);
                     return ;
                 }
+                 ChiTietPhieuNhapDTO ct =new ChiTietPhieuNhapDTO();
+                ct.setID(txMaCTPN.getText());
+                ct.setMaPN(cbMaPN.getSelectedItem().toString());
+                ct.setMaSach(txMaSach.getText());
+                ct.setDonGia(Integer.parseInt(txDonGia.getText()));
+                ct.setSoLuong(Integer.parseInt(txSoLuong.getText()));        
+                ct.setThanhTien(ct.caculateThanhTien());
+        
             ChiTietPhieuNhapBUS bus =new ChiTietPhieuNhapBUS();
                 bus.addChiTietPhieuNhap(ct);    
             insertHeaderChiTiet();
@@ -1358,7 +1355,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this,sb.toString(), "Thông Báo Lỗi Nhập",JOptionPane.ERROR_MESSAGE);
                     return ;
                 }
-             ChiTietPhieuNhapDTO ct =new ChiTietPhieuNhapDTO();
+            ChiTietPhieuNhapDTO ct =new ChiTietPhieuNhapDTO();
             ct.setID(txMaCTPN.getText());
             ct.setMaPN(cbMaPN.getSelectedItem().toString());
             ct.setMaSach(txMaSach.getText());
