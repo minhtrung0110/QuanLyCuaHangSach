@@ -38,12 +38,15 @@ public class CungCapGUI extends javax.swing.JPanel {
     DefaultTableModel  tempxb = new DefaultTableModel();
     NXBBUS BNXB = new NXBBUS();
     /*TÁC GIẢ*/
-    public CungCapGUI() {
+    public CungCapGUI() throws Exception {
         initComponents();
+        
     }
-     public CungCapGUI(int width) {
+     public CungCapGUI(int width) throws Exception {
          this.setSize(width-210, 935);
         initComponents();
+        initNXB();
+        initNCC();
     }
 
     /**
@@ -126,10 +129,10 @@ public class CungCapGUI extends javax.swing.JPanel {
         btSuaNXB = new javax.swing.JButton();
         btAllNXB = new javax.swing.JButton();
         lbNXB = new javax.swing.JLabel();
-        cbTimKiem1 = new javax.swing.JComboBox<>();
+        cbTimKiemNXB = new javax.swing.JComboBox<>();
         lbTimkiem = new javax.swing.JLabel();
-        txTimKiem1 = new javax.swing.JTextField();
-        btTimKiem1 = new javax.swing.JButton();
+        txTimKiemNXB = new javax.swing.JTextField();
+        btTimKiemNXB = new javax.swing.JButton();
 
         pTacGia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 0, 204), 2));
 
@@ -829,20 +832,20 @@ public class CungCapGUI extends javax.swing.JPanel {
         lbNXB.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbNXB.setText("Nhà Xuất Bản");
 
-        cbTimKiem1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã NXB", "Tên NXB", "Địa chỉ", "Số điện thoại" }));
+        cbTimKiemNXB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mã NXB", "Tên NXB", "Địa chỉ", "Số điện thoại" }));
 
         lbTimkiem.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lbTimkiem.setText("Tìm kiếm:");
 
-        txTimKiem1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txTimKiemNXB.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btTimKiem1.setBackground(new java.awt.Color(255, 255, 255));
-        btTimKiem1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btTimKiem1.setText("Tìm kiếm");
-        btTimKiem1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 204), 2));
-        btTimKiem1.addActionListener(new java.awt.event.ActionListener() {
+        btTimKiemNXB.setBackground(new java.awt.Color(255, 255, 255));
+        btTimKiemNXB.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btTimKiemNXB.setText("Tìm kiếm");
+        btTimKiemNXB.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 204), 2));
+        btTimKiemNXB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btTimKiem1ActionPerformed(evt);
+                btTimKiemNXBActionPerformed(evt);
             }
         });
 
@@ -857,11 +860,11 @@ public class CungCapGUI extends javax.swing.JPanel {
                         .addGap(10, 10, 10)
                         .addComponent(lbTimkiem)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbTimKiem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbTimKiemNXB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txTimKiem1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txTimKiemNXB, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btTimKiem1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btTimKiemNXB, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -884,9 +887,9 @@ public class CungCapGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTimkiem)
-                    .addComponent(cbTimKiem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txTimKiem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btTimKiem1))
+                    .addComponent(cbTimKiemNXB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txTimKiemNXB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btTimKiemNXB))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -904,7 +907,7 @@ public class CungCapGUI extends javax.swing.JPanel {
                         .addComponent(pTacGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1169,7 +1172,7 @@ public class CungCapGUI extends javax.swing.JPanel {
     else JOptionPane.showMessageDialog(null,"Chưa điền đầy đủ thông kìa bạn ei!!!!", "thông báo",JOptionPane.INFORMATION_MESSAGE);
         
 }
-    private void show(java.awt.event.MouseEvent evt) throws Exception {
+    private void showNCC(java.awt.event.MouseEvent evt) throws Exception {
         int  i=tbNCC.getSelectedRow();
         
        if(tbNCC.getModel() == modelncc)
@@ -1191,6 +1194,7 @@ public class CungCapGUI extends javax.swing.JPanel {
        }
        
    }
+    
     private void search() throws Exception
     {
     	   
@@ -1285,7 +1289,7 @@ public class CungCapGUI extends javax.swing.JPanel {
 
     private void tbNCCMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbNCCMouseClicked
         try {
-            show(evt);
+            showNCC(evt);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -1301,16 +1305,16 @@ public class CungCapGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_btTimKiemNCCActionPerformed
 
     private void btALLNCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btALLNCCActionPerformed
-        if(tbNCC.getModel() == tempncc)
-        {
-            tbNCC.removeAll();
-            tbNCC.setModel(modelncc);
-        }
+         try {
+             initNCC();
+         } catch (Exception ex) {
+             ex.printStackTrace();
+         }
     }//GEN-LAST:event_btALLNCCActionPerformed
 
     private void tbNXBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbNXBMouseClicked
         try {
-            show(evt);
+            showNXB(evt);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -1384,13 +1388,13 @@ public class CungCapGUI extends javax.swing.JPanel {
 	
          
             if(txMaNXB.getText().trim().compareTo("") != 0
-               &&	txDiaChi.getText().trim().compareTo("") != 0
+               &&	txDiaChi1.getText().trim().compareTo("") != 0
                &&	txTen.getText().trim().compareTo("") != 0
                &&	txSDT.getText().trim().compareTo("") != 0) {
            NXBDTO nxb=new NXBDTO();
            nxb.setMaNXB(txMaNXB.getText());
            nxb.setTenNXB(txTen.getText());
-           nxb.setDiaChi(txDiaChi.getText());
+           nxb.setDiaChi(txDiaChi1.getText());
            nxb.setSDT(txSDT.getText());
            
            BNXB.addNXB(nxb);
@@ -1437,7 +1441,7 @@ public class CungCapGUI extends javax.swing.JPanel {
         int  i=tbNXB.getSelectedRow();        
         if(txMaNXB.getText().trim().compareTo("") != 0 
             &&	txTen.getText().trim().compareTo("") != 0
-            &&	txDiaChi.getText().trim().compareTo("") != 0
+            &&	txDiaChi1.getText().trim().compareTo("") != 0
             &&	txSDT.getText().trim().compareTo("") != 0) {
                     if(tbNXB.getModel() == modelnxb)
 			{
@@ -1447,7 +1451,7 @@ public class CungCapGUI extends javax.swing.JPanel {
 				
                                 nxb.setMaNXB(BNXB.list().get(i).getMaNXB());
 				nxb.setTenNXB(txTen.getText());
-				nxb.setDiaChi(txDiaChi.getText());
+				nxb.setDiaChi(txDiaChi1.getText());
                                 nxb.setSDT(txSDT.getText());
                                
                                
@@ -1463,7 +1467,7 @@ public class CungCapGUI extends javax.swing.JPanel {
                              NXBDTO nxb=new NXBDTO();
                              nxb.setMaNXB(tbNXB.getValueAt(x, 0).toString());
                              nxb.setTenNXB(txTen.getText());
-                             nxb.setDiaChi(txDiaChi.getText());
+                             nxb.setDiaChi(txDiaChi1.getText());
                              nxb.setSDT(txSDT.getText());
                              
                              BNXB.updateNXB(nxb);
@@ -1489,7 +1493,7 @@ public class CungCapGUI extends javax.swing.JPanel {
 	           NXBDTO nxb =new NXBDTO();
 	           nxb=BNXB.list().get(i);
 	           txMaNXB.setText(nxb.getMaNXB());
-	           txDiaChi.setText(nxb.getDiaChi());
+	           txDiaChi1.setText(nxb.getDiaChi());
 	           txTen.setText(nxb.getTenNXB());
 	           txSDT.setText(nxb.getSDT());
 	           
@@ -1523,33 +1527,33 @@ public class CungCapGUI extends javax.swing.JPanel {
 	                    { tempxb=new DefaultTableModel(header,0);} 
 	       
 	        
-	        if(cbTimKiem1.getSelectedItem() == "Mã NXB" )
+	        if(cbTimKiemNXB.getSelectedItem() == "Mã NXB" )
     		{
-	        	NXBDTO nxb = BNXB.timkiem_MaNXB(txTimKiem.getText());			    			
+	        	NXBDTO nxb = BNXB.timkiem_MaNXB(txTimKiemNXB.getText());			    			
                         tempxb.addRow(addNXB(nxb));
                        
     		}		 
 	    		
-	    	if(cbTimKiem1.getSelectedItem() == "Tên NXB" )
+	    	if(cbTimKiemNXB.getSelectedItem() == "Tên NXB" )
                 {
-                        for(NXBDTO nxb : BNXB.timkiem_TenNXB(txTimKiem.getText()))
+                        for(NXBDTO nxb : BNXB.timkiem_TenNXB(txTimKiemNXB.getText()))
                         {
                                 tempxb.addRow(addNXB(nxb));
                                
                         }
                 }
-	    	if(cbTimKiem1.getSelectedItem() == "Địa chỉ" )
+	    	if(cbTimKiemNXB.getSelectedItem() == "Địa chỉ" )
                 {
-                        for(NXBDTO nxb : BNXB.timkiem_DiaChiNXB(txTimKiem.getText()))
+                        for(NXBDTO nxb : BNXB.timkiem_DiaChiNXB(txTimKiemNXB.getText()))
                         {
                                 tempxb.addRow(addNXB(nxb));
                                 
                         }
                 }
                 
-                if(cbTimKiem1.getSelectedItem() == "Số điện thoại" )
+                if(cbTimKiemNXB.getSelectedItem() == "Số điện thoại" )
                 {
-                        for(NXBDTO nxb : BNXB.timkiem_SDT(txTimKiem.getText()))
+                        for(NXBDTO nxb : BNXB.timkiem_SDT(txTimKiemNXB.getText()))
                         {
                                 tempxb.addRow(addNXB(nxb));
                                 
@@ -1597,20 +1601,20 @@ public class CungCapGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_btSuaNXBActionPerformed
 
     private void btAllNXBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAllNXBActionPerformed
-        if(tbNXB.getModel() == tempxb)
-        {
-            tbNXB.removeAll();
-            tbNXB.setModel(modelnxb);
-        }
+         try {
+             initNXB();
+         } catch (Exception ex) {
+             ex.printStackTrace();
+         }
     }//GEN-LAST:event_btAllNXBActionPerformed
 
-    private void btTimKiem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiem1ActionPerformed
+    private void btTimKiemNXBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTimKiemNXBActionPerformed
         try {
             searchNXB();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Không tìm thấy kết quả");
         }
-    }//GEN-LAST:event_btTimKiem1ActionPerformed
+    }//GEN-LAST:event_btTimKiemNXBActionPerformed
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
        docDSTL(); // TODO add your handling code here:
@@ -1706,16 +1710,16 @@ public void checkmatl(){
     private javax.swing.JButton btThemNCC;
     private javax.swing.JButton btThemNXB;
     private javax.swing.JButton btThemTL;
-    private javax.swing.JButton btTimKiem1;
     private javax.swing.JButton btTimKiemNCC;
+    private javax.swing.JButton btTimKiemNXB;
     private javax.swing.JButton btXoaNCC;
     private javax.swing.JButton btXoaNXB;
     private javax.swing.JButton btXoaTL;
     private javax.swing.JButton btnSua;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
-    private javax.swing.JComboBox<String> cbTimKiem1;
     private javax.swing.JComboBox<String> cbTimKiemNCC;
+    private javax.swing.JComboBox<String> cbTimKiemNXB;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
@@ -1766,7 +1770,7 @@ public void checkmatl(){
     private javax.swing.JTextField txTenNCC;
     private javax.swing.JTextField txTenTL;
     private javax.swing.JTextField txTimKiem;
-    private javax.swing.JTextField txTimKiem1;
+    private javax.swing.JTextField txTimKiemNXB;
     private javax.swing.JTextField txtDiaChi;
     private javax.swing.JTextField txtMa;
     private javax.swing.JTextField txtSDT;

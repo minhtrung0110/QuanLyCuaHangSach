@@ -55,7 +55,7 @@
                               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="60" max="32767" attributes="0"/>
+                      <EmptySpace pref="208" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -979,11 +979,11 @@
                                   <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                   <Component id="lbTimkiem" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="cbTimKiem1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbTimKiemNXB" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txTimKiem1" min="-2" pref="116" max="-2" attributes="0"/>
+                                  <Component id="txTimKiemNXB" min="-2" pref="116" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btTimKiem1" min="-2" pref="116" max="-2" attributes="0"/>
+                                  <Component id="btTimKiemNXB" min="-2" pref="116" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
@@ -1013,9 +1013,9 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lbTimkiem" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cbTimKiem1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txTimKiem1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btTimKiem1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbTimKiemNXB" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txTimKiemNXB" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btTimKiemNXB" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
@@ -1288,7 +1288,7 @@
                     <Property name="text" type="java.lang.String" value="Nh&#xe0; Xu&#x1ea5;t B&#x1ea3;n"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cbTimKiem1">
+                <Component class="javax.swing.JComboBox" name="cbTimKiemNXB">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -1311,7 +1311,7 @@
                     <Property name="text" type="java.lang.String" value="T&#xec;m ki&#x1ebf;m:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txTimKiem1">
+                <Component class="javax.swing.JTextField" name="txTimKiemNXB">
                   <Properties>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -1320,7 +1320,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btTimKiem1">
+                <Component class="javax.swing.JButton" name="btTimKiemNXB">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -1338,7 +1338,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btTimKiem1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btTimKiemNXBActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
