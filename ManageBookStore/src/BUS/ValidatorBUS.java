@@ -18,9 +18,22 @@ public class ValidatorBUS {
         }
         return ok;
     }
-     public static boolean checkSoLuong(JTextField field, StringBuilder sb,String msg) throws Exception {
+    public static boolean checkEmpty(JRadioButton rd1,JRadioButton rd2, StringBuilder sb,String msg){
         boolean ok=true;
-        Pattern p = Pattern.compile("^[0-9]{1,3}/");
+        if(!rd1.isSelected() && !rd2.isSelected() ){
+            sb.append(msg).append("\n");
+            rd1.setBackground(Color.yellow);
+            rd2.setBackground(Color.yellow);
+            ok=false;
+        }else{
+            rd1.setBackground(Color.white);
+            rd2.setBackground(Color.white);
+        }
+        return ok;
+    }
+     public static boolean checkNumber(JTextField field, StringBuilder sb,String msg) throws Exception {
+        boolean ok=true;
+        Pattern p = Pattern.compile(" /^\\d+$/");
         if(!checkEmpty(field,sb,"Chưa Nhập Số Lượng!!!")){
             return false;
         }

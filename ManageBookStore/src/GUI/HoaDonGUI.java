@@ -4,6 +4,7 @@ import BUS.ChiTietChuongTrinhGiamGiaBUS;
 import BUS.ChiTietHoaDonBUS;
 import BUS.HoaDonBUS;
 import BUS.SachBUS;
+import BUS.ValidatorBUS;
 import BUS.outBill;
 import DTO.ChiTietChuongTrinhGiamGiaDTO;
 import DTO.ChiTietHoaDonDTO;
@@ -29,6 +30,7 @@ public class HoaDonGUI extends javax.swing.JPanel {
     private HoaDonBUS hdBUS=new HoaDonBUS();
     private ChiTietHoaDonBUS ctBUS=new ChiTietHoaDonBUS();
     private SachBUS sachBUS=new SachBUS();
+    private ValidatorBUS vlBUS=new ValidatorBUS();
     private ArrayList<HoaDonDTO> hd=new ArrayList<>();
     private ArrayList<ChiTietHoaDonDTO> ct=new ArrayList<>();
     public HoaDonGUI() {
@@ -56,7 +58,6 @@ public class HoaDonGUI extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txMaHD = new javax.swing.JTextField();
         txMaKH = new javax.swing.JTextField();
         txMaNV = new javax.swing.JTextField();
         txMaGG = new javax.swing.JTextField();
@@ -102,6 +103,7 @@ public class HoaDonGUI extends javax.swing.JPanel {
         tbChiTietHD = new javax.swing.JTable();
         btSuaCT = new javax.swing.JButton();
         btXoaCT = new javax.swing.JButton();
+        txMaHD = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -135,12 +137,10 @@ public class HoaDonGUI extends javax.swing.JPanel {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Giảm giá:");
 
-        txMaHD.setEditable(false);
-        txMaHD.setBackground(new java.awt.Color(255, 255, 255));
-
         btSua.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btSua.setForeground(new java.awt.Color(102, 0, 102));
         btSua.setText("SỬA");
-        btSua.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btSua.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
         btSua.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btSuaMouseClicked(evt);
@@ -148,8 +148,9 @@ public class HoaDonGUI extends javax.swing.JPanel {
         });
 
         btXoa.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btXoa.setForeground(new java.awt.Color(51, 204, 0));
         btXoa.setText("XÓA");
-        btXoa.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btXoa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 153)));
         btXoa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btXoaMouseClicked(evt);
@@ -188,9 +189,11 @@ public class HoaDonGUI extends javax.swing.JPanel {
 
         txSoLuongHD.setEditable(false);
 
+        btXuat.setBackground(new java.awt.Color(255, 204, 204));
         btXuat.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btXuat.setForeground(new java.awt.Color(51, 51, 255));
         btXuat.setText("XUẤT");
-        btXuat.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btXuat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
         btXuat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btXuatMouseClicked(evt);
@@ -198,8 +201,9 @@ public class HoaDonGUI extends javax.swing.JPanel {
         });
 
         btFHD.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btFHD.setForeground(new java.awt.Color(153, 204, 255));
         btFHD.setText("HÓA ĐƠN");
-        btFHD.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btFHD.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 255)));
         btFHD.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btFHDMouseClicked(evt);
@@ -231,8 +235,9 @@ public class HoaDonGUI extends javax.swing.JPanel {
         jLabel13.setText("đến");
 
         btTim.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        btTim.setText("TÌM");
-        btTim.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btTim.setForeground(new java.awt.Color(153, 153, 0));
+        btTim.setText("TÌM KIẾM");
+        btTim.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
         btTim.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btTimMouseClicked(evt);
@@ -331,7 +336,9 @@ public class HoaDonGUI extends javax.swing.JPanel {
         txTongTienCT.setEditable(false);
 
         btCTHDF.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btCTHDF.setForeground(new java.awt.Color(131, 171, 220));
         btCTHDF.setText("TẤT CẢ CHI TIẾT HÓA ĐƠN");
+        btCTHDF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 138)));
         btCTHDF.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btCTHDFMouseClicked(evt);
@@ -352,7 +359,9 @@ public class HoaDonGUI extends javax.swing.JPanel {
         }
 
         btSuaCT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btSuaCT.setForeground(new java.awt.Color(231, 169, 69));
         btSuaCT.setText("SỬA");
+        btSuaCT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
         btSuaCT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btSuaCTMouseClicked(evt);
@@ -360,7 +369,9 @@ public class HoaDonGUI extends javax.swing.JPanel {
         });
 
         btXoaCT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btXoaCT.setForeground(new java.awt.Color(255, 0, 51));
         btXoaCT.setText("XÓA");
+        btXoaCT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102)));
         btXoaCT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btXoaCTMouseClicked(evt);
@@ -430,6 +441,8 @@ public class HoaDonGUI extends javax.swing.JPanel {
                         .addGap(148, 148, 148))))
         );
 
+        txMaHD.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -449,11 +462,11 @@ public class HoaDonGUI extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(50, 50, 50)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txMaGG))
+                                        .addComponent(txMaGG, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -516,7 +529,6 @@ public class HoaDonGUI extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txMaHD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(txMaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
@@ -524,7 +536,8 @@ public class HoaDonGUI extends javax.swing.JPanel {
                     .addComponent(jLabel7)
                     .addComponent(txNgayLap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txMaHD, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -561,6 +574,7 @@ public class HoaDonGUI extends javax.swing.JPanel {
     private void btXoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btXoaMouseClicked
         Xoa();
         Sum();
+        LoadDBCTF();
     }//GEN-LAST:event_btXoaMouseClicked
 
     private void btSuaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSuaMouseClicked
@@ -801,6 +815,17 @@ public class HoaDonGUI extends javax.swing.JPanel {
     }
 //Sửa
     public void Sua(){
+                StringBuilder sb =new StringBuilder();
+                vlBUS.checkEmpty(txMaKH, sb, "Mã Khác Hàng Còn Trống!");
+                vlBUS.checkEmpty(txMaNV, sb, "Mã Nhân Viên Còn Trống!");
+                vlBUS.checkEmpty(txNgayLap, sb, "Ngày Lập Còn Trống!");
+                vlBUS.checkEmpty(txTongTien, sb, "Tổng Tiền Còn Trống!");
+                vlBUS.checkEmpty(txGiamGia, sb, "Giảm Giá Còn Trống!");
+                vlBUS.checkEmpty(txThanhTien, sb, "Thành Tiền Còn Trống !");
+                if(sb.length()>0){
+                    JOptionPane.showMessageDialog(this,sb.toString(), "Thông Báo Lỗi Nhập",JOptionPane.ERROR_MESSAGE);
+                    return ;
+                }
                 String MaHD = txMaHD.getText();
                 String MaKH = txMaKH.getText();
                 String MaNV = txMaNV.getText();
@@ -873,6 +898,7 @@ public class HoaDonGUI extends javax.swing.JPanel {
            outModelCT(modelct,ct);
         }
         public void LoadDBCTF(){
+            ChiTietHoaDonBUS ct123=new ChiTietHoaDonBUS();
              Vector header=new Vector();
             header.add("Mã HĐ");
             header.add("Mã sách");
@@ -884,11 +910,8 @@ public class HoaDonGUI extends javax.swing.JPanel {
            if(modelct.getRowCount()==0){
             modelct=new DefaultTableModel(header,0);
         }
-           txMaHDCT.setText(txMaHD.getText());
-           if(ctBUS.getList()==null) ctBUS.List();
-            ct=ctBUS.getList();
-            modelct.setRowCount(0);
-           outModelCT(modelct,ct);
+           if(ct123.getList()==null) ct123.List();
+           outModelCT(modelct,ct123.getList());
         }
         public void outModelCT(DefaultTableModel model1,ArrayList<ChiTietHoaDonDTO> ct){
             Vector row;

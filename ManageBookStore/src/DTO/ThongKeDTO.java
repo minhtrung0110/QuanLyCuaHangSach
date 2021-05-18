@@ -7,20 +7,23 @@ package DTO;
 
 /**
  *
- * @author Admin
+ * @author tungk
  */
 public class ThongKeDTO {
     String Ma;
-    Float Tien;
-    String Quy;
+    double quy1, quy2, quy3, quy4;
 
     public ThongKeDTO() {
     }
 
-    public ThongKeDTO(String Ma, Float Tien, String Quy) {
+    
+    
+    public ThongKeDTO(String Ma, int quy1, int quy2, int quy3, int quy4) {
         this.Ma = Ma;
-        this.Tien = Tien;
-        this.Quy = Quy;
+        this.quy1 = quy1;
+        this.quy2 = quy2;
+        this.quy3 = quy3;
+        this.quy4 = quy4;
     }
 
     public String getMa() {
@@ -31,21 +34,36 @@ public class ThongKeDTO {
         this.Ma = Ma;
     }
 
-    public Float getTien() {
-        return Tien;
+    public double getQuy1() {
+        return quy1;
     }
 
-    public void setTien(Float Tien) {
-        this.Tien = Tien;
+    public void setQuy1(double quy1) {
+        this.quy1 = quy1;
     }
 
-    public String getQuy() {
-        return Quy;
+    public double getQuy2() {
+        return quy2;
     }
 
-    public void setQuy(String Quy) {
-        this.Quy = Quy;
+    public void setQuy2(double quy2) {
+        this.quy2 = quy2;
     }
-    
-    
+
+    public double getQuy3() {
+        return quy3;
+    }
+
+    public void setQuy3(double quy3) {
+        this.quy3 = quy3;
+    }
+
+    public double getQuy4() {
+        return quy4;
+    }
+
+    public void setQuy4(double quy4) {
+        this.quy4 = quy4;
+    }
+
 }

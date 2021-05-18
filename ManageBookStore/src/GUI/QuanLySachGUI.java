@@ -280,7 +280,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
 
         btThem.setBackground(new java.awt.Color(0, 0, 204));
         btThem.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btThem.setForeground(new java.awt.Color(0, 0, 204));
+        btThem.setForeground(new java.awt.Color(255, 255, 255));
         btThem.setText("THÊM");
         btThem.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 204, 204), new java.awt.Color(153, 153, 153), new java.awt.Color(204, 204, 204)));
         btThem.setContentAreaFilled(false);
@@ -317,7 +317,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
 
         btXacNhan.setBackground(new java.awt.Color(0, 0, 204));
         btXacNhan.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btXacNhan.setForeground(new java.awt.Color(0, 0, 204));
+        btXacNhan.setForeground(new java.awt.Color(255, 255, 255));
         btXacNhan.setText("XÁC NHẬN");
         btXacNhan.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(153, 153, 153), new java.awt.Color(204, 204, 204), new java.awt.Color(153, 153, 153), new java.awt.Color(204, 204, 204)));
         btXacNhan.setContentAreaFilled(false);
@@ -648,6 +648,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
 
         pButton2.setBackground(new java.awt.Color(255, 255, 255));
 
+        btNhapExcel.setBackground(new java.awt.Color(255, 153, 255));
         btNhapExcel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btNhapExcel.setText("NHẬP  EXCEL");
         btNhapExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -657,6 +658,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             }
         });
 
+        btXuatExcel.setBackground(new java.awt.Color(153, 153, 255));
         btXuatExcel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btXuatExcel.setText("XUẤT EXCEL");
         btXuatExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -711,7 +713,9 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 .addContainerGap())
         );
 
+        btHienThiTatCa.setBackground(new java.awt.Color(0, 153, 0));
         btHienThiTatCa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btHienThiTatCa.setForeground(new java.awt.Color(255, 255, 255));
         btHienThiTatCa.setText("HIỂN THỊ TẤT CẢ");
         btHienThiTatCa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btHienThiTatCa.addActionListener(new java.awt.event.ActionListener() {
@@ -932,13 +936,14 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 // Validate
                 StringBuilder sb =new StringBuilder();
                 ValidatorBUS.checkEmpty(txMaSach, sb, "Mã Sách Còn Trống!");
-                ValidatorBUS.checkEmpty(txMaSach, sb, "Mã Nhà Xuất Bản Còn Trống!");
+                ValidatorBUS.checkEmpty(cbMaNXB, sb, "Mã Nhà Xuất Bản Còn Trống!");
                 ValidatorBUS.checkEmpty(cbMaTG, sb, "Mã Tác Giả Còn Trống!");
                 ValidatorBUS.checkEmpty(cbMaTL, sb, "Mã Thể Loại Còn Trống!");
                 ValidatorBUS.checkEmpty(txTenSach, sb, "Tên Sách Còn Trống!");
                 ValidatorBUS.checkEmpty(txNamXuatBan, sb, "Năm Xuất Bản Còn Trống !");
-                ValidatorBUS.checkSoLuong(txSoLuong, sb, "Số Lượng Là Số Nguyên !");
-                ValidatorBUS.checkDonGia(txDonGia, sb, "Đơn Giá là Số !");
+                ValidatorBUS.checkNumber(txNamXuatBan, sb, "Năm Xuất Bản là số !");
+                ValidatorBUS.checkNumber(txSoLuong, sb, "Số Lượng Là Số Nguyên !");
+                ValidatorBUS.checkNumber(txDonGia, sb, "Đơn Giá là Số !");
                 if(sb.length()>0){
                     JOptionPane.showMessageDialog(this,sb.toString(), "Thông Báo Lỗi Nhập",JOptionPane.ERROR_MESSAGE);
                     return ;
@@ -979,9 +984,9 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                     ValidatorBUS.checkEmpty(cbMaTG, sb, "Mã Tác Giả Còn Trống!");
                     ValidatorBUS.checkEmpty(cbMaTL, sb, "Mã Thể Loại Còn Trống!");
                     ValidatorBUS.checkEmpty(txTenSach, sb, "Tên Sách Còn Trống!");
-                    ValidatorBUS.checkSoLuong(txNamXuatBan, sb, "Năm Xuất Bản Còn Trống !");
-                    ValidatorBUS.checkSoLuong(txSoLuong, sb, "Số Lượng Là Số Nguyên !");
-                    ValidatorBUS.checkDonGia(txDonGia, sb, "Đơn Giá là Số !");
+                    ValidatorBUS.checkNumber(txNamXuatBan, sb, "Năm Xuất Bản Còn Trống !");
+                    ValidatorBUS.checkNumber(txSoLuong, sb, "Số Lượng Là Số Nguyên !");
+                    ValidatorBUS.checkNumber(txDonGia, sb, "Đơn Giá là Số !");
                     if(sb.length()>0){
                         JOptionPane.showMessageDialog(this,sb.toString(), "Thông Báo Lỗi Nhập",JOptionPane.ERROR_MESSAGE);
                         return ;

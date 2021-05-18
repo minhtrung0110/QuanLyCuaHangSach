@@ -56,6 +56,9 @@ public class MyConnectUnit  {
     public ResultSet SelectCustomGroupBy(String tableName,String Custom,String Groupby) throws Exception {
         return SelectCustom(tableName,Custom,null,Groupby,null);
     }
+    public ResultSet SelectCustomGroupByOderby(String tableName,String Custom,String Groupby,String Oderby) throws Exception {
+        return SelectCustom(tableName,Custom,null,Groupby,Oderby);
+    }
     public ResultSet SelectCustom(String tableName,String Custom, String condition) throws Exception {
         return SelectCustom(tableName,Custom,condition,null,null);
     }

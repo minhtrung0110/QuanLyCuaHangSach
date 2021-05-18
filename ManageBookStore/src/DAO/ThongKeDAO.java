@@ -35,13 +35,13 @@ public class ThongKeDAO {
         connect  =new MyConnectUnit();
        
     }
-    public float  TongTienPhieuNhap(){
+    public long  TongTienPhieuNhap(){
         //SELECT  SUM(TongTien) AS TongTienPhieuNhap FROM phieunhap 
-        float Sum=0;
+        long Sum=0;
         try {
           ResultSet rs = connect.SelectCustom("phieunhap", "SUM(TongTien) AS TongTienPhieuNhap");
           while(rs.next()){
-          Sum=rs.getFloat("TongTienPhieuNhap");}
+          Sum=rs.getLong("TongTienPhieuNhap");}
           rs.close();
             connect.Close();//dong ket noi;
 
@@ -71,7 +71,7 @@ public class ThongKeDAO {
           //SELECT MANCC , SUM(TongTien) AS TongTienPhieuNhap FROM phieunhap GROUP BY MaNCC
         HashMap<String,Object> values =new  HashMap<String,Object>();
         try {
-          ResultSet rs = connect.SelectCustomGroupBy("phieunhap", " MANCC , SUM(TongTien) AS TongTienPhieuNhap ", " MaNCC");
+          ResultSet rs = connect.SelectCustomGroupByOderby("phieunhap", " MANCC , SUM(TongTien) AS TongTienPhieuNhap ", " MaNCC","TongTienPhieuNhap DESC");
          while(rs.next())
             {
                values.put(rs.getString("MANCC"),rs.getFloat("TongTienPhieuNhap"));
@@ -99,106 +99,115 @@ public class ThongKeDAO {
         }
         return Sum;
     }
-    public ArrayList<ThongKeDTO>  TongTienPhieuNhapTheoQuyvaNCC(){
-        //SELECT MANCC,SUM(TongTien) AS TongTienPhieuNhap ,QUARTER(NgayNhap) AS QUY FROM `phieunhap` GROUP BY QUY        float Sum=0;
-       ArrayList<ThongKeDTO> values = new ArrayList<ThongKeDTO>();
+     public ArrayList<ThongKeDTO> xuatThongKePNNCCtheoQuy(String year) throws Exception{
+        ArrayList<ThongKeDTO> dsThongKe = new ArrayList();
+        ResultSet rs = connect.SelectCustom(" phieunhap, chitietphieunhap ","MaNCC, sum( if(Quarter(phieunhap.NgayNhap) = 1, chitietphieunhap.ThanhTien, 0)) as QUY1, sum( if(Quarter(phieunhap.NgayNhap) = 2, chitietphieunhap.ThanhTien, 0)) as QUY2, sum( if(Quarter(phieunhap.NgayNhap) = 3, chitietphieunhap.ThanhTien, 0)) as QUY3, sum( if(Quarter(phieunhap.NgayNhap) = 4, chitietphieunhap.ThanhTien, 0)) as QUY4"
+                ,"  phieunhap.MaPN= chitietphieunhap.MaPN and year(NgayNhap)="+ year, "  MaNCC");
+        
+        while(rs.next()){
+            ThongKeDTO thongke = new ThongKeDTO();
+            thongke.setMa(rs.getString(1));
+            thongke.setQuy1(Double.parseDouble(rs.getString(2)));
+            thongke.setQuy2(Double.parseDouble(rs.getString(3)));
+            thongke.setQuy3(Double.parseDouble(rs.getString(4)));
+            thongke.setQuy4(Double.parseDouble(rs.getString(5)));
+            
+            dsThongKe.add(thongke);
+        }
+        System.out.println("DAO.ThongKeSPDAO.xuatThongKePNNCCtheoQuy");
+        return dsThongKe;
+    }
+    /*Hóa Đơn*/
+     public long  TongTienHoaDon(){
+        //SELECT  SUM(TongTien) AS TongTienPhieuNhap FROM phieunhap 
+        long Sum=0;
         try {
-          ResultSet rs = connect.SelectCustomGroupBy("phieunhap", " MANCC,SUM(TongTien) AS TongTienPhieuNhap ,QUARTER(NgayNhap) AS QUY " , " QUY");
+          ResultSet rs = connect.SelectCustom("hoadon", "SUM(TongTien) AS TongTienHoaDon");
+          while(rs.next()){
+          Sum=rs.getLong("TongTienHoaDon");}
+          rs.close();
+            connect.Close();//dong ket noi;
+
+        } catch (Exception e) {
+            System.out.println("Khong the lay Tổng Tiền Tất Cả Hóa Đơn");
+        }
+        return Sum;
+    }
+     public float  TongTienHoaDonTheoNgayNhap(String ngaymin,String ngaymax){
+        //SELECT  SUM(TongTien) AS TongTienPhieuNhap FROM phieunhap WHERE NgayNhap BETWEEN '2020-12-20' AND '2021-05-02'
+        float Sum=0;
+        try {
+          ResultSet rs = connect.SelectCustom("hoadon", "SUM(TongTien) AS TongTienHoaDon"," NgayNhap BETWEEN '"+ngaymin+"' AND '"+ngaymax+"'");
+         while(rs.next()){
+          Sum=rs.getFloat("TongTienHoaDon");}
+          rs.close();
+            connect.Close();//dong ket noi;
+
+        } catch (Exception e) {
+            System.out.println("Khong the lay Tổng Tiền Tất Cả Hóa Đơn Theo Ngày Nhập ");
+        }
+        return Sum;
+    }
+     public HashMap<String,Object>  TongTienHoaDonTheoKH(){
+          //SELECT MANCC , SUM(TongTien) AS TongTienPhieuNhap FROM phieunhap GROUP BY MaNCC
+        HashMap<String,Object> values =new  HashMap<String,Object>();
+        try {
+          ResultSet rs = connect.SelectCustomGroupByOderby("hoadon", " MaKH , SUM(TongTien) AS TongTienHoaDon ", " MaKH","TongTienHoaDon DESC");
          while(rs.next())
             {
-               ThongKeDTO tk =new ThongKeDTO(rs.getString("MANCC"),rs.getFloat("TongTienPhieuNhap"),rs.getString("QUY"));
-               values.add(tk);
+               values.put(rs.getString("MaKH"),rs.getFloat("TongTienHoaDon"));
             }
             rs.close();
             connect.Close();
 
         } catch (Exception e) {
-            System.out.println("Khong the lay Tổng Tiền Tất Cả Phiếu Nhập Theo Mã NCC");
+            System.out.println("Khong the lay Tổng Tiền Tất Cả Hóa Đơn Theo Mã Khách Hàng");
         }
         return values;
     }
-   
-    public void ExportExcelDatabase() throws Exception{
-        try{          
-            ResultSet rs = connect.Select("sach");
-            XSSFWorkbook workbook = new XSSFWorkbook();
-            XSSFSheet sheet = workbook.createSheet("ThongKeDB");
-            
-                    
-            XSSFFont font = workbook.createFont();
-            font.setFontHeightInPoints((short) 12);
-            font.setBold(true);
+     public ArrayList<ThongKeDTO> xuatThongKeHDSPtheoQuy(String year) throws Exception{
+        ArrayList<ThongKeDTO> dsThongKe = new ArrayList();
+        ResultSet rs = connect.SelectCustom(" hoadon, chitiethoadon ",""
+                + "MaSach, sum( if(Quarter(hoadon.NgayLapHD) = 1, chitiethoadon.ThanhTien, 0)) as QUY1, "
+                + "sum( if(Quarter(hoadon.NgayLapHD) = 2, chitiethoadon.ThanhTien, 0)) as QUY2, "
+                + "sum( if(Quarter(hoadon.NgayLapHD) = 3, chitiethoadon.ThanhTien, 0)) as QUY3, "
+                + "sum( if(Quarter(hoadon.NgayLapHD) = 4, chitiethoadon.ThanhTien, 0)) as QUY4"
+                ," hoadon.MaHD = chitiethoadon.MaHD and year(NgayLapHD) = " + year, "  MaSach");
         
-            XSSFCellStyle style = workbook.createCellStyle();
-            style.setFont(font);
-            
-            XSSFRow row = sheet.createRow(0);
-            XSSFCell cell;
-            
-            cell = row.createCell(0,CellType.STRING);
-            cell.setCellValue("Mã Sách");
-            cell.setCellStyle(style);
-            cell = row.createCell(1,CellType.STRING);
-            cell.setCellValue("Mã NXB");
-            cell.setCellStyle(style);
-            cell = row.createCell(2,CellType.STRING);
-            cell.setCellValue("Mã Tác Giả");
-            cell.setCellStyle(style);
-            cell = row.createCell(3,CellType.STRING);
-            cell.setCellValue("Mã Thể Loại");
-            cell.setCellStyle(style);
-            cell = row.createCell(4,CellType.STRING);
-            cell.setCellValue("Tên Sách");
-            cell.setCellStyle(style);
-            cell = row.createCell(5,CellType.NUMERIC);
-            cell.setCellValue("Năm Xuất Bản");
-            cell.setCellStyle(style);
-            cell = row.createCell(6,CellType.NUMERIC);
-            cell.setCellValue("Số Lượng");
-            cell.setCellStyle(style);
-            cell = row.createCell(7,CellType.NUMERIC);
-            cell.setCellValue("Đơn Giá");
-            cell.setCellStyle(style);
-            cell = row.createCell(8,CellType.STRING);
-            cell.setCellValue("Hình Ảnh");
-            cell.setCellStyle(style);
-            int i = 1;
-       
         while(rs.next()){
-            row = sheet.createRow(i);
-            cell = row.createCell(0,CellType.STRING);
-            cell.setCellValue(rs.getString("MaThongKe"));
-            cell = row.createCell(1,CellType.STRING);
-            cell.setCellValue(rs.getString("MaNXB"));
-            cell = row.createCell(2,CellType.STRING);
-            cell.setCellValue(rs.getString("MaTG"));
-            cell = row.createCell(3,CellType.STRING);
-            cell.setCellValue(rs.getString("MaTL"));
-            cell = row.createCell(4,CellType.STRING);
-            cell.setCellValue(rs.getString("TenThongKe"));
-            cell = row.createCell(5,CellType.NUMERIC);
-            cell.setCellValue(rs.getInt("NamXuatBan"));
-            cell = row.createCell(6,CellType.NUMERIC);
-            cell.setCellValue(rs.getInt("SoLuong"));
-            cell = row.createCell(7,CellType.NUMERIC);
-            cell.setCellValue(rs.getFloat("DonGia"));
-            cell = row.createCell(8,CellType.STRING);
-            cell.setCellValue(rs.getString("imgName"));
-            i++;
+            ThongKeDTO thongke = new ThongKeDTO();
+            thongke.setMa(rs.getString(1));
+            thongke.setQuy1(Double.parseDouble(rs.getString(2)));
+            thongke.setQuy2(Double.parseDouble(rs.getString(3)));
+            thongke.setQuy3(Double.parseDouble(rs.getString(4)));
+            thongke.setQuy4(Double.parseDouble(rs.getString(5)));
+            
+            dsThongKe.add(thongke);
         }
+        System.out.println("DAO.ThongKeSPDAO.xuatThongKeHDSPtheoQuy()");
+        return dsThongKe;
+    }
+    public ArrayList<ThongKeDTO> xuatThongKeHDNVtheoQuy(String year) throws Exception{
+        ArrayList<ThongKeDTO> dsThongKe = new ArrayList();
+        ResultSet rs = connect.SelectCustom(" hoadon, chitiethoadon ",""
+                + "MaNV, sum( if(Quarter(hoadon.NgayLapHD) = 1, chitiethoadon.ThanhTien, 0)) as QUY1, "
+                + "sum( if(Quarter(hoadon.NgayLapHD) = 2, chitiethoadon.ThanhTien, 0)) as QUY2, "
+                + "sum( if(Quarter(hoadon.NgayLapHD) = 3, chitiethoadon.ThanhTien, 0)) as QUY3, "
+                + "sum( if(Quarter(hoadon.NgayLapHD) = 4, chitiethoadon.ThanhTien, 0)) as QUY4"
+                ," hoadon.MaHD = chitiethoadon.MaHD and year(NgayLapHD) = " + year, "  MaNV");
         
-        for(int colNum = 0;colNum < row.getLastCellNum();colNum++) {
-            sheet.autoSizeColumn((short) (colNum));
+        while(rs.next()){
+            ThongKeDTO thongke = new ThongKeDTO();
+            thongke.setMa(rs.getString(1));
+            thongke.setQuy1(Double.parseDouble(rs.getString(2)));
+            thongke.setQuy2(Double.parseDouble(rs.getString(3)));
+            thongke.setQuy3(Double.parseDouble(rs.getString(4)));
+            thongke.setQuy4(Double.parseDouble(rs.getString(5)));
+            
+            dsThongKe.add(thongke);
         }
-         
-        FileOutputStream out = new FileOutputStream(new File("./report/ThongKeDB.xlsx"));
-        workbook.write(out);
-        out.close();
-        JOptionPane.showMessageDialog(null, "Xuất file excel thành công");
-        
-        } catch (Exception ex) {
-         JOptionPane.showMessageDialog(null, "Xuất file excel thất bại");
-        }
+        System.out.println("DAO.ThongKeSPDAO.xuatThongKeHDNVtheoQuy()");
+        return dsThongKe;
     }
     public static void main(String[] args) {
         

@@ -383,10 +383,15 @@ public class QuanLyTaiKhoanGUI extends javax.swing.JPanel {
         );
 
         buttonGroup1.add(rdTrue);
-        rdTrue.setText("Online");
+        rdTrue.setText("Bình thường");
+        rdTrue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdTrueActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(rdFalse);
-        rdFalse.setText("Offline");
+        rdFalse.setText("Khóa");
 
         btSua.setBackground(new java.awt.Color(0, 255, 51));
         btSua.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -477,6 +482,10 @@ public class QuanLyTaiKhoanGUI extends javax.swing.JPanel {
     private void tbTaiKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTaiKhoanMouseClicked
        show();
     }//GEN-LAST:event_tbTaiKhoanMouseClicked
+
+    private void rdTrueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdTrueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdTrueActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
