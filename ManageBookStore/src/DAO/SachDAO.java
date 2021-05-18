@@ -36,13 +36,13 @@ public class SachDAO {
     {
         ArrayList<SachDTO> dssach = new ArrayList<>();
         try {
-            ResultSet rs = connect.Select("sach","TrangThai=1");
+            ResultSet rs = connect.Select("sach");
             while(rs.next())
             {
                 SachDTO sach = new  SachDTO(rs.getString("MaSach"),
                         rs.getString("MaNXB"),rs.getString("MaTG"),
                         rs.getString("MaTL"),rs.getString("TenSach"),rs.getInt("NamXuatBan"),
-                        rs.getInt("SoLuong"),rs.getFloat("DonGia"),rs.getString("imgName"),rs.getInt("TrangThai"));       
+                        rs.getInt("SoLuong"),rs.getFloat("DonGia"),rs.getString("imgName"));       
                 dssach.add(sach);
             }
             rs.close();
@@ -67,7 +67,6 @@ public class SachDAO {
         Insertvalues.put("SoLuong", sach.getSoluong());
         Insertvalues.put("DonGia", sach.getDongia());
         Insertvalues.put("imgName", sach.getImgName());
-        
          try {
              connect.Insert("sach", Insertvalues);
         } catch (SQLException ex) {
@@ -88,7 +87,7 @@ public class SachDAO {
         Updatevalues.put("DonGia", sach.getDongia());
         Updatevalues.put("imgName", sach.getImgName());
          try {
-           connect.Update("sach", Updatevalues," MaSach ='"+sach.getMaSach()+"' AND TrangThai=1");
+           connect.Update("sach", Updatevalues," MaSach ='"+sach.getMaSach());
         } catch (SQLException ex) {
             System.out.println("Khong the Cap nhat Sach vao database !!!");
         }
@@ -102,25 +101,7 @@ public class SachDAO {
                 }
         
     }
-     public void updateSachTrangThai(SachDTO sach) throws Exception
-    {
-        HashMap<String,Object> Updatevalues =new  HashMap<String,Object>();
-        Updatevalues.put("MaSach",sach.getMaSach());
-        Updatevalues.put("MaNXB", sach.getMaNXB());
-        Updatevalues.put("MaTG", sach.getMaTG());
-        Updatevalues.put("MaTL", sach.getMaTL());
-        Updatevalues.put("TenSach", sach.getTenSach());
-        Updatevalues.put("NamXuatBan", sach.getNamXuatBan());
-        Updatevalues.put("SoLuong", sach.getSoluong());
-        Updatevalues.put("DonGia", sach.getDongia());
-        Updatevalues.put("imgName", sach.getImgName());
-        Updatevalues.put("TrangThai", 0);
-         try {
-           connect.Update("sach", Updatevalues," MaSach ='"+sach.getMaSach()+"' AND TrangThai=1");
-        } catch (SQLException ex) {
-            System.out.println("Khong the Cap nhat Sach vao database !!!");
-        }
-    }
+    
     public void ExportExcelDatabase() throws Exception{
         try{          
             ResultSet rs = connect.Select("sach");
@@ -216,8 +197,8 @@ public class SachDAO {
             SachDTO sach=new SachDTO(row.getCell(0).getStringCellValue(),row.getCell(1).getStringCellValue(),
                 row.getCell(2).getStringCellValue(),row.getCell(3).getStringCellValue(),row.getCell(4).getStringCellValue(),
                 (int) row.getCell(5).getNumericCellValue(),(int) row.getCell(6).getNumericCellValue(),
-                (float) row.getCell(7).getNumericCellValue(),row.getCell(8).getStringCellValue(),
-                (int) row.getCell(9).getNumericCellValue());
+                (float) row.getCell(7).getNumericCellValue(),row.getCell(8).getStringCellValue()
+                );
             
             String sql_check = "MaSach='"+sach.getMaSach()+"'";
             ResultSet rs = connect.Select("sach",sql_check);

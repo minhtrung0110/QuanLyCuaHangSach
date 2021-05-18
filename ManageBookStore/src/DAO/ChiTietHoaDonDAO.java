@@ -55,6 +55,16 @@ public class ChiTietHoaDonDAO {
        System.out.println(sql);
        
    }
+   public void deletebyMaSach(String idSach)
+    {
+        try {
+            String query="DELETE FROM chitietphieunhap WHERE  MaSach ='"+idSach+"'";
+                    MySQL.excuteUpdate(query); 
+                } catch (Exception e) {
+                    System.out.println("Lỗi không thể xóa !!");
+                }
+        
+    }
    public void Sua(ChiTietHoaDonDTO ct){
        try{
        MySQLConnect MySQL=new MySQLConnect("localhost","root","","bookstore");
@@ -94,11 +104,4 @@ public class ChiTietHoaDonDAO {
        }
        System.out.println(sql);
    }
-   public static void main(String []args){
-    ChiTietHoaDonDAO ct=new ChiTietHoaDonDAO();
-    ArrayList<ChiTietHoaDonDTO> cthd=ct.List();
-    for(int i=0;i<cthd.size();i++){
-        System.out.println(cthd.get(i).getMaHD());
-    }
-    }
 }

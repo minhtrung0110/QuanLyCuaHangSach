@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2021 at 09:33 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.1
+-- Generation Time: May 18, 2021 at 04:17 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.2.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -63,26 +63,6 @@ CREATE TABLE `chitiethoadon` (
   `ThanhTien` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
---
--- Dumping data for table `chitiethoadon`
---
-
-INSERT INTO `chitiethoadon` (`MaHD`, `MaSach`, `TenSach`, `SoLuong`, `DonGia`, `GiamGia`, `ThanhTien`) VALUES
-('0001', 'KD01', 'Nhớ Em Cô Gái Ngày Hôm QUa', 5, 125000, 0, 625000),
-('0001', 'KD03', 'Chiều Hôm', 2, 450000, 0, 900000),
-('0001', 'KD05', 'asaad', 1, 25000, 0, 25000),
-('0002', 'KD02', 'Kiều Nguyệt Nga', 2, 95000, 0, 190000),
-('0002', 'KD01', 'Nhớ Em Cô Gái Ngày Hôm QUa', 3, 125000, 0, 375000),
-('0002', 'KD03', 'Chiều Hôm', 1, 450000, 135000, 315000),
-('0003', 'KD04', 'Khôi Đẹp Trai', 1, 50000, 0, 50000),
-('0003', 'KD02', 'Kiều Nguyệt Nga', 5, 95000, 0, 475000),
-('0003', 'KD01', 'Kiều Nguyệt Nga', 4, 95000, 0, 380000),
-('0004', 'KD01', 'Nhớ Em Cô Gái Ngày Hôm QUa', 5, 125000, 0, 625000),
-('0004', 'KD02', 'Kiều Nguyệt Nga', 7, 95000, 0, 665000),
-('0004', 'KD05', 'asaad', 1, 25000, 7500, 17500),
-('0004', 'KD03', 'Chiều Hôm', 5, 450000, 675000, 1575000),
-('0005', 'KD01', 'Nhớ Em Cô Gái Ngày Hôm QUa', 10, 125000, 0, 1250000);
-
 -- --------------------------------------------------------
 
 --
@@ -103,8 +83,8 @@ CREATE TABLE `chitietphieunhap` (
 --
 
 INSERT INTO `chitietphieunhap` (`MaCTPN`, `MaPN`, `MaSach`, `DonGia`, `SoLuong`, `ThanhTien`) VALUES
-('CT01', 'A01', 'KD03', 95000, 2, 190000),
-('CT02', 'A02', 'KD01', 125000, 1, 125000);
+('CT01', 'A01', 'KD05', 45000, 51, 2295000),
+('CT02', 'A02', 'KD04', 75000, 8, 600000);
 
 -- --------------------------------------------------------
 
@@ -140,23 +120,12 @@ CREATE TABLE `hoadon` (
   `MaHD` varchar(5) COLLATE utf32_unicode_ci NOT NULL,
   `MaKH` varchar(5) COLLATE utf32_unicode_ci NOT NULL,
   `MaNV` varchar(5) COLLATE utf32_unicode_ci NOT NULL,
-  `MaGG` varchar(5) COLLATE utf32_unicode_ci NOT NULL,
+  `MaGG` varchar(5) COLLATE utf32_unicode_ci DEFAULT NULL,
   `NgayLapHD` date NOT NULL,
   `TongTien` float NOT NULL,
   `GiamGia` float NOT NULL,
   `ThanhTien` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
-
---
--- Dumping data for table `hoadon`
---
-
-INSERT INTO `hoadon` (`MaHD`, `MaKH`, `MaNV`, `MaGG`, `NgayLapHD`, `TongTien`, `GiamGia`, `ThanhTien`) VALUES
-('0001', 'K01', 'PK', '', '2021-05-15', 1550000, 0, 1550000),
-('0002', 'K02', 'TT', 'A02', '2021-05-15', 1015000, 135000, 880000),
-('0003', 'K04', 'MT', '', '2021-05-15', 905000, 0, 905000),
-('0004', 'K05', 'VV', 'A04', '2021-05-15', 3565000, 682500, 2882500),
-('0005', 'K02', 'TT', '', '2021-05-15', 1250000, 0, 1250000);
 
 -- --------------------------------------------------------
 
@@ -294,8 +263,8 @@ CREATE TABLE `phieunhap` (
 --
 
 INSERT INTO `phieunhap` (`MaPN`, `MaNV`, `MaNCC`, `TrangThai`, `TongTien`, `NgayNhap`) VALUES
-('A01', 'MT', 'KĐ', 0, 25000000, '2020-10-02'),
-('A02', 'VV', 'NVC', 1, 4500000, '2021-04-29');
+('A01', 'MT', 'KĐ', 1, 2295000, '2020-10-02'),
+('A02', 'VV', 'NVC', 1, 600000, '2021-04-29');
 
 -- --------------------------------------------------------
 
@@ -321,11 +290,8 @@ CREATE TABLE `sach` (
 --
 
 INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`, `imgName`, `TrangThai`) VALUES
-('KD01', 'NXB_Hội_Nhà_Văn', 'H.Trương', 'Tôn_Giáo&Tâm_Lý', 'Nhớ Em Cô Gái Ngày Hôm QUa', 2019, 2000, 125000, 'KD01.jpg', 1),
-('KD02', 'NXB_Tổng_Hợp_HCM', 'Nguyễn Du', 'Truyện', 'Kiều Nguyệt Nga', 1980, 5000, 95000, 'KD02.jpg', 1),
-('KD03', 'NXB_Hội_Nhà_Văn', 'D.N.Nam', 'Thiếu_Nhi', 'Chiều Hôm', 2005, 245, 450000, 'KD03.jpg', 1),
-('KD04', 'NXB_Đại_Học_Quốc_Gia', 'J.K.R', 'Chính_Trị', 'Harry Porter và Chính Trị Việt Nam', 2020, 1, 200000, 'null', 1),
-('KD05', 'NXB_Hội_Nhà_Văn', 'H.Trương', 'Tôn_Giáo&Tâm_Lý', 'asaad', 2346, 12, 25000, 'null', 1);
+('KD01', 'NXB_Trẻ', 'D.N.Nam', 'Tôn_Giáo&Tâm_Lý', 'Cho tôi Xin Một Vé Về Tuổi Thơ', 2018, 50, 75000, 'KD01.jpg', 1),
+('KD02', 'NXB_Trẻ', 'D.N.Nam', 'Tôn_Giáo&Tâm_Lý', '7 Thói Quen Hiệu Quả', 2018, 50, 115000, 'KD02.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -373,8 +339,8 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`MaTK`, `TenTaiKhoan`, `MatKhau`, `Quyen`, `TrangThai`) VALUES
-('001', 'admin', 'admin', 'Admin', 1),
-('002', 'sale', 'sale', 'Sale', 1);
+('001', 'admin', 'admin', 'Nhân viên', 1),
+('002', 'admin', 'admin', 'Nhân viên', 0);
 
 -- --------------------------------------------------------
 

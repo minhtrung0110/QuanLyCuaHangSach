@@ -61,12 +61,26 @@ public class ChiTietHoaDonBUS {
             }
         }
     }
+    public void deleteChiTietHoaDonByMaSach(String MaSach) throws Exception{
+        
+        for(ChiTietHoaDonDTO sach : CTHD )
+        {
+            if(sach.getMaSach().equalsIgnoreCase(MaSach))
+            {   
+                try {
+                   CTHD.remove(sach);
+                    ChiTietHoaDonDAO data =new ChiTietHoaDonDAO();
+                    data.deletebyMaSach(MaSach);
+                } catch (Exception e) {
+                    System.out.println("Khong the Xoa ChiTietPhieuNhap trong database  bằng Mã Sách !!!");
+                } 
+                return;
+            }
+        }
+        
+    }
     public ArrayList<ChiTietHoaDonDTO> getList(){
         return CTHD;
     }
-    public static void main(String []args){
-        
-            System.out.println("aaa");
-        
-    }
+    
 }

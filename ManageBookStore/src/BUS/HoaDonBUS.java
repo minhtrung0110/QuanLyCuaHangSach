@@ -141,10 +141,7 @@ public class HoaDonBUS {
     public ArrayList<HoaDonDTO> getList(){
         return DSHoaDon;
     }
-    public static void main(String []args){
-        System.out.println("Khoi dep trai");
-    }
-
+   
    
 
 }

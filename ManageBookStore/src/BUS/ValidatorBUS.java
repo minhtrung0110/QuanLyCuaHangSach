@@ -39,7 +39,7 @@ public class ValidatorBUS {
         }
         
          try {
-             if(p.matcher(field.getText()).find() || Integer.parseInt(field.getText())<=0 ){
+             if(p.matcher(field.getText()).find() || Integer.parseInt(field.getText())<0 ){
               sb.append("Số Lượng phải là Số và Lớn hơn 0!!!\n");
               field.setBackground(Color.yellow);
               ok=false;

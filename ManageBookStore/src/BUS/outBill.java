@@ -41,7 +41,7 @@ import org.apache.pdfbox.printing.PDFPageable;
  * @author Shadow
  */
 public class outBill {
-    private String file = "./Bill/test.pdf";
+    private String file = "./report/test.pdf";
     private ArrayList<ChiTietHoaDonDTO> cthd = new ArrayList<ChiTietHoaDonDTO>();
     private HoaDonDTO hd;
     private BaseFont bf;
@@ -53,7 +53,7 @@ public class outBill {
     public outBill(HoaDonDTO hd,ArrayList<ChiTietHoaDonDTO> cthd) 
     {
         this.hd = hd;
-        file = "./Bill/bill"+hd.getMaHD()+".pdf";
+        file = "./report/bill"+hd.getMaHD()+".pdf";
         this.cthd = cthd;
     }
     public void print()
@@ -61,7 +61,7 @@ public class outBill {
         String uderline = "*";
         try {
             //Tạo Font
-            bf = BaseFont.createFont("./Bill/times.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+            bf = BaseFont.createFont("./font/times.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
             
             // Tạo tài liệu
             Document bill = new Document(PageSize.A4, 15, 15, 10, 10);
@@ -153,7 +153,5 @@ public class outBill {
         cell.setPaddingBottom(10);
         return cell;
     }
-    public static void main(String []args){
-        System.out.println("aaaa");
-    }
+    
 }

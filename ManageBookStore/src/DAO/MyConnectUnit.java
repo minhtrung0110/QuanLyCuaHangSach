@@ -44,8 +44,8 @@ public class MyConnectUnit  {
     public ResultSet SelectCustom(String tableName,String Custom, String condition,String GroupBy,String Oderby) throws Exception {
         StringBuilder query = new StringBuilder("SELECT "+Custom+" FROM "+tableName);
         this.AddCondition(query,condition);
-        this.AddOderby(query,Oderby);
-        this.AddGroupby(query, GroupBy);
+         this.AddGroupby(query, GroupBy);
+        this.AddOderby(query,Oderby); 
         query.append(";");
          System.out.println(query);
         return connect.excuteQuery(query.toString());
@@ -136,7 +136,7 @@ public class MyConnectUnit  {
         if(condition!=null) query.append(" WHERE "+condition);
     }
     private void AddOderby (StringBuilder query,String Oderby){
-        if(Oderby!=null) query.append(" ODERBY "+Oderby);
+        if(Oderby!=null) query.append(" ORDER BY "+Oderby);
     }
     private void AddGroupby (StringBuilder query,String Groupby){
         if(Groupby!=null) query.append(" GROUP BY "+Groupby);

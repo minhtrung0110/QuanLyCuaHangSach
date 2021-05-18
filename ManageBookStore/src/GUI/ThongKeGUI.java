@@ -68,7 +68,6 @@ public class ThongKeGUI extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -76,8 +75,6 @@ public class ThongKeGUI extends javax.swing.JPanel {
         btTKtheoQuyvaSP = new javax.swing.JButton();
         btTKtheoQuyvaNV = new javax.swing.JButton();
         txSearchDayMinHD = new com.toedter.calendar.JDateChooser();
-        txMaKH = new javax.swing.JTextField();
-        btAddMaKH = new javax.swing.JButton();
         btTKtheoKH = new javax.swing.JButton();
         btTKSoBoHD = new javax.swing.JButton();
         btTKPNtheoQuyvaNCC = new javax.swing.JButton();
@@ -137,6 +134,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
+        btThongKePNtheoMaNCC.setBackground(new java.awt.Color(255, 204, 0));
         btThongKePNtheoMaNCC.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btThongKePNtheoMaNCC.setText("Thống Kê Theo NCC");
         btThongKePNtheoMaNCC.addActionListener(new java.awt.event.ActionListener() {
@@ -165,7 +163,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(0, 102, 51));
         jLabel4.setText("KHOẢNG THỜI GIAN:");
 
-        btTKPNSoBo.setBackground(new java.awt.Color(204, 0, 0));
+        btTKPNSoBo.setBackground(new java.awt.Color(0, 153, 0));
         btTKPNSoBo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btTKPNSoBo.setForeground(new java.awt.Color(255, 255, 255));
         btTKPNSoBo.setText("Thống Kê");
@@ -186,9 +184,6 @@ public class ThongKeGUI extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(153, 0, 0));
         jLabel9.setText("ĐIỀU KIỆN THỐNG KÊ");
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel10.setText("MÃ KHÁCH HÀNG:");
-
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 102, 51));
         jLabel11.setText("KHOẢNG THỜI GIAN:");
@@ -202,7 +197,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
         txSearchDayMaxHD.setDateFormatString("yyyy-MM-dd");
         txSearchDayMaxHD.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
-        btTKtheoQuyvaSP.setBackground(new java.awt.Color(204, 0, 0));
+        btTKtheoQuyvaSP.setBackground(new java.awt.Color(255, 0, 0));
         btTKtheoQuyvaSP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btTKtheoQuyvaSP.setForeground(new java.awt.Color(255, 255, 255));
         btTKtheoQuyvaSP.setText("Thống Kê Theo Sản Phẩm Và Quý");
@@ -212,7 +207,9 @@ public class ThongKeGUI extends javax.swing.JPanel {
             }
         });
 
+        btTKtheoQuyvaNV.setBackground(new java.awt.Color(255, 153, 0));
         btTKtheoQuyvaNV.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btTKtheoQuyvaNV.setForeground(new java.awt.Color(255, 0, 0));
         btTKtheoQuyvaNV.setText("Thống Kê Theo Nhân Viên Và Quý");
         btTKtheoQuyvaNV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,17 +221,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
         txSearchDayMinHD.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txSearchDayMinHD.setMinSelectableDate(new java.util.Date(-62135791089000L));
 
-        btAddMaKH.setBackground(new java.awt.Color(153, 153, 153));
-        btAddMaKH.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btAddMaKH.setForeground(new java.awt.Color(255, 255, 255));
-        btAddMaKH.setText("...");
-        btAddMaKH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btAddMaKHActionPerformed(evt);
-            }
-        });
-
-        btTKtheoKH.setBackground(new java.awt.Color(204, 0, 0));
+        btTKtheoKH.setBackground(new java.awt.Color(51, 0, 255));
         btTKtheoKH.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btTKtheoKH.setForeground(new java.awt.Color(255, 255, 255));
         btTKtheoKH.setText("Thống Kê Theo Mã Khách Hàng");
@@ -244,7 +231,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
             }
         });
 
-        btTKSoBoHD.setBackground(new java.awt.Color(204, 0, 0));
+        btTKSoBoHD.setBackground(new java.awt.Color(0, 255, 51));
         btTKSoBoHD.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btTKSoBoHD.setForeground(new java.awt.Color(255, 255, 255));
         btTKSoBoHD.setText("Thông Kê Sơ Bộ");
@@ -254,7 +241,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
             }
         });
 
-        btTKPNtheoQuyvaNCC.setBackground(new java.awt.Color(204, 0, 0));
+        btTKPNtheoQuyvaNCC.setBackground(new java.awt.Color(255, 51, 51));
         btTKPNtheoQuyvaNCC.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btTKPNtheoQuyvaNCC.setForeground(new java.awt.Color(255, 255, 255));
         btTKPNtheoQuyvaNCC.setText("Thống Kê Theo Quý");
@@ -311,15 +298,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(88, 88, 88)
                                 .addComponent(jLabel2))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel11)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel10)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txMaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btAddMaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel11)
                             .addComponent(jLabel9)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(btTKtheoQuyvaSP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -378,15 +357,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
                 .addComponent(jLabel8)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel9)
-                .addGap(3, 3, 3)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txMaKH, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btAddMaKH, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))))
-                .addGap(0, 0, 0)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel11)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -413,7 +384,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        tbThongKeHDTheoKhachHang.setBackground(new java.awt.Color(0, 0, 255));
+        tbThongKeHDTheoKhachHang.setBackground(new java.awt.Color(204, 255, 204));
         tbThongKeHDTheoKhachHang.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbThongKeHDTheoKhachHang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -425,6 +396,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tbThongKeHDTheoKhachHang);
 
+        tbThongKePNTheoQuyVaNCC.setBackground(new java.awt.Color(204, 255, 255));
         tbThongKePNTheoQuyVaNCC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -456,7 +428,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
         jSeparator1.setBackground(new java.awt.Color(51, 153, 0));
         jSeparator1.setForeground(new java.awt.Color(0, 153, 0));
 
-        tbThongKeHDTheoQuyvaNhanVien.setBackground(new java.awt.Color(255, 0, 102));
+        tbThongKeHDTheoQuyvaNhanVien.setBackground(new java.awt.Color(255, 204, 204));
         tbThongKeHDTheoQuyvaNhanVien.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbThongKeHDTheoQuyvaNhanVien.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -468,7 +440,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(tbThongKeHDTheoQuyvaNhanVien);
 
-        tbThongKeHDTheoQuyvaSanPham.setBackground(new java.awt.Color(255, 204, 204));
+        tbThongKeHDTheoQuyvaSanPham.setBackground(new java.awt.Color(153, 255, 153));
         tbThongKeHDTheoQuyvaSanPham.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         tbThongKeHDTheoQuyvaSanPham.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -480,6 +452,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
         ));
         jScrollPane4.setViewportView(tbThongKeHDTheoQuyvaSanPham);
 
+        tbPNtheoMaNCC.setBackground(new java.awt.Color(255, 255, 204));
         tbPNtheoMaNCC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -768,11 +741,6 @@ public class ThongKeGUI extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this,"Không Thể Thống Kê Tổng Tiền Hóa Đơn Theo  Nhân Viên ", "Thông Báo Lỗi",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_btTKtheoQuyvaNVActionPerformed
-
-    private void btAddMaKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAddMaKHActionPerformed
-        JDKH kh= new JDKH();
-        txMaKH.setText(kh.maKH());
-    }//GEN-LAST:event_btAddMaKHActionPerformed
     public void loadListYear(JComboBox cb){
         int year = Calendar.getInstance().get(Calendar.YEAR);
         for (int i = year - 4; i <= year ;i++){
@@ -870,7 +838,6 @@ public class ThongKeGUI extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btAddMaKH;
     private javax.swing.JButton btTKPNSoBo;
     private javax.swing.JButton btTKPNtheoQuyvaNCC;
     private javax.swing.JButton btTKSoBoHD;
@@ -881,7 +848,6 @@ public class ThongKeGUI extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cbNam;
     private javax.swing.JComboBox<String> cbNamPN;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -917,7 +883,6 @@ public class ThongKeGUI extends javax.swing.JPanel {
     private javax.swing.JTable tbThongKeHDTheoQuyvaNhanVien;
     private javax.swing.JTable tbThongKeHDTheoQuyvaSanPham;
     private javax.swing.JTable tbThongKePNTheoQuyVaNCC;
-    private javax.swing.JTextField txMaKH;
     private com.toedter.calendar.JDateChooser txSearchDayMaxHD;
     private com.toedter.calendar.JDateChooser txSearchDayMaxPN;
     private com.toedter.calendar.JDateChooser txSearchDayMinHD;

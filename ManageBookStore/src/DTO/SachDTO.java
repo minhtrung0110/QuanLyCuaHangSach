@@ -5,7 +5,6 @@ public class SachDTO {
     String MaSach, MaNXB,MaTG,MaTL,TenSach,imgName;
     int Soluong,NamXuatBan;
     float Dongia;
-    int TrangThai;
     public int getNamXuatBan() {
         return NamXuatBan;
     }
@@ -18,7 +17,7 @@ public class SachDTO {
     public SachDTO(){
     }
 
-    public SachDTO(String MaSach, String MaNXB, String MaTG, String MaTL, String TenSach,  int NamXuatBan,int Soluong, float Dongia, String imgName,int TrangThai) {
+    public SachDTO(String MaSach, String MaNXB, String MaTG, String MaTL, String TenSach,  int NamXuatBan,int Soluong, float Dongia, String imgName) {
         this.MaSach = MaSach;
         this.MaNXB = MaNXB;
         this.MaTG = MaTG;
@@ -27,16 +26,10 @@ public class SachDTO {
         this.imgName = imgName;
         this.Soluong = Soluong;
         this.NamXuatBan = NamXuatBan;
-        this.Dongia = Dongia;
-        TrangThai=TrangThai;
+        this.Dongia=Dongia;
+    
     }
-    public int getTrangThai() {
-        return TrangThai;
-    }
-
-    public void setTrangThai(int TrangThai) {
-        this.TrangThai = TrangThai;
-    }
+    
     public String getImgName() {
         return imgName;
     }

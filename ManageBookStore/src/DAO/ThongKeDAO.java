@@ -137,7 +137,7 @@ public class ThongKeDAO {
         //SELECT  SUM(TongTien) AS TongTienPhieuNhap FROM phieunhap WHERE NgayNhap BETWEEN '2020-12-20' AND '2021-05-02'
         float Sum=0;
         try {
-          ResultSet rs = connect.SelectCustom("hoadon", "SUM(TongTien) AS TongTienHoaDon"," NgayNhap BETWEEN '"+ngaymin+"' AND '"+ngaymax+"'");
+          ResultSet rs = connect.SelectCustom("hoadon", "SUM(TongTien) AS TongTienHoaDon"," NgayLapHD BETWEEN '"+ngaymin+"' AND '"+ngaymax+"'");
          while(rs.next()){
           Sum=rs.getFloat("TongTienHoaDon");}
           rs.close();
@@ -209,9 +209,7 @@ public class ThongKeDAO {
         System.out.println("DAO.ThongKeSPDAO.xuatThongKeHDNVtheoQuy()");
         return dsThongKe;
     }
-    public static void main(String[] args) {
-        
-    }
+    
   
 }
 

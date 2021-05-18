@@ -876,9 +876,7 @@ public class BanHangGUI extends javax.swing.JPanel {
         HuyHD(true);
     }
 
-    public static void main(String []args){
-        System.out.println("aaa");
-    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btHuy;
     private javax.swing.JButton btMaGG;
