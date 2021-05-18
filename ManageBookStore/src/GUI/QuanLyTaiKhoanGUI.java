@@ -72,8 +72,8 @@ public class QuanLyTaiKhoanGUI extends javax.swing.JPanel {
 	      
 	        if(tk.isStatus() == true)
 	        {
-	        	row.add("Online");
-	        }else row.add("Offline");
+	        	row.add("Bình thường");
+	        }else row.add("Đã khóa");
 	      
 	        return row;
 
@@ -384,11 +384,6 @@ public class QuanLyTaiKhoanGUI extends javax.swing.JPanel {
 
         buttonGroup1.add(rdTrue);
         rdTrue.setText("Bình thường");
-        rdTrue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rdTrueActionPerformed(evt);
-            }
-        });
 
         buttonGroup1.add(rdFalse);
         rdFalse.setText("Khóa");
@@ -457,7 +452,7 @@ public class QuanLyTaiKhoanGUI extends javax.swing.JPanel {
         try {
             Them();
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Thêm thất bại rồi nha");
+            JOptionPane.showMessageDialog(null, "Thêm thất bại");
             ex.printStackTrace();
         }
     }//GEN-LAST:event_btThemActionPerformed
@@ -473,19 +468,15 @@ public class QuanLyTaiKhoanGUI extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             xoa();
-            JOptionPane.showMessageDialog(null, "Đã đuổi việc thành công");
+            JOptionPane.showMessageDialog(null, "Xóa thành công");
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Đuổi việc thất bại");
+            JOptionPane.showMessageDialog(null, "Xóa thất bại");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tbTaiKhoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTaiKhoanMouseClicked
        show();
     }//GEN-LAST:event_tbTaiKhoanMouseClicked
-
-    private void rdTrueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdTrueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rdTrueActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

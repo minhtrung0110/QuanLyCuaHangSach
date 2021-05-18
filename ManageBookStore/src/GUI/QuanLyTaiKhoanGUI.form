@@ -446,9 +446,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="B&#xec;nh th&#x1b0;&#x1edd;ng"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rdTrueActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="rdFalse">
       <Properties>

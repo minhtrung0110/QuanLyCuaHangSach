@@ -175,14 +175,13 @@ public class timSachGiamGiaGUI extends javax.swing.JFrame {
         
         sach = new SachDTO(table.getValueAt(index, 0).toString(), 
                 table.getValueAt(index, 1).toString(), 
-                table.getValueAt(index, 2).toString(), 
                 table.getValueAt(index, 3).toString(), 
+                table.getValueAt(index, 2).toString(), 
                 table.getValueAt(index, 4).toString(), 
                 Integer.parseInt(table.getValueAt(index, 5).toString()), 
                 Integer.parseInt(table.getValueAt(index, 6).toString()), 
                 Float.parseFloat(table.getValueAt(index, 7).toString() ), 
-                "",
-                Integer.parseInt(table.getValueAt(index, 8).toString())
+                "",1
                 );
         GiamGiaGUI.setKetQuaTimKiem(sach);
         GiamGiaGUI.textTenSachTimKiem.setText(sach.getTenSach());
