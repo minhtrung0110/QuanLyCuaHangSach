@@ -226,6 +226,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
             }
         });
 
+        btAddMaNV.setBackground(new java.awt.Color(153, 153, 153));
         btAddMaNV.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btAddMaNV.setText("jButton7");
         btAddMaNV.addActionListener(new java.awt.event.ActionListener() {
@@ -355,7 +356,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
         btShowAll.setForeground(new java.awt.Color(255, 255, 255));
         btShowAll.setText("TẤT CẢ");
         btShowAll.setToolTipText("");
-        btShowAll.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(51, 51, 51), new java.awt.Color(102, 102, 102)));
+        btShowAll.setBorder(null);
         btShowAll.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btShowAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -367,6 +368,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
         btInPhieuNhap.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btInPhieuNhap.setForeground(new java.awt.Color(255, 255, 255));
         btInPhieuNhap.setText("IN PHIẾU NHẬP");
+        btInPhieuNhap.setBorder(null);
         btInPhieuNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btInPhieuNhapActionPerformed(evt);
@@ -425,6 +427,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
             }
         });
 
+        btSearchAddMaNV.setBackground(new java.awt.Color(153, 153, 153));
         btSearchAddMaNV.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btSearchAddMaNV.setText("jButton7");
         btSearchAddMaNV.addActionListener(new java.awt.event.ActionListener() {
@@ -472,10 +475,11 @@ public class NhapHangGUI extends javax.swing.JPanel {
         jLabel22.setForeground(new java.awt.Color(255, 0, 0));
         jLabel22.setText("KHOẢNG TIỀN");
 
-        btTimKiemPhieuNhap.setBackground(new java.awt.Color(0, 0, 204));
+        btTimKiemPhieuNhap.setBackground(new java.awt.Color(204, 204, 204));
         btTimKiemPhieuNhap.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btTimKiemPhieuNhap.setForeground(new java.awt.Color(255, 255, 255));
-        btTimKiemPhieuNhap.setText("TÌM");
+        btTimKiemPhieuNhap.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search_25px.png"))); // NOI18N
+        btTimKiemPhieuNhap.setBorder(null);
         btTimKiemPhieuNhap.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btTimKiemPhieuNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -509,16 +513,6 @@ public class NhapHangGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbSearchMaNCC, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(92, 92, 92)
-                        .addComponent(jLabel22)
-                        .addGap(163, 163, 163)
-                        .addComponent(jLabel21)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btTimKiemPhieuNhap))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(btSearchAddMaNV, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(127, 127, 127)
                         .addComponent(jLabel18)
@@ -536,20 +530,31 @@ public class NhapHangGUI extends javax.swing.JPanel {
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txSearchDayMax, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 53, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(63, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbSearchMaNCC, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(92, 92, 92)
+                        .addComponent(jLabel22)
+                        .addGap(163, 163, 163)
+                        .addComponent(jLabel21)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btTimKiemPhieuNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txSearchMaPN, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbSearchMaNCC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btTimKiemPhieuNhap))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btTimKiemPhieuNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txSearchMaPN, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbSearchMaNCC, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel21)
+                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -603,10 +608,11 @@ public class NhapHangGUI extends javax.swing.JPanel {
         jLabel31.setForeground(new java.awt.Color(0, 0, 102));
         jLabel31.setText("KHOẢNG TỔNG TIỀN");
 
-        btTimKiemCTPN.setBackground(new java.awt.Color(255, 153, 0));
+        btTimKiemCTPN.setBackground(new java.awt.Color(255, 255, 255));
         btTimKiemCTPN.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btTimKiemCTPN.setForeground(new java.awt.Color(204, 0, 0));
-        btTimKiemCTPN.setText("TÌM");
+        btTimKiemCTPN.setForeground(new java.awt.Color(255, 255, 255));
+        btTimKiemCTPN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search-icon-32.png"))); // NOI18N
+        btTimKiemCTPN.setBorder(null);
         btTimKiemCTPN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btTimKiemCTPN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -628,6 +634,12 @@ public class NhapHangGUI extends javax.swing.JPanel {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(450, 450, 450)
+                        .addComponent(jLabel30)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel31)
+                        .addGap(76, 76, 76))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel24)
@@ -654,21 +666,12 @@ public class NhapHangGUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel29)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txSearchTongTienMax, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(jLabel30)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel31)
-                        .addGap(76, 76, 76)))
-                .addComponent(btTimKiemCTPN)
-                .addGap(20, 20, 20))
+                        .addComponent(txSearchTongTienMax, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(btTimKiemCTPN, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btTimKiemCTPN, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
@@ -688,6 +691,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
                     .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txSearchTongTienMax, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btSearchAddMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addComponent(btTimKiemCTPN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jSeparator1.setBackground(new java.awt.Color(51, 51, 255));
@@ -699,7 +703,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
         btThemChiTiet.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btThemChiTiet.setForeground(new java.awt.Color(255, 255, 255));
         btThemChiTiet.setText("THÊM");
-        btThemChiTiet.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(51, 51, 51), new java.awt.Color(102, 102, 102)));
+        btThemChiTiet.setBorder(null);
         btThemChiTiet.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btThemChiTiet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -711,7 +715,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
         btSuaChiTiet.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btSuaChiTiet.setForeground(new java.awt.Color(255, 255, 255));
         btSuaChiTiet.setText("SỮA");
-        btSuaChiTiet.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(51, 51, 51), new java.awt.Color(102, 102, 102)));
+        btSuaChiTiet.setBorder(null);
         btSuaChiTiet.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btSuaChiTiet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -723,7 +727,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
         btXoaChiTiet.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btXoaChiTiet.setForeground(new java.awt.Color(255, 255, 255));
         btXoaChiTiet.setText("XÓA");
-        btXoaChiTiet.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(51, 51, 51), new java.awt.Color(102, 102, 102)));
+        btXoaChiTiet.setBorder(null);
         btXoaChiTiet.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btXoaChiTiet.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -735,7 +739,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
         btTatCaChiTietPN.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btTatCaChiTietPN.setForeground(new java.awt.Color(255, 255, 255));
         btTatCaChiTietPN.setText("TẤT CẢ");
-        btTatCaChiTietPN.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 204), new java.awt.Color(204, 204, 204), new java.awt.Color(51, 51, 51), new java.awt.Color(102, 102, 102)));
+        btTatCaChiTietPN.setBorder(null);
         btTatCaChiTietPN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btTatCaChiTietPN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -754,8 +758,8 @@ public class NhapHangGUI extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(btXoaChiTiet, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btTatCaChiTietPN)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addComponent(btTatCaChiTietPN, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -918,6 +922,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
                 "Mã Phiếu Nhập", "Mã Sách", "Đơn Giá", "Số Lượng", "Thành Tiền", "null"
             }
         ));
+        tbChiTietPN.setSelectionBackground(new java.awt.Color(0, 204, 102));
         tbChiTietPN.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 tbChiTietPNAncestorAdded(evt);
@@ -980,6 +985,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
                 "MÃ PHIẾU NHẬP", "MÃ NHÂN VIÊN", "MÃ NCC", "TRẠNG THÁI", "TỔNG TIỀN", "NGÀY NHẬP"
             }
         ));
+        tbPhieuNhap.setSelectionBackground(new java.awt.Color(51, 0, 255));
         tbPhieuNhap.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbPhieuNhapMouseClicked(evt);
@@ -1057,7 +1063,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addContainerGap(267, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
     private void InitStyle() throws Exception{

@@ -87,7 +87,7 @@ public class SachDAO {
         Updatevalues.put("DonGia", sach.getDongia());
         Updatevalues.put("imgName", sach.getImgName());
          try {
-           connect.Update("sach", Updatevalues," MaSach ='"+sach.getMaSach());
+           connect.Update("sach", Updatevalues," MaSach ='"+sach.getMaSach()+"'");
         } catch (SQLException ex) {
             System.out.println("Khong the Cap nhat Sach vao database !!!");
         }

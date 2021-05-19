@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 public class KhachHangDAO {
     MySQLConnect conn = new MySQLConnect("localhost", "root", "", "bookstore");
-    
+    MyConnectUnit connect;
     public KhachHangDAO(){
         try{
             //conn.testDriver();

@@ -83,7 +83,6 @@ public class KhachHangBUS {
         for(KhachHangDTO kh : dskh){
             if(kh.getTen().equals(id)){
                 result.add(kh);
-                break;
             }
         }
         return result;

@@ -73,7 +73,7 @@ public class PhieuNhapBUS {
             if(listPhieuNhap.get(i).getMaPN().equals(sach.getMaPN()))
             {
                 try {
-                    listPhieuNhap.set(i, sach);
+                    listPhieuNhap.set(i, sach);// cap nhat arraylist
                 PhieuNhapDAO data =new PhieuNhapDAO();
                 data.updatePhieuNhap(sach);
                 } catch (Exception e) {

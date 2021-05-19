@@ -113,21 +113,15 @@ public class outBill {
             
             bill.add(l);
             
-            Paragraph sum = new Paragraph("Tồng tiền : "+ hd.getTongTien()+"đ    Giảm Giá:"+hd.getGiamGia()+"đ   Thành Tiền:"+hd.getThanhTien()+"đ",new Font(bf,20));
+            Paragraph sum = new Paragraph("Thành Tiền: "+ hd.getTongTien()+"đ    Giảm Giá:"+hd.getGiamGia()+"đ   Tổng Tiền:"+hd.getThanhTien()+"đ",new Font(bf,20));
             sum.setAlignment(Element.ALIGN_RIGHT);
             bill.add(sum);
             
             
             bill.close();
-            
-//            PDDocument document = PDDocument.load(new File(file));
-//            
-//            PrinterJob job = PrinterJob.getPrinterJob();
-//            job.setPageable(new PDFPageable(document));
-//            job.print();
-                    
-            JOptionPane.showMessageDialog(null, "In hoàn tất");
-            System.out.println("Done");
+     
+            JOptionPane.showMessageDialog(null, "In Hoàn Tất");
+          
         } catch (DocumentException | FileNotFoundException ex) {
             Logger.getLogger(outBill.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {

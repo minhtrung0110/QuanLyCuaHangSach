@@ -6,7 +6,7 @@ import DTO.HoaDonDTO;
 import java.util.ArrayList;
 
 public class ChiTietHoaDonBUS {
-    private ArrayList<ChiTietHoaDonDTO> CTHD;
+     static ArrayList<ChiTietHoaDonDTO> CTHD;
     public ChiTietHoaDonBUS(){
         
     }
@@ -35,9 +35,10 @@ public class ChiTietHoaDonBUS {
     public void Sua(ChiTietHoaDonDTO ct){
         for(int i=0;i<CTHD.size();i++){
             if(CTHD.get(i).getMaHD().equals(ct.getMaHD()) && CTHD.get(i).getMaSach().equals(ct.getMaSach())){
-                CTHD.set(i,ct);
+
                 ChiTietHoaDonDAO ctDAO=new ChiTietHoaDonDAO();
                 ctDAO.Sua(ct);
+                CTHD.set(i,ct);
             }
         }
     }

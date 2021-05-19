@@ -128,7 +128,7 @@ public class NhanVienBUS {
 		ArrayList<NhanVienDTO> dsnv_tk = new ArrayList<NhanVienDTO>();
 		for(NhanVienDTO nv: dsnv)
 		{
-			if(nv.getTen().indexOf(ten)!= -1)
+			if(nv.getTen().equalsIgnoreCase(ten))
 			{
 				dsnv_tk.add(nv);
 			}

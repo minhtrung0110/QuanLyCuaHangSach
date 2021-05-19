@@ -110,10 +110,10 @@ public class ThongKeGUI extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("THỐNG KÊ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -137,6 +137,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
         btThongKePNtheoMaNCC.setBackground(new java.awt.Color(255, 204, 0));
         btThongKePNtheoMaNCC.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btThongKePNtheoMaNCC.setText("Thống Kê Theo NCC");
+        btThongKePNtheoMaNCC.setBorder(null);
         btThongKePNtheoMaNCC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btThongKePNtheoMaNCCActionPerformed(evt);
@@ -167,6 +168,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
         btTKPNSoBo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btTKPNSoBo.setForeground(new java.awt.Color(255, 255, 255));
         btTKPNSoBo.setText("Thống Kê");
+        btTKPNSoBo.setBorder(null);
         btTKPNSoBo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTKPNSoBoActionPerformed(evt);
@@ -201,16 +203,18 @@ public class ThongKeGUI extends javax.swing.JPanel {
         btTKtheoQuyvaSP.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btTKtheoQuyvaSP.setForeground(new java.awt.Color(255, 255, 255));
         btTKtheoQuyvaSP.setText("Thống Kê Theo Sản Phẩm Và Quý");
+        btTKtheoQuyvaSP.setBorder(null);
         btTKtheoQuyvaSP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTKtheoQuyvaSPActionPerformed(evt);
             }
         });
 
-        btTKtheoQuyvaNV.setBackground(new java.awt.Color(255, 153, 0));
+        btTKtheoQuyvaNV.setBackground(new java.awt.Color(255, 204, 0));
         btTKtheoQuyvaNV.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btTKtheoQuyvaNV.setForeground(new java.awt.Color(255, 0, 0));
+        btTKtheoQuyvaNV.setForeground(new java.awt.Color(204, 0, 51));
         btTKtheoQuyvaNV.setText("Thống Kê Theo Nhân Viên Và Quý");
+        btTKtheoQuyvaNV.setBorder(null);
         btTKtheoQuyvaNV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTKtheoQuyvaNVActionPerformed(evt);
@@ -221,20 +225,22 @@ public class ThongKeGUI extends javax.swing.JPanel {
         txSearchDayMinHD.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txSearchDayMinHD.setMinSelectableDate(new java.util.Date(-62135791089000L));
 
-        btTKtheoKH.setBackground(new java.awt.Color(51, 0, 255));
+        btTKtheoKH.setBackground(new java.awt.Color(0, 0, 153));
         btTKtheoKH.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btTKtheoKH.setForeground(new java.awt.Color(255, 255, 255));
         btTKtheoKH.setText("Thống Kê Theo Mã Khách Hàng");
+        btTKtheoKH.setBorder(null);
         btTKtheoKH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTKtheoKHActionPerformed(evt);
             }
         });
 
-        btTKSoBoHD.setBackground(new java.awt.Color(0, 255, 51));
+        btTKSoBoHD.setBackground(new java.awt.Color(0, 153, 0));
         btTKSoBoHD.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btTKSoBoHD.setForeground(new java.awt.Color(255, 255, 255));
         btTKSoBoHD.setText("Thông Kê Sơ Bộ");
+        btTKSoBoHD.setBorder(null);
         btTKSoBoHD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTKSoBoHDActionPerformed(evt);
@@ -245,6 +251,7 @@ public class ThongKeGUI extends javax.swing.JPanel {
         btTKPNtheoQuyvaNCC.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btTKPNtheoQuyvaNCC.setForeground(new java.awt.Color(255, 255, 255));
         btTKPNtheoQuyvaNCC.setText("Thống Kê Theo Quý");
+        btTKPNtheoQuyvaNCC.setBorder(null);
         btTKPNtheoQuyvaNCC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btTKPNtheoQuyvaNCCActionPerformed(evt);
@@ -300,15 +307,6 @@ public class ThongKeGUI extends javax.swing.JPanel {
                                 .addComponent(jLabel2))
                             .addComponent(jLabel11)
                             .addComponent(jLabel9)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btTKtheoQuyvaSP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btTKtheoQuyvaNV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel7)
-                                .addComponent(btTKSoBoHD, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                                .addComponent(btTKtheoKH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btThongKePNtheoMaNCC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(btTKPNtheoQuyvaNCC, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -318,7 +316,15 @@ public class ThongKeGUI extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txSearchDayMinPN, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btTKPNSoBo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btTKPNSoBo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btTKPNtheoQuyvaNCC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btTKtheoQuyvaSP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btTKtheoQuyvaNV, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btTKSoBoHD, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+                                .addComponent(btTKtheoKH, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btThongKePNtheoMaNCC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel15)

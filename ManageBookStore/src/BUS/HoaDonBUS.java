@@ -113,6 +113,7 @@ public class HoaDonBUS {
                int day2=calendar2.get(Calendar.DATE);
                int month2=calendar2.get(Calendar.MONTH);
                int year2=calendar2.get(Calendar.YEAR);
+               
                 if( hd.getThanhTien() >= min && hd.getThanhTien() <= max
                        && day>=day1 && day<=day2
                        && month>=month1 && month<=month2

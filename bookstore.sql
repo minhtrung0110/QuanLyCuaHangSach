@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2021 at 04:17 PM
+-- Generation Time: May 18, 2021 at 06:58 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -40,11 +40,6 @@ CREATE TABLE `chitietchuongtrinhgiamgia` (
 INSERT INTO `chitietchuongtrinhgiamgia` (`MaGG`, `phanTramGiam`, `MaSach`) VALUES
 ('A02', 14, 'KD04'),
 ('A02', 30, 'KD05'),
-('A03', 13, 'KD01'),
-('A03', 10, 'KD02'),
-('A03', 15, 'KD03'),
-('A03', 10, 'KD04'),
-('A03', 12, 'KD05'),
 ('A04', 15, 'KD04');
 
 -- --------------------------------------------------------
@@ -62,6 +57,14 @@ CREATE TABLE `chitiethoadon` (
   `GiamGia` int(3) NOT NULL,
   `ThanhTien` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+--
+-- Dumping data for table `chitiethoadon`
+--
+
+INSERT INTO `chitiethoadon` (`MaHD`, `MaSach`, `TenSach`, `SoLuong`, `DonGia`, `GiamGia`, `ThanhTien`) VALUES
+('1', 'KD06', 'Đắc Nhân Tâm', 1, 110000, 0, 110000),
+('2', 'KD03', 'Cho tôi 1 vé Về tuổi thơ', 1, 75000, 0, 75000);
 
 -- --------------------------------------------------------
 
@@ -83,8 +86,9 @@ CREATE TABLE `chitietphieunhap` (
 --
 
 INSERT INTO `chitietphieunhap` (`MaCTPN`, `MaPN`, `MaSach`, `DonGia`, `SoLuong`, `ThanhTien`) VALUES
-('CT01', 'A01', 'KD05', 45000, 51, 2295000),
-('CT02', 'A02', 'KD04', 75000, 8, 600000);
+('CT01', 'A01', 'KD01', 110000, 10, 1100000),
+('CT02', 'A01', 'KD03', 75000, 10, 750000),
+('CT03', 'A02', 'KD04', 100000, 15, 1500000);
 
 -- --------------------------------------------------------
 
@@ -105,9 +109,7 @@ CREATE TABLE `chuongtrinhgiamgia` (
 --
 
 INSERT INTO `chuongtrinhgiamgia` (`MaGG`, `TenChuongTrinh`, `LoaiChuongTrinh`, `NgayBD`, `NgayKT`) VALUES
-('', '', '', '0000-00-00', '0000-00-00'),
 ('A02', 'Khai Trương Cưa Hàng Sách', 'Khuyến Mãi 30% - 40%', '2021-05-01', '2021-05-08'),
-('A03', 'Khai Trương Cưa Hàng Sách Phần 2', 'Khuyến Mãi 30% - 40%', '2021-05-28', '2021-05-31'),
 ('A04', 'Lễ Quốc Tế Lao Động', 'Khuyến Mãi', '2021-05-01', '2021-05-02');
 
 -- --------------------------------------------------------
@@ -126,6 +128,14 @@ CREATE TABLE `hoadon` (
   `GiamGia` float NOT NULL,
   `ThanhTien` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+--
+-- Dumping data for table `hoadon`
+--
+
+INSERT INTO `hoadon` (`MaHD`, `MaKH`, `MaNV`, `MaGG`, `NgayLapHD`, `TongTien`, `GiamGia`, `ThanhTien`) VALUES
+('1', 'K02', 'PK', NULL, '2021-05-18', 110000, 0, 110000),
+('2', 'K05', 'PK', NULL, '2021-05-18', 75000, 0, 75000);
 
 -- --------------------------------------------------------
 
@@ -156,16 +166,7 @@ INSERT INTO `khachhang` (`MaKH`, `Ho`, `Ten`, `SDT`, `Email`, `Phai`, `TCT`, `Ng
 ('K05', 'Nguyễn Trần Văn', 'Bưởi', '0363691591', 'daubuoi111@gmail.com', 1, 1000, '2000-08-19'),
 ('K06', 'Trần Thanh', 'Tèo', '0363691591', 'teo21@gmail.com', 0, 50000, '2000-06-19'),
 ('K07', 'Trần Thanh', 'Táo', '0363691591', 'apple21@gmail.com', 1, 50000, '2000-05-19'),
-('K08', 'Phan Trung', 'Kiên', '0123456789', 'kien@email.com', 1, 200000, '2001-12-03'),
-('K09', 'Phan Trung', 'Kiên', '0123456789', 'kien@email.com', 1, 200000, '2001-12-03'),
-('K10', 'Phan Trung', 'Kiên', '0123456790', 'kien@email.com', 1, 200001, '2001-12-04'),
-('K11', 'Phan Trung', 'Kiên', '0123456791', 'kien@email.com', 1, 200002, '2001-12-05'),
-('K12', 'Phan Trung', 'Kiên', '0123456792', 'kien@email.com', 1, 200003, '2001-12-06'),
-('K13', 'Phan Trung', 'Kiên', '0123456793', 'kien@email.com', 1, 200004, '2001-12-07'),
-('K14', 'Phan Trung', 'Kiên', '0123456794', 'kien@email.com', 1, 200005, '2001-12-08'),
-('K15', 'Phan Trung', 'Kiên', '0123456795', 'kien@email.com', 1, 200006, '2001-12-09'),
-('K16', 'Phan Trung', 'Kiên', '0123456796', 'kien@email.com', 1, 200007, '2001-12-10'),
-('K17', 'Phan Trung', 'Kiên', '0123456797', 'kien@email.com', 1, 200008, '2001-12-11');
+('K08', 'Phan Trung', 'Kiên', '0123456789', 'kien@email.com', 1, 200000, '2001-12-03');
 
 -- --------------------------------------------------------
 
@@ -263,8 +264,8 @@ CREATE TABLE `phieunhap` (
 --
 
 INSERT INTO `phieunhap` (`MaPN`, `MaNV`, `MaNCC`, `TrangThai`, `TongTien`, `NgayNhap`) VALUES
-('A01', 'MT', 'KĐ', 1, 2295000, '2020-10-02'),
-('A02', 'VV', 'NVC', 1, 600000, '2021-04-29');
+('A01', 'MT', 'KĐ', 1, 1850000, '2021-05-18'),
+('A02', 'PK', 'NVC', 1, 1500000, '2021-05-18');
 
 -- --------------------------------------------------------
 
@@ -280,18 +281,21 @@ CREATE TABLE `sach` (
   `TenSach` varchar(50) COLLATE utf32_unicode_ci NOT NULL,
   `NamXuatBan` int(11) NOT NULL,
   `SoLuong` int(20) NOT NULL,
-  `DonGia` int(50) NOT NULL,
-  `imgName` varchar(20) COLLATE utf32_unicode_ci NOT NULL,
-  `TrangThai` tinyint(1) NOT NULL
+  `DonGia` float UNSIGNED NOT NULL,
+  `imgName` varchar(20) COLLATE utf32_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 --
 -- Dumping data for table `sach`
 --
 
-INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`, `imgName`, `TrangThai`) VALUES
-('KD01', 'NXB_Trẻ', 'D.N.Nam', 'Tôn_Giáo&Tâm_Lý', 'Cho tôi Xin Một Vé Về Tuổi Thơ', 2018, 50, 75000, 'KD01.jpg', 1),
-('KD02', 'NXB_Trẻ', 'D.N.Nam', 'Tôn_Giáo&Tâm_Lý', '7 Thói Quen Hiệu Quả', 2018, 50, 115000, 'KD02.jpg', 1);
+INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`, `imgName`) VALUES
+('KD01', 'NXB_Đại_Học_Quốc_Gia', 'J.K.R', 'Tôn_Giáo&Tâm_Lý', '7 Thói Quen Hiệu Quả', 2016, 50, 11000, 'KD01.jpg'),
+('KD02', 'NXB_Trẻ', 'H.Trương', 'Tôn_Giáo&Tâm_Lý', 'Chúng Ta Đã Sai', 2018, 100, 75000, '.jpg'),
+('KD03', 'NXB_Trẻ', 'P.Việt', 'Tôn_Giáo&Tâm_Lý', 'Cho tôi 1 vé Về tuổi thơ', 2016, 50, 75000, 'KD03.jpg'),
+('KD04', 'NXB_Trẻ', 'P.Việt', 'Tôn_Giáo&Tâm_Lý', 'Đời Ngắn Đừng Ngủ Dài', 2008, 50, 100000, 'KD04.jpg'),
+('KD05', 'NXB_Trẻ', 'P.Việt', 'Tôn_Giáo&Tâm_Lý', 'Hạt Giống Tâm Hồn', 2006, 50, 65000, 'KD05.jpg'),
+('KD06', 'NXB_Trẻ', 'J.K.R', 'Chính_Trị', 'Đắc Nhân Tâm', 2010, 100, 110000, 'KD06.jpg');
 
 -- --------------------------------------------------------
 
@@ -315,6 +319,7 @@ INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChi`, `SDT`) VALUES
 ('H.Trang', 'Trang Hạ', 'TP.HCM', '0803365421'),
 ('H.Trương', 'Hamlet Trương', 'TP.HCM', '0803365421'),
 ('J.K.R', 'J.K.Rowling', 'Anh Quốc', '02-036-798'),
+('N.N.Ánh', 'Nguyễn Nhật Ánh', 'HCM', '067939771'),
 ('N.T.Tố', 'Ngô Tất Tố', 'TP.HCM', '0809995472'),
 ('Nguyễn Du', 'Nguyễn Du', 'VietNam', '0803999999'),
 ('P.Việt', 'Nguyễn Phong Việt', 'Phú Yên', '0803365421'),
@@ -340,7 +345,8 @@ CREATE TABLE `taikhoan` (
 
 INSERT INTO `taikhoan` (`MaTK`, `TenTaiKhoan`, `MatKhau`, `Quyen`, `TrangThai`) VALUES
 ('001', 'admin', 'admin', 'Nhân viên', 1),
-('002', 'admin', 'admin', 'Nhân viên', 0);
+('002', 'admin', 'admin', 'Admin', 1),
+('MT', 'sale01', 'sale01', 'Admin', 1);
 
 -- --------------------------------------------------------
 

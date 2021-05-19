@@ -45,25 +45,6 @@ public class header extends JPanel{
         
         add(logo);
         add(name);
-        
-//        JLabel exit = new JLabel(new ImageIcon("./src/img/exit_25px.png")));
-        
-//        navItem exit = new navItem("", new Rectangle(width-40, -8, 40, 50), "exit_25px.png", "exit_25px.png", new Color(80,80,80));
-//        navItem minimize = new navItem("", new Rectangle(width-80, -8, 40, 50), "minimize_25px.png", "minimize_25px.png", new Color(80,80,80));
-//        
-//        exit.addMouseListener(new MouseAdapter() {
-//           public void mouseClicked(MouseEvent e)
-//           {
-//              System.exit(0);
-//           }
-//        });
-//        
-//        minimize.addMouseListener(new MouseAdapter() {
-//           public void mouseClicked(MouseEvent e)
-//           {
-//              frame.setState(Frame.ICONIFIED);
-//           }
-//        });
-        
+ 
     }
 }

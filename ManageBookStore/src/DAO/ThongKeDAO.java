@@ -210,7 +210,21 @@ public class ThongKeDAO {
         return dsThongKe;
     }
     
-  
+    public float  ABC(String daymin,String daymax) throws Exception{
+        float sum=0;
+        ResultSet rs=connect.SelectCustom("hoadon"," SUM(TongTien) AS TongTienHoaDon ",
+                "NgayLapHD BETWEEN '" +daymin +"' AND '"+daymax+"'");
+        try {
+            while(rs.next()){
+                sum=rs.getFloat("TongTienHoaDon");
+            }
+            rs.close();
+            connect.Close();
+        } catch (Exception e) {
+            System.out.println("Không thể thống kê hóa đơn theo thoi gian");
+        }
+        return sum;
+    }
 }
 
 

@@ -137,21 +137,20 @@ public class HoaDonGUI extends javax.swing.JPanel {
         jLabel9.setText("Giảm giá:");
 
         btSua.setBackground(new java.awt.Color(255, 153, 0));
-        btSua.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        btSua.setForeground(new java.awt.Color(204, 0, 0));
+        btSua.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btSua.setText("SỬA");
-        btSua.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 153)));
+        btSua.setBorder(null);
         btSua.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btSuaMouseClicked(evt);
             }
         });
 
-        btXoa.setBackground(new java.awt.Color(204, 0, 0));
-        btXoa.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btXoa.setBackground(new java.awt.Color(255, 0, 0));
+        btXoa.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btXoa.setForeground(new java.awt.Color(255, 255, 255));
         btXoa.setText("XÓA");
-        btXoa.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 0, 153)));
+        btXoa.setBorder(null);
         btXoa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btXoaMouseClicked(evt);
@@ -171,6 +170,7 @@ public class HoaDonGUI extends javax.swing.JPanel {
                 "Mã HĐ", "Mã KH", "Mã NV", "Mã GG", "Ngày lập", "Tổng tiền", "Giảm giá", "Thành tiền"
             }
         ));
+        tbHD.setSelectionBackground(new java.awt.Color(0, 0, 255));
         tbHD.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbHDMouseClicked(evt);
@@ -196,10 +196,10 @@ public class HoaDonGUI extends javax.swing.JPanel {
         txSoLuongHD.setEditable(false);
 
         btXuat.setBackground(new java.awt.Color(0, 0, 204));
-        btXuat.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btXuat.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btXuat.setForeground(new java.awt.Color(255, 255, 255));
         btXuat.setText("XUẤT");
-        btXuat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
+        btXuat.setBorder(null);
         btXuat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btXuatMouseClicked(evt);
@@ -207,17 +207,17 @@ public class HoaDonGUI extends javax.swing.JPanel {
         });
 
         btFHD.setBackground(new java.awt.Color(0, 153, 0));
-        btFHD.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        btFHD.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btFHD.setForeground(new java.awt.Color(255, 255, 255));
         btFHD.setText("HÓA ĐƠN");
-        btFHD.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 255, 255)));
+        btFHD.setBorder(null);
         btFHD.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btFHDMouseClicked(evt);
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3), "TÌM KIẾM HÓA ĐƠN", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(51, 51, 255))); // NOI18N
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -241,10 +241,11 @@ public class HoaDonGUI extends javax.swing.JPanel {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setText("đến");
 
+        btTim.setBackground(new java.awt.Color(204, 204, 204));
         btTim.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        btTim.setForeground(new java.awt.Color(153, 153, 0));
-        btTim.setText("TÌM");
-        btTim.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 51)));
+        btTim.setForeground(new java.awt.Color(255, 255, 255));
+        btTim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search_25px.png"))); // NOI18N
+        btTim.setBorder(null);
         btTim.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btTimMouseClicked(evt);
@@ -348,9 +349,11 @@ public class HoaDonGUI extends javax.swing.JPanel {
 
         txTongTienCT.setEditable(false);
 
+        btCTHDF.setBackground(new java.awt.Color(153, 153, 153));
         btCTHDF.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btCTHDF.setForeground(new java.awt.Color(255, 255, 255));
         btCTHDF.setText("TẤT CẢ CHI TIẾT HÓA ĐƠN");
-        btCTHDF.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 138)));
+        btCTHDF.setBorder(null);
         btCTHDF.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btCTHDFMouseClicked(evt);
@@ -365,25 +368,28 @@ public class HoaDonGUI extends javax.swing.JPanel {
                 "Mã HĐ", "Mã sách", "Tên sách", "Đơn giá", "Số lượng", "Giảm giá", "Thành tiền"
             }
         ));
+        tbChiTietHD.setSelectionBackground(new java.awt.Color(0, 204, 0));
         jScrollPane2.setViewportView(tbChiTietHD);
         if (tbChiTietHD.getColumnModel().getColumnCount() > 0) {
             tbChiTietHD.getColumnModel().getColumn(2).setMinWidth(150);
         }
 
-        btSuaCT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        btSuaCT.setForeground(new java.awt.Color(231, 169, 69));
+        btSuaCT.setBackground(new java.awt.Color(51, 0, 204));
+        btSuaCT.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btSuaCT.setForeground(new java.awt.Color(255, 255, 255));
         btSuaCT.setText("SỬA");
-        btSuaCT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 102, 102)));
+        btSuaCT.setBorder(null);
         btSuaCT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btSuaCTMouseClicked(evt);
             }
         });
 
-        btXoaCT.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        btXoaCT.setForeground(new java.awt.Color(255, 0, 51));
+        btXoaCT.setBackground(new java.awt.Color(255, 0, 0));
+        btXoaCT.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btXoaCT.setForeground(new java.awt.Color(255, 255, 255));
         btXoaCT.setText("XÓA");
-        btXoaCT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 102, 102)));
+        btXoaCT.setBorder(null);
         btXoaCT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btXoaCTMouseClicked(evt);
@@ -466,8 +472,8 @@ public class HoaDonGUI extends javax.swing.JPanel {
                         .addGap(45, 45, 45)
                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txSoLuongHD, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txSoLuongHD, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txTongTienHD, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -539,7 +545,7 @@ public class HoaDonGUI extends javax.swing.JPanel {
                     .addComponent(btXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txMaHD, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txMaGG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

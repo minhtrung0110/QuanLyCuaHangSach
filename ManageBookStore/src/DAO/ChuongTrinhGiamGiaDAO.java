@@ -71,8 +71,9 @@ public class ChuongTrinhGiamGiaDAO {
         String query1 = String.format("delete from chuongtrinhgiamgia where MaGG = '%s'", cTrinh.getId());
         String query2 = String.format("delete from chitietchuongtrinhgiamgia where MaGG = '%s'", cTrinh.getId());
         try {
+             conn.executeUpdate(query2);
             conn.executeUpdate(query1);
-            conn.executeUpdate(query2);
+           
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Không thể xóa dữ liệu");
         }

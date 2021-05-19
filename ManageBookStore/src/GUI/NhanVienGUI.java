@@ -347,9 +347,11 @@ public class NhanVienGUI extends javax.swing.JPanel {
 	        int n =0;
 	        if(cbTimKiem.getSelectedItem() == "MaNV" )
     		{
-	        	NhanVienDTO nv = BNV.timkiem_MaNV(txTimKiem.getText());			    			
+	        	NhanVienDTO nv = BNV.timkiem_MaNV(txTimKiem.getText());	
+                        if(nv.getMaNV().length()>0){
                         temp.addRow(addNV(nv));
                         n++;	
+                        }
     		}		 
 	    		
 	    	if(cbTimKiem.getSelectedItem() == "Họ" )
@@ -698,7 +700,7 @@ public class NhanVienGUI extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(0, 0, 0)
                 .addComponent(lbNV, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );

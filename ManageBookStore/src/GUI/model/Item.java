@@ -27,7 +27,7 @@ public class Item extends JPanel{
         this.x = x;
         this.y = y;
         this.itemName = new JLabel(itemName,JLabel.CENTER);
-        ImageIcon icon  = new ImageIcon(getClass().getResource("/img/SanPham/CocaCola.jpg"));
+        ImageIcon icon  = new ImageIcon(getClass().getResource("/img/SanPham/KD01.jpg"));
         this.itemImage = new JLabel("Image 200x200",JLabel.CENTER);
         init();
     }
