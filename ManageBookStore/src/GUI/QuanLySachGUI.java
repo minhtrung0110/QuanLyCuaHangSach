@@ -390,7 +390,6 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         btSua.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btSua.setForeground(new java.awt.Color(255, 0, 0));
         btSua.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnEdit_150px.png"))); // NOI18N
-        btSua.setText("");
         btSua.setBorder(null);
         btSua.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btSua.setPreferredSize(new java.awt.Dimension(57, 31));
@@ -471,9 +470,10 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pButtonLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btThem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btThem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pButtonLayout.createSequentialGroup()
