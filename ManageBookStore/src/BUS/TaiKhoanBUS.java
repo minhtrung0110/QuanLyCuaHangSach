@@ -42,6 +42,7 @@ public class TaiKhoanBUS {
         TaiKhoanDAO conn = new TaiKhoanDAO();
         conn.Insert(tk);
         this.dstk.add(tk);
+        
     }
     public void Update(TaiKhoanDTO tk,int i) throws Exception
     {
