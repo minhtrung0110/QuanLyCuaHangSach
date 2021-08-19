@@ -27,6 +27,8 @@ public class DangNhapGUI extends javax.swing.JFrame {
      */
     public DangNhapGUI() {
         initComponents();
+        this.setSize(340, 400);
+        this.setVisible(true);
     }
 
     /**
@@ -185,13 +187,11 @@ public class DangNhapGUI extends javax.swing.JFrame {
             return;
          }
         
-        this.dispose();
+       
        TaiKhoanDTO tk=new TaiKhoanDTO();
         tk=bus.findUserbyUsername(username);
         qlns = new QLNhaSach(tk.getMaTK(),tk.getTenTK(),tk.getQuyen());
-        qlns.setVisible(true);
-        qlns.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        qlns.setSize(1300, 935);
+         dispose();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void textPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textPasswordKeyPressed
@@ -206,8 +206,7 @@ public class DangNhapGUI extends javax.swing.JFrame {
      */
     public static void main(String[] args) {
         DangNhapGUI dn=new DangNhapGUI();
-        dn.setSize(340, 400);
-        dn.setVisible(true);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
