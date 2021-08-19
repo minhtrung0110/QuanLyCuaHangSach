@@ -44,6 +44,7 @@ public class TaiKhoanDTO {
     public String getTenTK() {
         return TenTK;
     }
+    
 
     public void setTenTK(String TenTK) {
         this.TenTK = TenTK;

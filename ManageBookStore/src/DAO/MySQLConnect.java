@@ -22,7 +22,7 @@ public class MySQLConnect {
         this.password=password;
         this.database=database;
     }
-    protected void DriverTest() throws Exception{
+    public void DriverTest() throws Exception{
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
            

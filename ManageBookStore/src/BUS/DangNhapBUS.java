@@ -38,4 +38,18 @@ public class DangNhapBUS {
         }
         return flag;
     }
+    public boolean isBlock(String username, String password){
+        for(TaiKhoanDTO tk : taikhoan){
+            if( (tk.getTenTK().equals( username ) && tk.getMk().equals( password )) ){
+               return tk.isStatus();
+            }
+        }
+        return false;
+    }
+    public TaiKhoanDTO findUserbyUsername(String id){
+        for(TaiKhoanDTO tk:taikhoan){
+            if(tk.getTenTK().compareTo(id)==0) return tk;
+        }
+        return null;
+    }
 }

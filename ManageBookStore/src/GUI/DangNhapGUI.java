@@ -6,11 +6,15 @@
 package GUI;
 
 import BUS.DangNhapBUS;
+import BUS.NhanVienBUS;
+import DTO.NhanVienDTO;
+import DTO.TaiKhoanDTO;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 
 /**
  *
@@ -34,12 +38,12 @@ public class DangNhapGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        content = new javax.swing.JPanel();
+        content= new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         textUsername = new javax.swing.JTextField();
-        textPassword = new javax.swing.JTextField();
+        textPassword = new javax.swing.JPasswordField();
         btnLogin = new javax.swing.JButton();
         btnDong = new javax.swing.JButton();
 
@@ -176,9 +180,15 @@ public class DangNhapGUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Sai tài khoản hoặc mật khẩu");
             return;
         }
+        if(!bus.isBlock(username, password)){
+                 JOptionPane.showMessageDialog(null, "Tài Khoản Đã Bị Khóa!!!☹☹☹");
+            return;
+         }
         
         this.dispose();
-        qlns = new QLNhaSach();
+       TaiKhoanDTO tk=new TaiKhoanDTO();
+        tk=bus.findUserbyUsername(username);
+        qlns = new QLNhaSach(tk.getMaTK(),tk.getTenTK(),tk.getQuyen());
         qlns.setVisible(true);
         qlns.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         qlns.setSize(1300, 935);

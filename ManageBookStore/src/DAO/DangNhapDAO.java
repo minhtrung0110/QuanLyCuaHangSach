@@ -38,7 +38,7 @@ public class DangNhapDAO {
                 tk.setTenTK(rs.getString("TenTaiKhoan"));
                 tk.setMk(rs.getString("MatKhau"));
                 tk.setQuyen(rs.getString("Quyen"));
-                tk.setStatus(rs.getBoolean("TrangThai"));                
+                tk.setStatus(rs.getInt("TrangThai")==1?true:false);                
                 taikhoan.add(tk);
             }
             

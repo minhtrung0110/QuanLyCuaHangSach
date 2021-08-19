@@ -133,7 +133,7 @@ public class QLNhaSach extends JFrame implements MouseListener {
             navItem.add("Nhập & Xuất Sách:NhapHang_20px_active.png:NhapHang_20px_active.png");
             navItem.add("Giảm Giá:GiamGia_20px_active.png:GiamGia_20px.png");
             
-        if( role == null || role.equals("Admin") )
+        if( role == null || role.equalsIgnoreCase("Admin") )
         {
             navItem.add("Tài Khoản:CaiDat_20px.png:CaiDat_20px_active.png");
             navItem.add("Thống Kê:ThongKe_20px.png:ThongKe_20px_active.png");
