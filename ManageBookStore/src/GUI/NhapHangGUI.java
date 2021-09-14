@@ -611,8 +611,8 @@ public class NhapHangGUI extends javax.swing.JPanel {
         btTimKiemCTPN.setBackground(new java.awt.Color(255, 255, 255));
         btTimKiemCTPN.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btTimKiemCTPN.setForeground(new java.awt.Color(255, 255, 255));
-        btTimKiemCTPN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search-icon-32.png"))); // NOI18N
-        btTimKiemCTPN.setBorder(null);
+        btTimKiemCTPN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/search_25px.png"))); // NOI18N
+        btTimKiemCTPN.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 153)));
         btTimKiemCTPN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btTimKiemCTPN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -639,7 +639,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
                         .addComponent(jLabel30)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel31)
-                        .addGap(76, 76, 76))
+                        .addGap(97, 97, 97))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel24)
@@ -666,8 +666,9 @@ public class NhapHangGUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel29)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txSearchTongTienMax, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addComponent(btTimKiemCTPN, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txSearchTongTienMax, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(btTimKiemCTPN, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
         jPanel5Layout.setVerticalGroup(
@@ -959,11 +960,11 @@ public class NhapHangGUI extends javax.swing.JPanel {
         pThongKeLayout.setHorizontalGroup(
             pThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pThongKeLayout.createSequentialGroup()
-                .addContainerGap(112, Short.MAX_VALUE)
+                .addContainerGap(55, Short.MAX_VALUE)
                 .addComponent(btTongTienNhap)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txTongTienNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45))
+                .addGap(102, 102, 102))
         );
         pThongKeLayout.setVerticalGroup(
             pThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -985,7 +986,7 @@ public class NhapHangGUI extends javax.swing.JPanel {
                 "MÃ PHIẾU NHẬP", "MÃ NHÂN VIÊN", "MÃ NCC", "TRẠNG THÁI", "TỔNG TIỀN", "NGÀY NHẬP"
             }
         ));
-        tbPhieuNhap.setSelectionBackground(new java.awt.Color(51, 0, 255));
+        tbPhieuNhap.setSelectionBackground(new java.awt.Color(102, 102, 255));
         tbPhieuNhap.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbPhieuNhapMouseClicked(evt);
@@ -1020,8 +1021,9 @@ public class NhapHangGUI extends javax.swing.JPanel {
                         .addGap(1, 1, 1)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()

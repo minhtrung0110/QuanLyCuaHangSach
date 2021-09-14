@@ -234,11 +234,12 @@ public class BanHangGUI extends javax.swing.JPanel {
             }
         });
 
-        btHuy.setBackground(new java.awt.Color(255, 0, 0));
-        btHuy.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btHuy.setBackground(new java.awt.Color(0, 102, 255));
+        btHuy.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btHuy.setForeground(new java.awt.Color(255, 255, 255));
+        btHuy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_delete_forever_30px_1.png"))); // NOI18N
         btHuy.setText("HỦY");
-        btHuy.setBorder(null);
+        btHuy.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         btHuy.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btHuyMouseClicked(evt);

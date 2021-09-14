@@ -83,7 +83,6 @@ public class QLNhaSach extends JFrame implements MouseListener {
                public void mouseClicked(MouseEvent e)
                {
                   DangNhapGUI lg = new DangNhapGUI();
-                  System.out.println("logout");
                    dispose();
                }
             });

@@ -181,8 +181,9 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             }
         });
 
+        btThongKe.setBackground(new java.awt.Color(153, 255, 153));
         btThongKe.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btThongKe.setForeground(new java.awt.Color(0, 102, 51));
+        btThongKe.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_bar_chart_30px.png"))); // NOI18N
         btThongKe.setText("THỐNG KÊ");
         btThongKe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +197,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             pThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pThongKeLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btThongKe)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lbGiaMin)
@@ -219,7 +220,6 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             .addGroup(pThongKeLayout.createSequentialGroup()
                 .addGroup(pThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pThongKeLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addGroup(pThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lbGiaMin, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txDonGiaMin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,9 +232,9 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                             .addComponent(txTongSoLoaiSach, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(TongLoaiSoSach, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pThongKeLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
+                        .addContainerGap()
                         .addComponent(btThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -424,10 +424,11 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             }
         });
 
-        btQuayLai.setBackground(new java.awt.Color(255, 255, 255));
-        btQuayLai.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btQuayLai.setForeground(new java.awt.Color(255, 0, 0));
-        btQuayLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnBack_150px.png"))); // NOI18N
+        btQuayLai.setBackground(new java.awt.Color(255, 102, 102));
+        btQuayLai.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btQuayLai.setForeground(new java.awt.Color(255, 255, 255));
+        btQuayLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_undo_40px.png"))); // NOI18N
+        btQuayLai.setText("QUAY LẠI");
         btQuayLai.setBorder(null);
         btQuayLai.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btQuayLai.setPreferredSize(new java.awt.Dimension(57, 31));
@@ -437,10 +438,11 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             }
         });
 
-        btChonAnh.setBackground(new java.awt.Color(255, 255, 255));
-        btChonAnh.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btChonAnh.setBackground(new java.awt.Color(102, 102, 255));
+        btChonAnh.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btChonAnh.setForeground(new java.awt.Color(255, 255, 255));
-        btChonAnh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnFile.png"))); // NOI18N
+        btChonAnh.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_opened_folder_30px.png"))); // NOI18N
+        btChonAnh.setText("CHỌN ẢNH");
         btChonAnh.setBorder(null);
         btChonAnh.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btChonAnh.addActionListener(new java.awt.event.ActionListener() {
@@ -456,7 +458,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             .addGroup(pButtonLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btThem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                    .addComponent(btThem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(btSua, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btXoa, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -472,8 +474,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 .addGap(0, 0, 0)
                 .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btXacNhan, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btThem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btThem, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pButtonLayout.createSequentialGroup()
@@ -659,11 +660,11 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         pButton2.setBackground(new java.awt.Color(255, 255, 255));
         pButton2.setForeground(new java.awt.Color(255, 255, 255));
 
-        btNhapExcel.setBackground(new java.awt.Color(255, 255, 255));
+        btNhapExcel.setBackground(new java.awt.Color(255, 255, 153));
         btNhapExcel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btNhapExcel.setForeground(new java.awt.Color(255, 255, 255));
-        btNhapExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnNhapExcel.png"))); // NOI18N
-        btNhapExcel.setBorder(null);
+        btNhapExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_ms_excel_30px.png"))); // NOI18N
+        btNhapExcel.setText("NHẬP EXCEL");
+        btNhapExcel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         btNhapExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btNhapExcel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -671,11 +672,11 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             }
         });
 
-        btXuatExcel.setBackground(new java.awt.Color(255, 255, 255));
-        btXuatExcel.setFont(new java.awt.Font("Tahoma", 0, 5)); // NOI18N
-        btXuatExcel.setForeground(new java.awt.Color(255, 255, 255));
-        btXuatExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/btnXuatExcel.png"))); // NOI18N
-        btXuatExcel.setBorder(null);
+        btXuatExcel.setBackground(new java.awt.Color(204, 255, 204));
+        btXuatExcel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btXuatExcel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_ms_excel_30px.png"))); // NOI18N
+        btXuatExcel.setText("XUẤT EXCEL");
+        btXuatExcel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         btXuatExcel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btXuatExcel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -688,19 +689,19 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         pButton2Layout.setHorizontalGroup(
             pButton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pButton2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addGroup(pButton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btXuatExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btNhapExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 34, Short.MAX_VALUE))
+                    .addComponent(btNhapExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         pButton2Layout.setVerticalGroup(
             pButton2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pButton2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pButton2Layout.createSequentialGroup()
+                .addGap(0, 11, Short.MAX_VALUE)
                 .addComponent(btXuatExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(btNhapExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(btNhapExcel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -731,7 +732,8 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         btHienThiTatCa.setBackground(new java.awt.Color(0, 153, 0));
         btHienThiTatCa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btHienThiTatCa.setForeground(new java.awt.Color(255, 255, 255));
-        btHienThiTatCa.setText("HIỂN THỊ TẤT CẢ");
+        btHienThiTatCa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icons8_refresh_30px.png"))); // NOI18N
+        btHienThiTatCa.setText("LÀM MỚI");
         btHienThiTatCa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btHienThiTatCa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -752,7 +754,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             }
         ));
         tbSach.setGridColor(new java.awt.Color(102, 102, 102));
-        tbSach.setSelectionBackground(new java.awt.Color(0, 153, 0));
+        tbSach.setSelectionBackground(new java.awt.Color(153, 153, 255));
         tbSach.setShowGrid(true);
         tbSach.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -768,6 +770,19 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
             .addGroup(MainPanelLayout.createSequentialGroup()
                 .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(pThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(MainPanelLayout.createSequentialGroup()
+                                .addComponent(MaSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(949, 949, 949))))
+                    .addGroup(MainPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1033, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(MainPanelLayout.createSequentialGroup()
+                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MainPanelLayout.createSequentialGroup()
                         .addGap(429, 429, 429)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MainPanelLayout.createSequentialGroup()
@@ -778,26 +793,14 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                             .addComponent(pButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(MainPanelLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(btHienThiTatCa)))
+                                .addComponent(btHienThiTatCa, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(10, 10, 10)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(pSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1053, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 63, Short.MAX_VALUE))
-            .addGroup(MainPanelLayout.createSequentialGroup()
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addComponent(pThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(MaSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1003, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MainPanelLayout.setVerticalGroup(
             MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -822,13 +825,11 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(MainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(MainPanelLayout.createSequentialGroup()
-                        .addGap(792, 792, 792)
-                        .addComponent(MaSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(781, 781, 781)
+                .addComponent(MaSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -839,7 +840,7 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1075, Short.MAX_VALUE)
                 .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(

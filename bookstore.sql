@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2021 at 06:58 PM
+-- Generation Time: Sep 05, 2021 at 10:18 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.33
 
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `chitietchuongtrinhgiamgia` (
-  `MaGG` varchar(5) NOT NULL,
+  `MaGG` varchar(5) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
   `phanTramGiam` float NOT NULL,
-  `MaSach` varchar(5) NOT NULL
+  `MaSach` varchar(5) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -64,7 +64,14 @@ CREATE TABLE `chitiethoadon` (
 
 INSERT INTO `chitiethoadon` (`MaHD`, `MaSach`, `TenSach`, `SoLuong`, `DonGia`, `GiamGia`, `ThanhTien`) VALUES
 ('1', 'KD06', 'Đắc Nhân Tâm', 1, 110000, 0, 110000),
-('2', 'KD03', 'Cho tôi 1 vé Về tuổi thơ', 1, 75000, 0, 75000);
+('2', 'KD03', 'Cho tôi 1 vé Về tuổi thơ', 1, 75000, 0, 75000),
+('3', 'KD10', 'Luật Bảo Vệ Môi Trường', 1, 45000, 0, 45000),
+('4', 'KD03', 'Cho tôi 1 vé Về tuổi thơ', 2, 75000, 0, 150000),
+('4', 'KD01', '7 Thói Quen Hiệu Quả', 1, 11000, 0, 11000),
+('5', 'KD01', '7 Thói Quen Hiệu Quả', 49, 11000, 0, 539000),
+('5', 'KD02', 'Chúng Ta Đã Sai', 50, 75000, 0, 3750000),
+('6', 'KD03', 'Cho tôi 1 vé Về tuổi thơ', 2, 75000, 0, 150000),
+('7', 'KD03', 'Cho tôi 1 vé Về tuổi thơ', 3, 75000, 0, 225000);
 
 -- --------------------------------------------------------
 
@@ -88,7 +95,13 @@ CREATE TABLE `chitietphieunhap` (
 INSERT INTO `chitietphieunhap` (`MaCTPN`, `MaPN`, `MaSach`, `DonGia`, `SoLuong`, `ThanhTien`) VALUES
 ('CT01', 'A01', 'KD01', 110000, 10, 1100000),
 ('CT02', 'A01', 'KD03', 75000, 10, 750000),
-('CT03', 'A02', 'KD04', 100000, 15, 1500000);
+('CT03', 'A02', 'KD04', 100000, 15, 1500000),
+('CT04', 'A03', 'KD10', 45000, 10, 450000),
+('CT05', 'A03', 'KD09', 55000, 10, 550000),
+('CT06', 'A04', 'KD07', 75000, 5, 375000),
+('CT07', 'A04', 'KD01', 65000, 50, 3250000),
+('CT08', 'A05', 'KD03', 70000, 13, 910000),
+('CT09', 'A05', 'KD10', 50000, 15, 750000);
 
 -- --------------------------------------------------------
 
@@ -134,8 +147,13 @@ CREATE TABLE `hoadon` (
 --
 
 INSERT INTO `hoadon` (`MaHD`, `MaKH`, `MaNV`, `MaGG`, `NgayLapHD`, `TongTien`, `GiamGia`, `ThanhTien`) VALUES
-('1', 'K02', 'PK', NULL, '2021-05-18', 110000, 0, 110000),
-('2', 'K05', 'PK', NULL, '2021-05-18', 75000, 0, 75000);
+('1', 'K02', 'PK', NULL, '2021-01-18', 110000, 0, 110000),
+('2', 'K05', 'PK', NULL, '2021-05-18', 75000, 0, 75000),
+('3', 'K07', 'MT', NULL, '2021-02-19', 45000, 0, 45000),
+('4', 'K01', 'PK', NULL, '2021-05-19', 161000, 0, 161000),
+('5', 'K01', 'PK', NULL, '2021-05-19', 4289000, 0, 4289000),
+('6', 'K04', 'MT', 'A02', '2021-08-16', 150000, 0, 150000),
+('7', 'K01', 'TT', NULL, '2021-08-26', 225000, 0, 225000);
 
 -- --------------------------------------------------------
 
@@ -265,7 +283,10 @@ CREATE TABLE `phieunhap` (
 
 INSERT INTO `phieunhap` (`MaPN`, `MaNV`, `MaNCC`, `TrangThai`, `TongTien`, `NgayNhap`) VALUES
 ('A01', 'MT', 'KĐ', 1, 1850000, '2021-05-18'),
-('A02', 'PK', 'NVC', 1, 1500000, '2021-05-18');
+('A02', 'PK', 'NVC', 0, 1500000, '2021-05-18'),
+('A03', 'TT', 'PN', 1, 1000000, '2021-05-19'),
+('A04', 'VV', 'PĐ', 0, 3625000, '2021-05-19'),
+('A05', 'MT', 'PĐ', 1, 1660000, '2021-08-26');
 
 -- --------------------------------------------------------
 
@@ -290,12 +311,16 @@ CREATE TABLE `sach` (
 --
 
 INSERT INTO `sach` (`MaSach`, `MaNXB`, `MaTG`, `MaTL`, `TenSach`, `NamXuatBan`, `SoLuong`, `DonGia`, `imgName`) VALUES
-('KD01', 'NXB_Đại_Học_Quốc_Gia', 'J.K.R', 'Tôn_Giáo&Tâm_Lý', '7 Thói Quen Hiệu Quả', 2016, 50, 11000, 'KD01.jpg'),
-('KD02', 'NXB_Trẻ', 'H.Trương', 'Tôn_Giáo&Tâm_Lý', 'Chúng Ta Đã Sai', 2018, 100, 75000, '.jpg'),
-('KD03', 'NXB_Trẻ', 'P.Việt', 'Tôn_Giáo&Tâm_Lý', 'Cho tôi 1 vé Về tuổi thơ', 2016, 50, 75000, 'KD03.jpg'),
-('KD04', 'NXB_Trẻ', 'P.Việt', 'Tôn_Giáo&Tâm_Lý', 'Đời Ngắn Đừng Ngủ Dài', 2008, 50, 100000, 'KD04.jpg'),
-('KD05', 'NXB_Trẻ', 'P.Việt', 'Tôn_Giáo&Tâm_Lý', 'Hạt Giống Tâm Hồn', 2006, 50, 65000, 'KD05.jpg'),
-('KD06', 'NXB_Trẻ', 'J.K.R', 'Chính_Trị', 'Đắc Nhân Tâm', 2010, 100, 110000, 'KD06.jpg');
+('KD01', 'NXB_Đại_Học_Quốc_Gia', 'J.K.R', 'Văn_Học_Nghệ_Thuật', '7 Thói Quen Hiệu Quả', 2016, 50, 11000, 'KD01.jpg'),
+('KD02', 'NXB_Trẻ', 'H.Trương', 'Tôn_Giáo&Tâm_Lý', 'Chúng Ta Đã Sai', 2018, 50, 75000, 'KD02.jpg'),
+('KD03', 'NXB_Trẻ', 'P.Việt', 'Văn_Học_Nghệ_Thuật', 'Cho tôi 1 vé Về tuổi thơ', 2016, 56, 75000, 'KD03.jpg'),
+('KD04', 'NXB_Trẻ', 'P.Việt', 'Văn_Học_Nghệ_Thuật', 'Đời Ngắn Đừng Ngủ Dài', 2008, 50, 100000, 'KD04.jpg'),
+('KD05', 'NXB_Trẻ', 'NhieuTG', 'Tôn_Giáo&Tâm_Lý', 'Hạt Giống Tâm Hồn', 2006, 50, 65000, 'KD05.jpg'),
+('KD06', 'NXB_Trẻ', 'J.K.R', 'Chính_Trị', 'Đắc Nhân Tâm', 2010, 100, 110000, 'KD06.jpg'),
+('KD07', 'NXB_Đại_Học_Quốc_Gia', 'Nguyễn Du', 'Truyện', 'Truyện Kiều', 2008, 55, 75000, 'KD07.jpg'),
+('KD08', 'NXB_Tổng_Hợp_HCM', 'D.N.Nam', 'Văn_Học_Nghệ_Thuật', 'Thành Phố Ngày Ta Yêu', 2018, 50, 85000, 'KD08.jpg'),
+('KD09', 'NXB_Hội_Nhà_Văn', 'H.Trương', 'Văn_Học_Nghệ_Thuật', 'Thương Nhau Để Đó', 2017, 55, 55000, 'KD09.jpg'),
+('KD10', 'NXB_Đại_Học_Quốc_Gia', 'NhieuTG', 'Pháp _Luật', 'Luật Bảo Vệ Môi Trường', 2018, 54, 45000, 'KD10.jpg');
 
 -- --------------------------------------------------------
 
@@ -315,6 +340,7 @@ CREATE TABLE `tacgia` (
 --
 
 INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChi`, `SDT`) VALUES
+('C.Thiên', 'Cảnh Thiên', 'HCM', '0235878987'),
 ('D.N.Nam', 'Đỗ Nhật Nam', 'An Giang', '0907365481'),
 ('H.Trang', 'Trang Hạ', 'TP.HCM', '0803365421'),
 ('H.Trương', 'Hamlet Trương', 'TP.HCM', '0803365421'),
@@ -322,6 +348,7 @@ INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChi`, `SDT`) VALUES
 ('N.N.Ánh', 'Nguyễn Nhật Ánh', 'HCM', '067939771'),
 ('N.T.Tố', 'Ngô Tất Tố', 'TP.HCM', '0809995472'),
 ('Nguyễn Du', 'Nguyễn Du', 'VietNam', '0803999999'),
+('NhieuTG', 'Nhiều TG', 'QT', '0222228686'),
 ('P.Việt', 'Nguyễn Phong Việt', 'Phú Yên', '0803365421'),
 ('V.T.Phụng', 'Vũ Trọng Phụng', 'Nam Viet Nam', '0589365429');
 
@@ -332,21 +359,19 @@ INSERT INTO `tacgia` (`MaTG`, `TenTG`, `DiaChi`, `SDT`) VALUES
 --
 
 CREATE TABLE `taikhoan` (
-  `MaTK` varchar(5) CHARACTER SET utf32 COLLATE utf32_unicode_ci NOT NULL,
-  `TenTaiKhoan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `MatKhau` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `Quyen` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `TrangThai` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+  `MaTK` varchar(5) COLLATE utf32_unicode_ci NOT NULL,
+  `TenTaiKhoan` varchar(255) COLLATE utf32_unicode_ci NOT NULL,
+  `MatKhau` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `Quyen` varchar(30) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `TrangThai` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 --
 -- Dumping data for table `taikhoan`
 --
 
 INSERT INTO `taikhoan` (`MaTK`, `TenTaiKhoan`, `MatKhau`, `Quyen`, `TrangThai`) VALUES
-('001', 'admin', 'admin', 'Nhân viên', 1),
-('002', 'admin', 'admin', 'Admin', 1),
-('MT', 'sale01', 'sale01', 'Admin', 1);
+('MT', 'admin', 'admin', 'admin', 1);
 
 -- --------------------------------------------------------
 
@@ -466,7 +491,8 @@ ALTER TABLE `tacgia`
 -- Indexes for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  ADD PRIMARY KEY (`MaTK`,`TenTaiKhoan`);
+  ADD PRIMARY KEY (`TenTaiKhoan`),
+  ADD KEY `MaTK` (`MaTK`);
 
 --
 -- Indexes for table `theloai`
@@ -477,6 +503,13 @@ ALTER TABLE `theloai`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `chitietchuongtrinhgiamgia`
+--
+ALTER TABLE `chitietchuongtrinhgiamgia`
+  ADD CONSTRAINT `chitietchuongtrinhgiamgia_ibfk_1` FOREIGN KEY (`MaGG`) REFERENCES `chuongtrinhgiamgia` (`MaGG`),
+  ADD CONSTRAINT `chitietchuongtrinhgiamgia_ibfk_2` FOREIGN KEY (`MaSach`) REFERENCES `sach` (`MaSach`);
 
 --
 -- Constraints for table `chitiethoadon`
@@ -514,6 +547,12 @@ ALTER TABLE `sach`
   ADD CONSTRAINT `sach_ibfk_1` FOREIGN KEY (`MaNXB`) REFERENCES `nhaxuatban` (`MaNXB`),
   ADD CONSTRAINT `sach_ibfk_2` FOREIGN KEY (`MaTG`) REFERENCES `tacgia` (`MaTG`),
   ADD CONSTRAINT `sach_ibfk_3` FOREIGN KEY (`MaTL`) REFERENCES `theloai` (`MaTL`);
+
+--
+-- Constraints for table `taikhoan`
+--
+ALTER TABLE `taikhoan`
+  ADD CONSTRAINT `taikhoan_ibfk_1` FOREIGN KEY (`MaTK`) REFERENCES `nhanvien` (`MaNV`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
