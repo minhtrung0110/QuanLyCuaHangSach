@@ -32,7 +32,7 @@ public class MySQLConnect {
         };
     }
 
-    public Connection getConnect() throws Exception {
+    public Connection getConnect() throws Exception  {
         if(this.connect==null){
             this.DriverTest();
             String url ="jdbc:mysql://"+this.host+":3306/"+this.database;
@@ -54,7 +54,6 @@ public class MySQLConnect {
     }
 
     public ResultSet excuteQuery(String query) throws Exception  {
-        
          try{
                 this.result=getStatement().executeQuery(query);
             }

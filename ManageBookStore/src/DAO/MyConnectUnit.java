@@ -22,10 +22,7 @@ public class MyConnectUnit  {
     public MyConnectUnit( String host, String username, String password, String database) {
         connect =new MySQLConnect(host, username, password, database);
 
-    }
-
-    
-    
+    }   
     public ResultSet Select(String tableName, String condition,String Oderby) throws Exception {
         StringBuilder query = new StringBuilder("SELECT * FROM "+tableName);
         this.AddCondition(query,condition);
@@ -34,7 +31,6 @@ public class MyConnectUnit  {
          System.out.println(query);
         return connect.excuteQuery(query.toString());
     }
-    
     public ResultSet Select(String tableName,String condition) throws Exception {
        return this.Select(tableName, condition, null);
     } 

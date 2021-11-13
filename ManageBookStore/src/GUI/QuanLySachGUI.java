@@ -1037,7 +1037,6 @@ public class QuanLySachGUI extends JPanel implements KeyListener {
                 // Thay đổi hình hiển thị
                 lbImg.setText("");
                 lbImg.setIcon(new ImageIcon(i.getScaledInstance(200, 230, Image.SCALE_DEFAULT)));
-
                 revalidate();
                 repaint();
             } catch (IOException ex) {
